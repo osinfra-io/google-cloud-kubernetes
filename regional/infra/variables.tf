@@ -5,7 +5,7 @@ variable "environment" {
 }
 
 variable "region" {
-  description = "The region for this subnetwork"
+  description = "The region to deploy the resources to"
   type        = string
 }
 
