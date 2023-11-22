@@ -1,0 +1,79 @@
+name: Non-Production
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "**.md"
+
+# For reusable workflows, the permissions setting for id-token should be set to write at the
+# caller workflow level or in the specific job that calls the reusable workflow.
+
+permissions:
+  id-token: write
+
+jobs:
+  global_infra:
+    name: "Global"
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.1.8
+    if: github.actor != 'osinfra-sa'
+    with:
+      checkout_ref: ${{ github.ref }}
+      environment: non-production
+      github_environment: "Non-Production Infrastructure: Global"
+      service_account: plt-lz-networking-github@ptl-lz-terraform-tf05-nonprod.iam.gserviceaccount.com
+      terraform_plan_args: -var-file=tfvars/non-production.tfvars
+      terraform_state_bucket: plt-lz-networking-3bfe-nonprod
+      terraform_version: ${{ vars.TERRAFORM_VERSION }}
+      terraform_workspace: global-non-production
+      working_directory: global/infra
+      workload_identity_provider: projects/992372365053/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
+    secrets:
+      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
+      terraform_plan_secret_args: >-
+        -var=billing_account=${{ secrets.BILLING_ACCOUNT }}
+        -var=datadog_api_key=${{ secrets.DATADOG_API_KEY }}
+        -var=datadog_app_key=${{ secrets.DATADOG_APP_KEY }}
+
+  us_east1_infra:
+    name: "Infra: us-east1"
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.1.8
+    if: github.actor != 'dependabot[bot]'
+    needs: global_infra
+    with:
+      checkout_ref: ${{ github.ref }}
+      environment: us-east1-non-production
+      github_environment: "Non-Production Infrastructure: Regional - us-east1"
+      service_account: plt-lz-networking-github@ptl-lz-terraform-tf05-nonprod.iam.gserviceaccount.com
+      terraform_plan_args: -var-file=tfvars/us-east1-non-production.tfvars
+      terraform_state_bucket: plt-lz-networking-3bfe-nonprod
+      terraform_version: ${{ vars.TERRAFORM_VERSION }}
+      terraform_workspace: us-east1-non-production
+      working_directory: regional/infra
+      workload_identity_provider: projects/992372365053/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
+    secrets:
+      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
+
+  us_east4_infra:
+    name: "Infra: us-east4"
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.1.8
+    if: github.actor != 'dependabot[bot]'
+    needs: global_infra
+    with:
+      checkout_ref: ${{ github.ref }}
+      environment: us-east4-non-production
+      github_environment: "Non-Production Infrastructure: Regional - us-east4"
+      service_account: plt-lz-networking-github@ptl-lz-terraform-tf05-nonprod.iam.gserviceaccount.com
+      terraform_plan_args: -var-file=tfvars/us-east4-non-production.tfvars
+      terraform_state_bucket: plt-lz-networking-3bfe-nonprod
+      terraform_version: ${{ vars.TERRAFORM_VERSION }}
+      terraform_workspace: us-east4-non-production
+      working_directory: regional/infra
+      workload_identity_provider: projects/992372365053/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
+    secrets:
+      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
