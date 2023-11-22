@@ -1,4 +1,4 @@
-# <img align="left" width="45" height="45" src="https://github.com/osinfra-io/google-cloud-kubernetes/assets/1610100/59b781d4-46a3-4c57-b5ac-200de6bf8e76"> Google Cloud Platform - Kubernetes
+# <img align="left" width="45" height="45" src="https://github.com/osinfra-io/google-cloud-kubernetes/assets/1610100/9a2afb97-282d-4050-83c5-2e41925e4dc6"> Google Cloud Platform - Kubernetes
 
 **[GitHub Actions](https://github.com/osinfra-io/google-cloud-kubernetes/actions):**
 
