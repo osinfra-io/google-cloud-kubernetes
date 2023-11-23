@@ -1,3 +1,5 @@
-environment   = "production"
-region        = "us-east1"
-remote_bucket = "plt-k8s-e194-prod"
+environment            = "production"
+host_project_id        = "plt-lz-networking-tfcb-prod"
+master_ipv4_cidr_block = "10.61.224.0/28"
+region                 = "us-east1"
+remote_bucket          = "plt-k8s-e194-prod"

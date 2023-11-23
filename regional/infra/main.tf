@@ -26,3 +26,35 @@ data "terraform_remote_state" "global" {
 
   workspace = "global-${var.environment}"
 }
+
+# Google Kubernetes Engine Module (osinfra.io)
+# https://github.com/osinfra-io/terraform-google-kubernetes-engine
+
+module "kubernetes" {
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional?ref=v0.1.0"
+
+  cluster_autoscaling = {
+    enabled = true
+  }
+
+  cluster_prefix               = "services"
+  cluster_secondary_range_name = "services-k8s-pods-${var.region}"
+  enable_deletion_protection   = false
+  host_project_id              = var.host_project_id
+
+  labels = {
+    env      = var.environment
+    module   = "google-cloud-kubernetes"
+    platform = "google-cloud-kubernetes"
+    team     = "platform-google-cloud-kubernetes"
+  }
+
+  network = "standard-shared"
+
+  master_ipv4_cidr_block        = var.master_ipv4_cidr_block
+  project_id                    = local.global.project_id
+  project_number                = local.global.project_number
+  region                        = var.region
+  services_secondary_range_name = "services-k8s-services-${var.region}"
+  subnet                        = "services-subnet-${var.region}"
+}
