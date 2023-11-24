@@ -56,5 +56,5 @@ module "kubernetes" {
   project_number                = local.global.project_number
   region                        = var.region
   services_secondary_range_name = "services-k8s-services-${var.region}"
-  subnet                        = "services-subnet-${var.region}"
+  subnet                        = "services-${var.region}"
 }
