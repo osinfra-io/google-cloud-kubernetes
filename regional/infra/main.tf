@@ -43,10 +43,10 @@ module "kubernetes" {
   host_project_id              = var.host_project_id
 
   labels = {
-    env      = var.environment
-    module   = "google-cloud-kubernetes"
-    platform = "google-cloud-kubernetes"
-    team     = "platform-google-cloud-kubernetes"
+    env        = var.environment
+    repository = "google-cloud-kubernetes"
+    platform   = "google-cloud-kubernetes"
+    team       = "platform-google-cloud-kubernetes"
   }
 
   network = "standard-shared"
