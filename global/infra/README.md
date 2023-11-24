@@ -35,4 +35,5 @@ No resources.
 | Name | Description |
 |------|-------------|
 | <a name="output_project_id"></a> [project\_id](#output\_project\_id) | The project ID |
+| <a name="output_project_number"></a> [project\_number](#output\_project\_number) | The project number |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
