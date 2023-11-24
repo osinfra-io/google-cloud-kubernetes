@@ -33,6 +33,8 @@ data "terraform_remote_state" "global" {
 module "kubernetes" {
   source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional?ref=v0.1.0"
 
+  count = var.enable_cluster ? 1 : 0
+
   cluster_autoscaling = {
     enabled = true
   }

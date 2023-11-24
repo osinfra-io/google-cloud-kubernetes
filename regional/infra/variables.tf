@@ -1,3 +1,9 @@
+variable "enable_cluster" {
+  description = "Enable the creation of the GKE cluster"
+  type        = bool
+  default     = false
+}
+
 variable "environment" {
   description = "The environment for example: `sandbox`, `non-production`, `production`"
   type        = string
