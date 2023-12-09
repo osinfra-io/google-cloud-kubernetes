@@ -43,3 +43,4 @@ repos:
         args:
           - --args=--config-file=infracost.yml
           - --args=--sync-usage-file
+        verbose: false
