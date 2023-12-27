@@ -66,6 +66,7 @@ module "project" {
     "compute.googleapis.com",
     "container.googleapis.com",
     "iam.googleapis.com",
-    "monitoring.googleapis.com"
+    "monitoring.googleapis.com",
+    "sqladmin.googleapis.com"
   ]
 }
