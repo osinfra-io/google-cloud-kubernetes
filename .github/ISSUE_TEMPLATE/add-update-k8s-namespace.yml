@@ -1,0 +1,73 @@
+name: 🔩  Add or update Kubernetes namespaces
+description: Service interface for adding or updating Kubernetes namespaces.
+title: 🔩 Add or update Kubernetes namespaces
+labels:
+  - enhancement
+  - good first issue
+
+body:
+  - type: input
+    id: email-address
+    attributes:
+      label: "Email address:"
+      description: How can we get in touch with you if we need more info?
+      placeholder: user-name@osinfra.io
+    validations:
+      required: true
+
+  - type: textarea
+    id: oidc_service_account
+    attributes:
+      label: "The pre-existing OIDC service account emails:"
+      description: If you have pre-existing OIDC service account emails you plan to use for deployment of your workloads please list them here. If you do not have any pre-existing OIDC service account emails you can leave this blank.
+      placeholder: |
+        Example:
+        stream-app-name-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
+        stream-app-name-github@ptl-lz-terraform-tf05-nonprod.iam.gserviceaccount.com
+        stream-app-name-github@ptl-lz-terraform-tf62-prod.iam.gserviceaccount.com
+    validations:
+      required: false
+
+  - type: textarea
+    id: namespace_admin
+    attributes:
+      label: "The Kubernetes namespace administrator service account name:"
+      description: The name for the Kubernetes namespace administrator service account responsible for deployment to a given namespace or list of namespaces. Often this is the name of the team or group that owns the namespace or it can be something like the name of the application.
+      placeholder: |
+        Example:
+        app-name
+        team-name
+    validations:
+      required: true
+
+  - type: textarea
+    id: pre-production-namespaces
+    attributes:
+      label: "Pre-production Kubernetes namespaces:"
+      description: The Pre-production Kubernetes namespaces you will use for deployment of your workloads. If you have multiple pre-production environments (e.g. exp, acc, uat) you can list them all here. These should include an environment suffix.
+      placeholder: |
+        Example:
+        app-name-exp
+        app-name-acc
+        app-name-uat
+    validations:
+      required: false
+
+  - type: textarea
+    id: production-namespaces
+    attributes:
+      label: "Production Kubernetes namespaces:"
+      description: The production Kubernetes namespaces you will use for deployment of your containers. These can either include or exclude an environment suffix.
+      placeholder: |
+        Example:
+        app-name
+    validations:
+      required: false
+
+  - type: textarea
+    id: comments
+    attributes:
+      label: "Additional comments:"
+      description: Anything else you'd like to add that would help us understand your request better?
+    validations:
+      required: false

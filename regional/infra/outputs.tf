@@ -11,3 +11,8 @@ output "container_cluster_endpoint" {
   description = "The connection endpoint for the cluster"
   value       = length(module.kubernetes) > 0 ? module.kubernetes[0].container_cluster_endpoint : null
 }
+
+output "project_id" {
+  description = "The project ID"
+  value       = local.global.project_id
+}
