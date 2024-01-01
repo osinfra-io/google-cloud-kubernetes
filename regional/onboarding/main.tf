@@ -50,12 +50,14 @@ data "terraform_remote_state" "regional" {
 # Google Kubernetes Engine Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
-module "kubernetes" {
-  #source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding?ref=v0.1.0"
-  source   = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding"
-  for_each = var.namespaces
+# Commenting out to save costs when not in use.
 
-  google_service_account = each.value.google_service_account
-  namespaces             = each.value.namespaces
-  project_id             = local.regional.project_id
-}
+# module "kubernetes" {
+#   #source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding?ref=v0.1.0"
+#   source   = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding"
+#   for_each = var.namespaces
+
+#   google_service_account = each.value.google_service_account
+#   namespaces             = each.value.namespaces
+#   project_id             = local.regional.project_id
+# }
