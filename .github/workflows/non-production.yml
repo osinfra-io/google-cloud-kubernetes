@@ -24,7 +24,7 @@ jobs:
       environment: non-production
       github_environment: "Non-Production Infrastructure: Global"
       service_account: plt-k8s-github@ptl-lz-terraform-tf05-nonprod.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/non-production.tfvars
+      terraform_plan_args: -var-file=tfvars/non-production.tfvars -var-file=../../shared/onboarding-non-production.tfvars
       terraform_state_bucket: plt-k8s-3bfe-nonprod
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       terraform_workspace: global-non-production
