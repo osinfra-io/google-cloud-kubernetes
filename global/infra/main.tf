@@ -70,3 +70,16 @@ module "project" {
     "sqladmin.googleapis.com"
   ]
 }
+
+# Google Kubernetes Engine Module (osinfra.io)
+# https://github.com/osinfra-io/terraform-google-kubernetes-engine
+
+module "kubernetes" {
+  #source = "github.com/osinfra-io/terraform-google-kubernetes-engine//global/onboarding?ref=v0.1.0"
+  source   = "github.com/osinfra-io/terraform-google-kubernetes-engine//global/onboarding"
+  for_each = var.namespaces
+
+  google_service_account = each.value.google_service_account
+  namespaces             = each.value.namespaces
+  project_id             = module.project.project_id
+}
