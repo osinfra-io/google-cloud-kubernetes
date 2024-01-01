@@ -82,7 +82,7 @@ jobs:
     name: "Onboarding: us-east1"
     uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.1.8
     if: github.actor != 'dependabot[bot]'
-    needs: global_infra
+    needs: us_east1_infra
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east1-production
