@@ -25,7 +25,7 @@ jobs:
       environment: sandbox
       github_environment: "Sandbox Infrastructure: Global"
       service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/sandbox.tfvars
+      terraform_plan_args: -var-file=tfvars/sandbox.tfvars -var-file=../../shared/tfvars/onboard-sandbox.tfvars
       terraform_state_bucket: plt-k8s-2c8b-sb
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       terraform_workspace: global-sandbox
