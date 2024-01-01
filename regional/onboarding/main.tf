@@ -16,6 +16,22 @@ terraform {
     }
   }
 }
+# Kubernetes Provider
+# https://registry.terraform.io/providers/hashicorp/kubernetes/latest
+
+provider "kubernetes" {
+  cluster_ca_certificate = base64decode(
+    local.regional.container_cluster_ca_certificate
+  )
+  host  = "https://${local.regional.container_cluster_endpoint}"
+  token = data.google_client_config.current.access_token
+}
+
+# Google Client Config Data Source
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/client_config
+
+data "google_client_config" "current" {
+}
 
 # Terraform Remote State Datasource
 # https://www.terraform.io/docs/language/state/remote-state-data.html

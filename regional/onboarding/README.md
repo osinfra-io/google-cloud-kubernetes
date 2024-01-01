@@ -9,6 +9,7 @@ No requirements.
 
 | Name | Version |
 |------|---------|
+| <a name="provider_google"></a> [google](#provider\_google) | 5.10.0 |
 | <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 
 ## Modules
@@ -21,6 +22,7 @@ No requirements.
 
 | Name | Type |
 |------|------|
+| [google_client_config.current](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/client_config) | data source |
 | [terraform_remote_state.regional](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
 
 ## Inputs
