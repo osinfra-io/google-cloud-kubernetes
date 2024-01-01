@@ -89,7 +89,7 @@ jobs:
       environment: us-east1-sandbox
       github_environment: "Sandbox Onboarding: Regional - us-east1"
       service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=../../shared/tfvars/onboarding-sandbox.tfvars
+      terraform_plan_args: -var-file=tfvars/us-east1-sandbox.tfvars -var-file=../../shared/tfvars/onboarding-sandbox.tfvars
       terraform_state_bucket: plt-k8s-2c8b-sb
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       terraform_workspace: us-east1-onboarding-sandbox
