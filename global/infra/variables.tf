@@ -34,3 +34,8 @@ variable "folder_id" {
   description = "The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified"
   type        = string
 }
+
+variable "namespaces" {
+  description = "Map of namespaces and service accounts to onboard to GKE"
+  type        = map(any)
+}

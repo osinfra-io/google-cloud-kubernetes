@@ -25,7 +25,7 @@ jobs:
       environment: sandbox
       github_environment: "Sandbox Infrastructure: Global"
       service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/sandbox.tfvars
+      terraform_plan_args: -var-file=tfvars/sandbox.tfvars -var-file=../../shared/tfvars/onboarding-sandbox.tfvars
       terraform_state_bucket: plt-k8s-2c8b-sb
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       terraform_workspace: global-sandbox
@@ -74,6 +74,26 @@ jobs:
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       terraform_workspace: us-east4-sandbox
       working_directory: regional/infra
+      workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
+    secrets:
+      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
+
+  us_east1_onboarding:
+    name: "Onboarding: us-east1"
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.1.8
+    if: github.actor != 'dependabot[bot]'
+    needs: us_east1_infra
+    with:
+      checkout_ref: ${{ github.ref }}
+      environment: us-east1-sandbox
+      github_environment: "Sandbox Onboarding: Regional - us-east1"
+      service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
+      terraform_plan_args: -var-file=tfvars/us-east1-sandbox.tfvars -var-file=../../shared/tfvars/onboarding-sandbox.tfvars
+      terraform_state_bucket: plt-k8s-2c8b-sb
+      terraform_version: ${{ vars.TERRAFORM_VERSION }}
+      terraform_workspace: us-east1-onboarding-sandbox
+      working_directory: regional/onboarding
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
