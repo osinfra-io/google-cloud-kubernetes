@@ -1,4 +1,4 @@
-enable_cluster         = true
+enable_cluster         = false
 host_project_id        = "plt-lz-networking-tfd8-sb"
 master_ipv4_cidr_block = "10.61.224.0/28"
 region                 = "us-east1"
