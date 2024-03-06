@@ -17,7 +17,7 @@ permissions:
 jobs:
   global_infra:
     name: "Global"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.1.8
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.0
     if: github.actor != 'osinfra-sa'
     with:
       checkout_ref: ${{ github.ref }}
@@ -40,7 +40,7 @@ jobs:
 
   us_east1_infra:
     name: "Infra: us-east1"
-    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.1.8
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.0
     if: github.actor != 'dependabot[bot]'
     needs: global_infra
     with:
@@ -60,7 +60,7 @@ jobs:
 
   us_east4_infra:
     name: "Infra: us-east4"
-    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.1.8
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.0
     if: github.actor != 'dependabot[bot]'
     needs: global_infra
     with:
@@ -80,7 +80,7 @@ jobs:
 
   us_east1_onboarding:
     name: "Onboarding: us-east1"
-    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.1.8
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.0
     if: github.actor != 'dependabot[bot]'
     needs: us_east1_infra
     with:
