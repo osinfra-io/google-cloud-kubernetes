@@ -16,8 +16,8 @@ permissions:
   id-token: write
 
 jobs:
-  global_infra:
-    name: "Infra: global"
+  global:
+    name: "Global"
     uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.0
     if: github.actor != 'dependabot[bot]'
     with:
@@ -41,7 +41,7 @@ jobs:
 
   us_east1:
     name: "Regional: us-east1"
-    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.1.8
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.0
     if: github.actor != 'dependabot[bot]'
     needs: global
     with:
@@ -61,7 +61,7 @@ jobs:
 
   us_east4:
     name: "Regional: us-east4"
-    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.1.8
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.0
     if: github.actor != 'dependabot[bot]'
     needs: global
     with:
@@ -81,7 +81,7 @@ jobs:
 
   global_onboarding:
     name: "Global: Onboarding"
-    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.1.8
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.0
     if: github.actor != 'dependabot[bot]'
     with:
       checkout_ref: ${{ github.ref }}
