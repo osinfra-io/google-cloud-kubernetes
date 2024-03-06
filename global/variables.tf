@@ -24,6 +24,12 @@ variable "datadog_app_key" {
   sensitive   = true
 }
 
+variable "enable_datadog" {
+  description = "Enable Datadog integration"
+  type        = bool
+  default     = false
+}
+
 variable "environment" {
   description = "The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production)"
   type        = string
@@ -33,6 +39,12 @@ variable "environment" {
 variable "folder_id" {
   description = "The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified"
   type        = string
+}
+
+variable "istio_gateway_ssl" {
+  description = "List of domain names for the Istio gateway SSL SAN certificate"
+  type        = list(string)
+  default     = []
 }
 
 variable "namespaces" {

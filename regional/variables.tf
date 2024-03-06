@@ -10,11 +10,6 @@ variable "environment" {
   default     = "sandbox"
 }
 
-variable "host_project_id" {
-  description = "Host project for the shared VPC"
-  type        = string
-}
-
 variable "master_ipv4_cidr_block" {
   description = "The IP range in CIDR notation to use for the hosted master network"
   type        = string
@@ -28,4 +23,9 @@ variable "region" {
 variable "remote_bucket" {
   type        = string
   description = "The remote bucket the `terraform_remote_state` data source retrieves the state from"
+}
+
+variable "vpc_host_project_id" {
+  description = "Host project for the shared VPC"
+  type        = string
 }

@@ -29,13 +29,24 @@ provider "datadog" {
 # Datadog Google Cloud Platform Integration Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-datadog-google-integration
 
-# module "datadog" {
-#   source = "github.com/osinfra-io/terraform-datadog-google-integration//global?ref=v0.1.0"
+module "datadog" {
+  source = "github.com/osinfra-io/terraform-datadog-google-integration//global?ref=v0.1.3"
+  count  = var.enable_datadog ? 1 : 0
 
-#   api_key         = var.datadog_api_key
-#   is_cspm_enabled = true
-#   project         = module.project.project_id
-# }
+  api_key         = var.datadog_api_key
+  cost_center     = "x001"
+  is_cspm_enabled = true
+
+
+  labels = {
+    env        = var.environment
+    repository = "google-cloud-kubernetes"
+    platform   = "google-cloud-kubernetes"
+    team       = "platform-google-cloud-kubernetes"
+  }
+
+  project = module.project.project_id
+}
 
 # Google Project Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-project
@@ -60,14 +71,22 @@ module "project" {
   prefix = "plt"
 
   services = [
+    "billingbudgets.googleapis.com",
     "cloudasset.googleapis.com",
     "cloudbilling.googleapis.com",
+    "cloudkms.googleapis.com",
     "cloudresourcemanager.googleapis.com",
     "compute.googleapis.com",
     "container.googleapis.com",
+    "dns.googleapis.com",
+    "gkehub.googleapis.com",
     "iam.googleapis.com",
     "monitoring.googleapis.com",
-    "sqladmin.googleapis.com"
+    "multiclusteringress.googleapis.com",
+    "multiclusterservicediscovery.googleapis.com",
+    "servicenetworking.googleapis.com",
+    "serviceusage.googleapis.com",
+    "trafficdirector.googleapis.com"
   ]
 }
 
@@ -75,11 +94,8 @@ module "project" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes" {
-  #source = "github.com/osinfra-io/terraform-google-kubernetes-engine//global/onboarding?ref=v0.1.0"
-  source   = "github.com/osinfra-io/terraform-google-kubernetes-engine//global/onboarding"
-  for_each = var.namespaces
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//global?ref=brettcurtis%2Fissue17"
 
-  google_service_account = each.value.google_service_account
-  namespaces             = each.value.namespaces
-  project_id             = module.project.project_id
+  istio_gateway_ssl = var.istio_gateway_ssl
+  project_id        = module.project.project_id
 }

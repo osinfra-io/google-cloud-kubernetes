@@ -31,8 +31,7 @@ data "terraform_remote_state" "global" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes" {
-  #source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/infra?ref=v0.1.0"
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/infra"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional?ref=brettcurtis%2Fissue17"
 
   count = var.enable_cluster ? 1 : 0
 
@@ -44,7 +43,8 @@ module "kubernetes" {
   cluster_secondary_range_name = "services-k8s-pods-${var.region}"
   cost_center                  = "x001"
   enable_deletion_protection   = false
-  host_project_id              = var.host_project_id
+  enable_gke_hub_host          = true
+
 
   labels = {
     env        = var.environment
@@ -55,10 +55,18 @@ module "kubernetes" {
 
   network = "standard-shared"
 
-  master_ipv4_cidr_block        = var.master_ipv4_cidr_block
-  project_id                    = local.global.project_id
-  project_number                = local.global.project_number
+  master_ipv4_cidr_block = var.master_ipv4_cidr_block
+  project_id             = local.global.project_id
+
+  resource_labels = {
+    env        = "sb"
+    region     = var.region
+    repository = "terraform-google-kubernetes-engine"
+    team       = "kitchen"
+  }
+
   region                        = var.region
   services_secondary_range_name = "services-k8s-services-${var.region}"
   subnet                        = "services-${var.region}"
+  vpc_host_project_id           = var.vpc_host_project_id
 }
