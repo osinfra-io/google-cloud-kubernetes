@@ -61,10 +61,10 @@ data "terraform_remote_state" "regional" {
 # Google Kubernetes Engine Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
-module "kubernetes_engine_onboarding" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding"
+module "kubernetes_engine_mci" {
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/mci"
 
-  namespaces                               = var.namespaces
-  project_id                               = local.regional.project_id
-  workload_identity_service_account_emails = data.terraform_remote_state.global.outputs.workload_identity_service_account_emails
+  istio_gateway_mci_global_address = local.global.istio_gateway_mci_global_address
+  multi_cluster_service_clusters   = []
+  project_id                       = local.regional.project_id
 }

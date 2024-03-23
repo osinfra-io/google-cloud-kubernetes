@@ -1,5 +1,0 @@
-environment            = "non-production"
-host_project_id        = "plt-lz-networking-tf81-nonprod"
-master_ipv4_cidr_block = "10.61.224.0/28"
-region                 = "us-east1"
-remote_bucket          = "plt-k8s-3bfe-nonprod"
