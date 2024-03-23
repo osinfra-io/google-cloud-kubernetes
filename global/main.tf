@@ -72,6 +72,7 @@ module "project" {
 
   services = [
     "billingbudgets.googleapis.com",
+    "certificatemanager.googleapis.com",
     "cloudasset.googleapis.com",
     "cloudbilling.googleapis.com",
     "cloudkms.googleapis.com",
