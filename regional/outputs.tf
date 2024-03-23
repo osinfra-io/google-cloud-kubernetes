@@ -18,7 +18,7 @@ output "kms_key_ring_cluster_database_encryption_name" {
 }
 
 output "kms_crypto_key_cluster_database_encryption_name" {
-  description = "The name of the Google Cloud KMS key ring"
+  description = "The name of the Google Cloud KMS crypto key for cluster database encryption"
   value       = module.kubernetes_engine_regional.kms_crypto_key_cluster_database_encryption_name
 }
 
