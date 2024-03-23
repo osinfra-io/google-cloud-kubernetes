@@ -28,10 +28,10 @@ provider "helm" {
   kubernetes {
 
     cluster_ca_certificate = base64decode(
-      local.regional.cluster_ca_certificate
+      local.regional.container_cluster_ca_certificate
     )
 
-    host  = local.regional.cluster_endpoint
+    host  = local.regional.container_cluster_endpoint
     token = data.google_client_config.current.access_token
   }
 }
