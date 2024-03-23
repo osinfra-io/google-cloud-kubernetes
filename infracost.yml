@@ -9,6 +9,66 @@
 
 version: 0.1
 projects:
+  - path: regional/istio
+    name: "regional/istio: us-east1-non-production"
+    usage_file: regional/istio/infracost/us-east1-non-production.yml
+    terraform_var_files:
+      - tfvars/us-east1-non-production.tfvars
+  - path: regional/istio
+    name: "regional/istio: us-east1-production"
+    usage_file: regional/istio/infracost/us-east1-production.yml
+    terraform_var_files:
+      - tfvars/us-east1-production.tfvars
+  - path: regional/istio
+    name: "regional/istio: us-east1-sandbox"
+    usage_file: regional/istio/infracost/us-east1-sandbox.yml
+    terraform_var_files:
+      - tfvars/us-east1-sandbox.tfvars
+  - path: regional/istio
+    name: "regional/istio: us-east4-non-production"
+    usage_file: regional/istio/infracost/us-east4-non-production.yml
+    terraform_var_files:
+      - tfvars/us-east4-non-production.tfvars
+  - path: regional/istio
+    name: "regional/istio: us-east4-production"
+    usage_file: regional/istio/infracost/us-east4-production.yml
+    terraform_var_files:
+      - tfvars/us-east4-production.tfvars
+  - path: regional/istio
+    name: "regional/istio: us-east4-sandbox"
+    usage_file: regional/istio/infracost/us-east4-sandbox.yml
+    terraform_var_files:
+      - tfvars/us-east4-sandbox.tfvars
+  - path: regional/mci
+    name: "regional/mci: us-east1-non-production"
+    usage_file: regional/mci/infracost/us-east1-non-production.yml
+    terraform_var_files:
+      - tfvars/us-east1-non-production.tfvars
+  - path: regional/mci
+    name: "regional/mci: us-east1-production"
+    usage_file: regional/mci/infracost/us-east1-production.yml
+    terraform_var_files:
+      - tfvars/us-east1-production.tfvars
+  - path: regional/mci
+    name: "regional/mci: us-east1-sandbox"
+    usage_file: regional/mci/infracost/us-east1-sandbox.yml
+    terraform_var_files:
+      - tfvars/us-east1-sandbox.tfvars
+  - path: regional/mci
+    name: "regional/mci: us-east4-non-production"
+    usage_file: regional/mci/infracost/us-east4-non-production.yml
+    terraform_var_files:
+      - tfvars/us-east4-non-production.tfvars
+  - path: regional/mci
+    name: "regional/mci: us-east4-production"
+    usage_file: regional/mci/infracost/us-east4-production.yml
+    terraform_var_files:
+      - tfvars/us-east4-production.tfvars
+  - path: regional/mci
+    name: "regional/mci: us-east4-sandbox"
+    usage_file: regional/mci/infracost/us-east4-sandbox.yml
+    terraform_var_files:
+      - tfvars/us-east4-sandbox.tfvars
   - path: regional/onboarding
     name: "regional/onboarding: us-east1-non-production"
     usage_file: regional/onboarding/infracost/us-east1-non-production.yml

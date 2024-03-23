@@ -9,18 +9,21 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 5.19.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 5.21.0 |
 | <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_kubernetes_engine_onboarding"></a> [kubernetes\_engine\_onboarding](#module\_kubernetes\_engine\_onboarding) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding | n/a |
 
 ## Resources
 
 | Name | Type |
 |------|------|
 | [google_client_config.current](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/client_config) | data source |
+| [terraform_remote_state.global](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
 | [terraform_remote_state.regional](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
 
 ## Inputs

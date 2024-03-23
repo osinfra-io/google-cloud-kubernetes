@@ -1,13 +1,15 @@
-variable "enable_cluster" {
-  description = "Enable the creation of the GKE cluster"
-  type        = bool
-  default     = false
-}
-
 variable "environment" {
   description = "The environment for example: `sandbox`, `non-production`, `production`"
   type        = string
   default     = "sandbox"
+}
+
+variable "gke_hub_memberships" {
+  description = "The map of GKE Hub Memberships to create"
+  type = map(object({
+    cluster_id = string
+  }))
+  default = {}
 }
 
 variable "master_ipv4_cidr_block" {

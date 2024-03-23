@@ -93,9 +93,10 @@ module "project" {
 # Google Kubernetes Engine Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
-module "kubernetes" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//global?ref=brettcurtis%2Fissue17"
+module "kubernetes_engine_global" {
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//global"
 
-  istio_gateway_ssl = var.istio_gateway_ssl
+  istio_gateway_dns = var.istio_gateway_dns
+  namespaces        = var.namespaces
   project_id        = module.project.project_id
 }

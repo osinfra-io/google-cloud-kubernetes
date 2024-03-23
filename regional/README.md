@@ -15,7 +15,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kubernetes"></a> [kubernetes](#module\_kubernetes) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional | brettcurtis%2Fissue17 |
+| <a name="module_kubernetes_engine_regional"></a> [kubernetes\_engine\_regional](#module\_kubernetes\_engine\_regional) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional | n/a |
 
 ## Resources
 
@@ -27,8 +27,8 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_enable_cluster"></a> [enable\_cluster](#input\_enable\_cluster) | Enable the creation of the GKE cluster | `bool` | `false` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment for example: `sandbox`, `non-production`, `production` | `string` | `"sandbox"` | no |
+| <a name="input_gke_hub_memberships"></a> [gke\_hub\_memberships](#input\_gke\_hub\_memberships) | The map of GKE Hub Memberships to create | <pre>map(object({<br>    cluster_id = string<br>  }))</pre> | `{}` | no |
 | <a name="input_master_ipv4_cidr_block"></a> [master\_ipv4\_cidr\_block](#input\_master\_ipv4\_cidr\_block) | The IP range in CIDR notation to use for the hosted master network | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The region to deploy the resources to | `string` | n/a | yes |
 | <a name="input_remote_bucket"></a> [remote\_bucket](#input\_remote\_bucket) | The remote bucket the `terraform_remote_state` data source retrieves the state from | `string` | n/a | yes |
@@ -40,5 +40,8 @@ No requirements.
 |------|-------------|
 | <a name="output_container_cluster_ca_certificate"></a> [container\_cluster\_ca\_certificate](#output\_container\_cluster\_ca\_certificate) | Base64 encoded public certificate that is the root of trust for the cluster |
 | <a name="output_container_cluster_endpoint"></a> [container\_cluster\_endpoint](#output\_container\_cluster\_endpoint) | The connection endpoint for the cluster |
+| <a name="output_kms_crypto_key_cluster_database_encryption_name"></a> [kms\_crypto\_key\_cluster\_database\_encryption\_name](#output\_kms\_crypto\_key\_cluster\_database\_encryption\_name) | The name of the Google Cloud KMS key ring |
+| <a name="output_kms_key_ring_cluster_database_encryption_name"></a> [kms\_key\_ring\_cluster\_database\_encryption\_name](#output\_kms\_key\_ring\_cluster\_database\_encryption\_name) | The name of the Google Cloud KMS key ring |
 | <a name="output_project_id"></a> [project\_id](#output\_project\_id) | The project ID |
+| <a name="output_service_account_gke_operations_email"></a> [service\_account\_gke\_operations\_email](#output\_service\_account\_gke\_operations\_email) | The email address of the Kubernetes minimum privilege service account for the cluster |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

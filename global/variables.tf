@@ -41,13 +41,21 @@ variable "folder_id" {
   type        = string
 }
 
-variable "istio_gateway_ssl" {
-  description = "List of domain names for the Istio gateway SSL SAN certificate"
-  type        = list(string)
-  default     = []
+variable "istio_gateway_dns" {
+  description = "Map of attributes for the Istio gateway domain names, it is also used to create the managed certificate resource"
+  type = map(object({
+    managed_zone = string
+    project      = string
+  }))
+  default = {}
 }
 
 variable "namespaces" {
-  description = "Map of namespaces and service accounts to onboard to GKE"
-  type        = map(any)
+  description = "A map of namespaces with the Google service account used for the namespace administrator and whether Istio injection is enabled or disabled"
+  default     = {}
+
+  type = map(object({
+    google_service_account = string
+    istio_injection        = optional(string, "disabled")
+  }))
 }

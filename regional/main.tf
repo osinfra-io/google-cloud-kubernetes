@@ -30,10 +30,9 @@ data "terraform_remote_state" "global" {
 # Google Kubernetes Engine Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
-module "kubernetes" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional?ref=brettcurtis%2Fissue17"
-
-  count = var.enable_cluster ? 1 : 0
+module "kubernetes_engine_regional" {
+  source      = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional"
+  cost_center = "x001"
 
   cluster_autoscaling = {
     enabled = true
@@ -41,10 +40,9 @@ module "kubernetes" {
 
   cluster_prefix               = "services"
   cluster_secondary_range_name = "services-k8s-pods-${var.region}"
-  cost_center                  = "x001"
   enable_deletion_protection   = false
   enable_gke_hub_host          = true
-
+  gke_hub_memberships          = var.gke_hub_memberships
 
   labels = {
     env        = var.environment
