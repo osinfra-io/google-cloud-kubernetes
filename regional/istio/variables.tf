@@ -13,11 +13,6 @@ variable "istio_gateway_dns" {
   default = {}
 }
 
-variable "namespaces" {
-  description = "Map of namespaces and service accounts to onboard to GKE"
-  type        = map(any)
-}
-
 variable "region" {
   description = "The region to deploy the resources to"
   type        = string
