@@ -41,7 +41,7 @@ module "kubernetes_engine_regional" {
   cluster_prefix               = "services"
   cluster_secondary_range_name = "services-k8s-pods-${var.region}"
   enable_deletion_protection   = false
-  enable_gke_hub_host          = true
+  enable_gke_hub_host          = var.enable_gke_hub_host
   gke_hub_memberships          = var.gke_hub_memberships
 
   labels = {

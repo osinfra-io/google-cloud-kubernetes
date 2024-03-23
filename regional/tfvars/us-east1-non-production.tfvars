@@ -1,3 +1,4 @@
+enable_gke_hub_host    = true
 environment            = "non-production"
 master_ipv4_cidr_block = "10.61.224.0/28"
 region                 = "us-east1"

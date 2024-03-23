@@ -4,6 +4,12 @@ variable "environment" {
   default     = "sandbox"
 }
 
+variable "enable_gke_hub_host" {
+  description = "Whether or not to enable GKE Hub Host"
+  type        = bool
+  default     = false
+}
+
 variable "gke_hub_memberships" {
   description = "The map of GKE Hub Memberships to create"
   type = map(object({
