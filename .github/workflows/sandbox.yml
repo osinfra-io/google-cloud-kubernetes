@@ -18,7 +18,7 @@ permissions:
 jobs:
   global:
     name: "Global"
-    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.0
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.1
     if: github.actor != 'dependabot[bot]'
     with:
       checkout_ref: ${{ github.ref }}
@@ -41,7 +41,7 @@ jobs:
 
   us_east1:
     name: "Regional: us-east1"
-    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.0
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.1
     if: github.actor != 'dependabot[bot]'
     needs: global
     with:
@@ -61,7 +61,7 @@ jobs:
 
   us_east4:
     name: "Regional: us-east4"
-    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.0
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.1
     if: github.actor != 'dependabot[bot]'
     needs: global
     with:
@@ -81,7 +81,7 @@ jobs:
 
   us_east1_mci:
     name: "Multi-cluster Ingress: us-east1"
-    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.0
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.1
     if: github.actor != 'dependabot[bot]'
     needs: us_east1
     with:
@@ -101,7 +101,7 @@ jobs:
 
   us_east4_mci:
     name: "Multi-cluster Ingress: us-east4"
-    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.0
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.1
     if: github.actor != 'dependabot[bot]'
     needs: us_east4
     with:
@@ -121,7 +121,7 @@ jobs:
 
   us_east1_onboarding:
     name: "Onboarding: us-east1"
-    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.0
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.1
     if: github.actor != 'dependabot[bot]'
     needs: us_east1
     with:
@@ -141,7 +141,7 @@ jobs:
 
   us_east4_onboarding:
     name: "Onboarding: us-east4"
-    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.0
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.1
     if: github.actor != 'dependabot[bot]'
     needs: us_east4
     with:
@@ -161,7 +161,7 @@ jobs:
 
   us_east1_istio:
     name: "Istio: us-east1"
-    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.0
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.1
     if: github.actor != 'dependabot[bot]'
     needs: us_east1_onboarding
     with:
@@ -181,7 +181,7 @@ jobs:
 
   us_east4_istio:
     name: "Istio: us-east4"
-    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.0
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.1
     if: github.actor != 'dependabot[bot]'
     needs: us_east4_onboarding
     with:
