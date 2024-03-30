@@ -30,22 +30,13 @@ provider "datadog" {
 # https://github.com/osinfra-io/terraform-datadog-google-integration
 
 module "datadog" {
-  source = "github.com/osinfra-io/terraform-datadog-google-integration//global?ref=v0.1.3"
+  source = "github.com/osinfra-io/terraform-datadog-google-integration//global?ref=v0.1.5"
   count  = var.enable_datadog ? 1 : 0
 
   api_key         = var.datadog_api_key
-  cost_center     = "x001"
   is_cspm_enabled = true
-
-
-  labels = {
-    env        = var.environment
-    repository = "google-cloud-kubernetes"
-    platform   = "google-cloud-kubernetes"
-    team       = "platform-google-cloud-kubernetes"
-  }
-
-  project = module.project.project_id
+  labels          = local.labels
+  project         = module.project.project_id
 }
 
 # Google Project Module (osinfra.io)
@@ -60,15 +51,8 @@ module "project" {
   description                     = "k8s"
   environment                     = var.environment
   folder_id                       = var.folder_id
-
-  labels = {
-    env      = var.environment
-    module   = "google-cloud-kubernetes"
-    platform = "google-cloud-kubernetes"
-    team     = "platform-google-cloud-kubernetes"
-  }
-
-  prefix = "plt"
+  labels                          = local.labels
+  prefix                          = "plt"
 
   services = [
     "billingbudgets.googleapis.com",
@@ -95,9 +79,9 @@ module "project" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine_global" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//global"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//global?ref=v0.1.2"
 
   istio_gateway_dns = var.istio_gateway_dns
   namespaces        = var.namespaces
-  project_id        = module.project.project_id
+  project           = module.project.project_id
 }

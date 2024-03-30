@@ -62,9 +62,9 @@ data "terraform_remote_state" "regional" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine_onboarding" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding?ref=v0.1.2"
 
   namespaces                               = var.namespaces
-  project_id                               = local.regional.project_id
+  project                                  = local.regional.project_id
   workload_identity_service_account_emails = data.terraform_remote_state.global.outputs.workload_identity_service_account_emails
 }

@@ -1,4 +1,4 @@
-# Terraform Regional Infrastructure Documentation
+# Terraform Documentation
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -9,14 +9,14 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 5.21.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 5.22.0 |
 | <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kubernetes_engine_mci"></a> [kubernetes\_engine\_mci](#module\_kubernetes\_engine\_mci) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional/mci | n/a |
+| <a name="module_kubernetes_engine_mci"></a> [kubernetes\_engine\_mci](#module\_kubernetes\_engine\_mci) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional/mci | v0.1.2 |
 
 ## Resources
 

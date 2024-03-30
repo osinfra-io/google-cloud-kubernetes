@@ -8,7 +8,7 @@
 
 [![infracost](https://img.shields.io/endpoint?url=https://dashboard.api.infracost.io/shields/json/cbeecfe3-576f-4553-984c-e451a575ee47/repos/19dee006-53a6-4007-be23-d2e44617e789/branch/95a827e0-1914-470d-8faf-78413ec29595)](https://dashboard.infracost.io/org/osinfra-io/repos/19dee006-53a6-4007-be23-d2e44617e789?tab=settings)
 
-## Repository Description
+## 📄 Repository Description
 
 This repository manages Kubernetes resources.
 
@@ -25,7 +25,7 @@ Our focus is on the core fundamental practice of platform engineering, Infrastru
 
 To avoid slowing down stream-aligned teams, we want to open up the possibility for contributions. The Open Source Infrastructure (as Code) model allows team members external to the platform team to contribute with only a slight increase in cognitive load. This section is for developers who want to contribute to this repository, describing the tools used, the skills, and the knowledge required, along with Terraform documentation.
 
-See the documentation for setting up a local development environment [here](https://docs.osinfra.io/fundamentals/development-setup).
+See the documentation for setting up a development environment [here](https://docs.osinfra.io/fundamentals/development-setup).
 
 ### 🛠️ Tools
 
