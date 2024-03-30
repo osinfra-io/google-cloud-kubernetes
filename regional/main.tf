@@ -31,8 +31,7 @@ data "terraform_remote_state" "global" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine_regional" {
-  source      = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional"
-  cost_center = "x001"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional?ref=v0.1.2"
 
   cluster_autoscaling = {
     enabled = true
@@ -43,18 +42,10 @@ module "kubernetes_engine_regional" {
   enable_deletion_protection   = false
   enable_gke_hub_host          = var.enable_gke_hub_host
   gke_hub_memberships          = var.gke_hub_memberships
-
-  labels = {
-    env        = var.environment
-    repository = "google-cloud-kubernetes"
-    platform   = "google-cloud-kubernetes"
-    team       = "platform-google-cloud-kubernetes"
-  }
-
-  network = "standard-shared"
-
-  master_ipv4_cidr_block = var.master_ipv4_cidr_block
-  project_id             = local.global.project_id
+  labels                       = local.labels
+  network                      = "standard-shared"
+  master_ipv4_cidr_block       = var.master_ipv4_cidr_block
+  project                      = local.global.project_id
 
   resource_labels = {
     env        = "sb"

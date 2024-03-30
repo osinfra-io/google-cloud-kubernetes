@@ -1,4 +1,4 @@
-# Terraform Global Infrastructure Documentation
+# Terraform Documentation
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -13,8 +13,8 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_datadog"></a> [datadog](#module\_datadog) | github.com/osinfra-io/terraform-datadog-google-integration//global | v0.1.3 |
-| <a name="module_kubernetes_engine_global"></a> [kubernetes\_engine\_global](#module\_kubernetes\_engine\_global) | github.com/osinfra-io/terraform-google-kubernetes-engine//global | n/a |
+| <a name="module_datadog"></a> [datadog](#module\_datadog) | github.com/osinfra-io/terraform-datadog-google-integration//global | v0.1.5 |
+| <a name="module_kubernetes_engine_global"></a> [kubernetes\_engine\_global](#module\_kubernetes\_engine\_global) | github.com/osinfra-io/terraform-google-kubernetes-engine//global | v0.1.2 |
 | <a name="module_project"></a> [project](#module\_project) | github.com/osinfra-io/terraform-google-project//global | v0.1.9 |
 
 ## Resources
