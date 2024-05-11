@@ -37,3 +37,8 @@ variable "vpc_host_project_id" {
   description = "Host project for the shared VPC"
   type        = string
 }
+
+variable "zone" {
+  description = "The zone to deploy the resources to"
+  type        = string
+}

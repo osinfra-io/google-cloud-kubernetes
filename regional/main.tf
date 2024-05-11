@@ -38,7 +38,7 @@ module "kubernetes_engine_regional" {
   }
 
   cluster_prefix               = "services"
-  cluster_secondary_range_name = "services-k8s-pods-${var.region}"
+  cluster_secondary_range_name = "k8s-secondary-pods"
   enable_deletion_protection   = false
   enable_gke_hub_host          = var.enable_gke_hub_host
   gke_hub_memberships          = var.gke_hub_memberships
@@ -55,7 +55,7 @@ module "kubernetes_engine_regional" {
   }
 
   region                        = var.region
-  services_secondary_range_name = "services-k8s-services-${var.region}"
-  subnet                        = "services-${var.region}"
+  services_secondary_range_name = "k8s-secondary-services"
+  subnet                        = "services-${var.region}-${var.zone}"
   vpc_host_project_id           = var.vpc_host_project_id
 }
