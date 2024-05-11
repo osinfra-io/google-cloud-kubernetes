@@ -1,5 +1,5 @@
 environment            = "non-production"
-master_ipv4_cidr_block = "10.61.224.16/28"
+master_ipv4_cidr_block = "10.63.240.48/28"
 region                 = "us-east4"
 remote_bucket          = "plt-k8s-3bfe-nonprod"
 vpc_host_project_id    = "plt-lz-networking-tf81-nonprod"
