@@ -44,6 +44,7 @@ module "kubernetes_engine_regional" {
   gke_hub_memberships          = var.gke_hub_memberships
   labels                       = local.labels
   network                      = "standard-shared"
+  node_location                = var.node_location
   master_ipv4_cidr_block       = var.master_ipv4_cidr_block
   project                      = local.global.project_id
 

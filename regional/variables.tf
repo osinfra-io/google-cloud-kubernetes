@@ -23,6 +23,11 @@ variable "master_ipv4_cidr_block" {
   type        = string
 }
 
+variable "node_location" {
+  description = "The zone to deploy the nodes to"
+  type        = string
+}
+
 variable "region" {
   description = "The region to deploy the resources to"
   type        = string
