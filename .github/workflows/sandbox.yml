@@ -88,7 +88,7 @@ jobs:
       environment: us-east1-b-sandbox
       github_environment: "Sandbox Multi-cluster Ingress: Regional - us-east1-b"
       service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east1-sandbox.tfvars
+      terraform_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
       terraform_state_bucket: plt-k8s-2c8b-sb
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       terraform_workspace: us-east1-b-mci-sandbox
@@ -108,7 +108,7 @@ jobs:
       environment: us-east4-a-sandbox
       github_environment: "Sandbox Multi-cluster Ingress: Regional - us-east4-a"
       service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east4-sandbox.tfvars
+      terraform_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
       terraform_state_bucket: plt-k8s-2c8b-sb
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       terraform_workspace: us-east4-a-mci-sandbox
@@ -128,7 +128,7 @@ jobs:
       environment: us-east1-b-sandbox
       github_environment: "Sandbox Onboarding: Regional - us-east1-b"
       service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east1-sandbox.tfvars -var-file=../../shared/tfvars/sandbox.tfvars
+      terraform_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars -var-file=../../shared/tfvars/sandbox.tfvars
       terraform_state_bucket: plt-k8s-2c8b-sb
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       terraform_workspace: us-east1-b-onboarding-sandbox
@@ -148,7 +148,7 @@ jobs:
       environment: us-east4-a-sandbox
       github_environment: "Sandbox Onboarding: Regional - us-east4-a"
       service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east4-sandbox.tfvars -var-file=../../shared/tfvars/sandbox.tfvars
+      terraform_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars -var-file=../../shared/tfvars/sandbox.tfvars
       terraform_state_bucket: plt-k8s-2c8b-sb
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       terraform_workspace: us-east4-a-onboarding-sandbox
@@ -168,7 +168,7 @@ jobs:
       environment: us-east1-b-sandbox
       github_environment: "Sandbox Istio: Regional - us-east1-b"
       service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east1-sandbox.tfvars
+      terraform_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
       terraform_state_bucket: plt-k8s-2c8b-sb
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       terraform_workspace: us-east1-b-istio-sandbox
@@ -188,7 +188,7 @@ jobs:
       environment: us-east4-a-sandbox
       github_environment: "Sandbox Istio: Regional - us-east4-a"
       service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east4-sandbox.tfvars
+      terraform_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
       terraform_state_bucket: plt-k8s-2c8b-sb
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       terraform_workspace: us-east4-a-istio-sandbox
