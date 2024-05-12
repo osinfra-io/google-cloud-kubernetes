@@ -62,7 +62,7 @@ data "terraform_remote_state" "regional" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine_mci" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/mci?ref=v0.1.2"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/mci?ref=main"
 
   istio_gateway_mci_global_address = local.global.istio_gateway_mci_global_address
 
