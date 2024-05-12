@@ -68,10 +68,10 @@ module "kubernetes_engine_mci" {
 
   multi_cluster_service_clusters = [
     {
-      "link" = "us-east1/services-east1-b"
+      "link" = "us-east1/services-us-east1-b"
     },
     {
-      "link" = "us-east4/services-west1-a"
+      "link" = "us-east4/services-us-east4-a"
     }
   ]
 
