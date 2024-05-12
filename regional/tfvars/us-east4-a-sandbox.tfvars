@@ -1,4 +1,3 @@
-enable_gke_hub_host    = true
 master_ipv4_cidr_block = "10.63.240.48/28"
 node_location          = "us-east4-a"
 region                 = "us-east4"
