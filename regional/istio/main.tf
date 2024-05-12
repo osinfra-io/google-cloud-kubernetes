@@ -64,7 +64,7 @@ data "terraform_remote_state" "regional" {
     prefix = "google-cloud-kubernetes"
   }
 
-  workspace = "${var.region}-${var.environment}"
+  workspace = "${var.region}-${var.zone}-${var.environment}"
 }
 
 # Google Kubernetes Engine Module (osinfra.io)
