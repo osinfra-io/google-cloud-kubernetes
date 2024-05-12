@@ -132,7 +132,7 @@ jobs:
     name: "Regional: us-east1-b"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.4
     if: github.actor != 'dependabot[bot]'
-    needs: [us_east1_b_istio, us_east1_b_onboarding, us_east1_b_mci]
+    needs: [us_east1_b_onboarding, us_east1_b_mci]
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east1-b-sandbox
@@ -152,7 +152,7 @@ jobs:
     name: "Regional: us-east4-a"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.4
     if: github.actor != 'dependabot[bot]'
-    needs: [us_east4_a_istio, us_east4_a_onboarding, us_east4_a_mci]
+    needs: [us_east4_a_onboarding, us_east4_a_mci]
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east4-a-sandbox
