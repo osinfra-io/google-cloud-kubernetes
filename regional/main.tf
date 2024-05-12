@@ -31,19 +31,17 @@ data "terraform_remote_state" "global" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine_regional" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional?ref=v0.1.2"
-
-  cluster_autoscaling = {
-    enabled = true
-  }
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional?ref=main"
 
   cluster_prefix               = "services"
-  cluster_secondary_range_name = "services-k8s-pods-${var.region}"
+  cluster_secondary_range_name = "k8s-secondary-pods"
   enable_deletion_protection   = false
   enable_gke_hub_host          = var.enable_gke_hub_host
   gke_hub_memberships          = var.gke_hub_memberships
   labels                       = local.labels
   network                      = "standard-shared"
+  node_location                = var.node_location
+  node_pools                   = var.node_pools
   master_ipv4_cidr_block       = var.master_ipv4_cidr_block
   project                      = local.global.project_id
 
@@ -55,7 +53,7 @@ module "kubernetes_engine_regional" {
   }
 
   region                        = var.region
-  services_secondary_range_name = "services-k8s-services-${var.region}"
-  subnet                        = "services-${var.region}"
+  services_secondary_range_name = "k8s-secondary-services"
+  subnet                        = "services-${var.region}-${var.zone}"
   vpc_host_project_id           = var.vpc_host_project_id
 }

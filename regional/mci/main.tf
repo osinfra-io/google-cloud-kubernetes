@@ -55,16 +55,25 @@ data "terraform_remote_state" "regional" {
     prefix = "google-cloud-kubernetes"
   }
 
-  workspace = "${var.region}-${var.environment}"
+  workspace = "${var.region}-${var.zone}-${var.environment}"
 }
 
 # Google Kubernetes Engine Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine_mci" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/mci?ref=v0.1.2"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/mci?ref=main"
 
   istio_gateway_mci_global_address = local.global.istio_gateway_mci_global_address
-  multi_cluster_service_clusters   = []
-  project                          = local.regional.project_id
+
+  multi_cluster_service_clusters = [
+    {
+      "link" = "us-east1/services-us-east1-b"
+    },
+    {
+      "link" = "us-east4/services-us-east4-a"
+    }
+  ]
+
+  project = local.regional.project_id
 }

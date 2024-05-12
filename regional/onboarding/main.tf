@@ -55,14 +55,14 @@ data "terraform_remote_state" "regional" {
     prefix = "google-cloud-kubernetes"
   }
 
-  workspace = "${var.region}-${var.environment}"
+  workspace = "${var.region}-${var.zone}-${var.environment}"
 }
 
 # Google Kubernetes Engine Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine_onboarding" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding?ref=v0.1.2"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding?ref=main"
 
   namespaces                               = var.namespaces
   project                                  = local.regional.project_id

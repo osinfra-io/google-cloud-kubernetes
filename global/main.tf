@@ -79,7 +79,7 @@ module "project" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine_global" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//global?ref=v0.1.2"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//global?ref=main"
 
   istio_gateway_dns = var.istio_gateway_dns
   namespaces        = var.namespaces
