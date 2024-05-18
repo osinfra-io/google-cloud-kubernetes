@@ -38,7 +38,7 @@ variable "node_pools" {
     image_type                               = optional(string)
     machine_type                             = optional(string)
     max_node_count                           = optional(number, 3)
-    min_node_count                           = optional(number, 0)
+    min_node_count                           = optional(number, 1)
     node_count                               = optional(number)
     oauth_scopes                             = optional(list(string), ["https://www.googleapis.com/auth/cloud-platform"])
     upgrade_settings_batch_node_count        = optional(number)
@@ -51,10 +51,8 @@ variable "node_pools" {
   }))
 
   default = {
-    standard-pool = {
-      machine_type   = "e2-standard-2"
-      max_node_count = 1
-      min_node_count = 0
+    default-pool = {
+      machine_type = "n2-standard-2"
     }
   }
 }
