@@ -30,7 +30,7 @@ provider "datadog" {
 # https://github.com/osinfra-io/terraform-datadog-google-integration
 
 module "datadog" {
-  source = "github.com/osinfra-io/terraform-datadog-google-integration//global?ref=v0.1.5"
+  source = "github.com/osinfra-io/terraform-datadog-google-integration//global?ref=v0.1.6"
   count  = var.enable_datadog ? 1 : 0
 
   api_key         = var.datadog_api_key
@@ -43,11 +43,10 @@ module "datadog" {
 # https://github.com/osinfra-io/terraform-google-project
 
 module "project" {
-  source = "github.com/osinfra-io/terraform-google-project//global?ref=v0.1.9"
+  source = "github.com/osinfra-io/terraform-google-project//global?ref=v0.2.2"
 
   billing_account                 = var.billing_account
   cis_2_2_logging_sink_project_id = var.cis_2_2_logging_sink_project_id
-  cost_center                     = "x001"
   description                     = "k8s"
   environment                     = var.environment
   folder_id                       = var.folder_id
@@ -79,7 +78,7 @@ module "project" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine_global" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//global?ref=main"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//global?ref=istio-remote"
 
   istio_gateway_dns = var.istio_gateway_dns
   namespaces        = var.namespaces
