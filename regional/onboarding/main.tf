@@ -64,6 +64,7 @@ data "terraform_remote_state" "regional" {
 module "kubernetes_engine_onboarding" {
   source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding?ref=istio-remote"
 
+  enable_istio_gateway                     = true
   istio_control_plane_clusters             = var.istio_control_plane_clusters
   namespaces                               = var.namespaces
   project                                  = local.regional.project_id
