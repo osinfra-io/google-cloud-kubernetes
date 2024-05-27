@@ -8,9 +8,4 @@ namespaces = {
     google_service_account = "plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com"
     istio_injection        = "enabled"
   }
-
-  istio-system = {
-    google_service_account = "plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com"
-    istio_injection        = "disabled"
-  }
 }
