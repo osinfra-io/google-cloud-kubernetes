@@ -4,6 +4,12 @@ variable "environment" {
   default     = "sandbox"
 }
 
+variable "istio_external_istiod" {
+  description = "Boolean to configure a remote cluster data plane controlled by an external istiod"
+  type        = bool
+  default     = false
+}
+
 variable "istio_gateway_cpu_request" {
   description = "The CPU request for the Istio gateway"
   type        = string

@@ -76,6 +76,7 @@ module "kubernetes_engine_istio" {
   artifact_registry            = "us-docker.pkg.dev/plt-lz-services-tf79-prod/platform-docker-virtual"
   cluster_prefix               = "services"
   enable_istio_gateway         = true
+  istio_external_istiod        = var.istio_external_istiod
   istio_gateway_memory_request = var.istio_gateway_memory_request
   istio_gateway_memory_limit   = var.istio_gateway_memory_limit
   istio_pilot_cpu_request      = var.istio_pilot_cpu_request
