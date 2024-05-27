@@ -46,7 +46,11 @@ No requirements.
 | <a name="input_istio_proxy_cpu_request"></a> [istio\_proxy\_cpu\_request](#input\_istio\_proxy\_cpu\_request) | The CPU request for the Istio proxy | `string` | `"100m"` | no |
 | <a name="input_istio_proxy_memory_limit"></a> [istio\_proxy\_memory\_limit](#input\_istio\_proxy\_memory\_limit) | The memory limit for the Istio proxy | `string` | `"1024Mi"` | no |
 | <a name="input_istio_proxy_memory_request"></a> [istio\_proxy\_memory\_request](#input\_istio\_proxy\_memory\_request) | The memory request for the Istio proxy | `string` | `"128Mi"` | no |
+| <a name="input_istio_remote_injection_path"></a> [istio\_remote\_injection\_path](#input\_istio\_remote\_injection\_path) | The sidecar injector mutating webhook configuration path value for the clientConfig.service field | `string` | `"/inject"` | no |
+| <a name="input_istio_remote_injection_url"></a> [istio\_remote\_injection\_url](#input\_istio\_remote\_injection\_url) | The sidecar injector mutating webhook configuration clientConfig.url value | `string` | `""` | no |
 | <a name="input_istio_remote_pilot_address"></a> [istio\_remote\_pilot\_address](#input\_istio\_remote\_pilot\_address) | The remote pilot and istiod service and endpoint | `string` | `""` | no |
+| <a name="input_istiod_injection_path"></a> [istiod\_injection\_path](#input\_istiod\_injection\_path) | The sidecar injector mutating webhook configuration path value for the clientConfig.service field | `string` | `"/inject"` | no |
+| <a name="input_istiod_injection_url"></a> [istiod\_injection\_url](#input\_istiod\_injection\_url) | The sidecar injector mutating webhook configuration clientConfig.url value | `string` | `""` | no |
 | <a name="input_region"></a> [region](#input\_region) | The region to deploy the resources to | `string` | n/a | yes |
 | <a name="input_remote_bucket"></a> [remote\_bucket](#input\_remote\_bucket) | The remote bucket the `terraform_remote_state` data source retrieves the state from | `string` | n/a | yes |
 | <a name="input_zone"></a> [zone](#input\_zone) | The zone to deploy the resources to | `string` | n/a | yes |

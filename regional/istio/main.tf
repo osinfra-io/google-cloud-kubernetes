@@ -88,6 +88,9 @@ module "kubernetes_engine_istio" {
   istio_proxy_cpu_limit        = var.istio_proxy_cpu_limit
   istio_proxy_memory_request   = var.istio_proxy_memory_request
   istio_proxy_memory_limit     = var.istio_proxy_memory_limit
+  istio_remote_injection_path  = var.istio_remote_injection_path
+  istio_remote_injection_url   = var.istio_remote_injection_url
+  istio_remote_pilot_address   = var.istio_remote_pilot_address
   project                      = local.regional.project_id
   region                       = var.region
 }

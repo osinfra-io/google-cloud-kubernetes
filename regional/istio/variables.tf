@@ -103,10 +103,34 @@ variable "istio_proxy_memory_limit" {
   default     = "1024Mi"
 }
 
+variable "istio_remote_injection_path" {
+  description = "The sidecar injector mutating webhook configuration path value for the clientConfig.service field"
+  type        = string
+  default     = "/inject"
+}
+
+variable "istio_remote_injection_url" {
+  description = "The sidecar injector mutating webhook configuration clientConfig.url value"
+  type        = string
+  default     = ""
+}
+
 variable "istio_remote_pilot_address" {
   description = "The remote pilot and istiod service and endpoint"
   type        = string
   default     = ""
+}
+
+variable "istiod_injection_url" {
+  description = "The sidecar injector mutating webhook configuration clientConfig.url value"
+  type        = string
+  default     = ""
+}
+
+variable "istiod_injection_path" {
+  description = "The sidecar injector mutating webhook configuration path value for the clientConfig.service field"
+  type        = string
+  default     = "/inject"
 }
 
 variable "region" {
