@@ -82,7 +82,7 @@ jobs:
     name: "Multi-cluster Ingress: us-east1-b"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.4
     if: github.actor != 'dependabot[bot]'
-    needs: us_east1_b
+    needs: us_east1_b_onboarding
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east1-b-sandbox
@@ -102,7 +102,7 @@ jobs:
     name: "Multi-cluster Ingress: us-east4-a"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.4
     if: github.actor != 'dependabot[bot]'
-    needs: us_east4_a
+    needs: us_east4_a_onboarding
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east4-a-sandbox

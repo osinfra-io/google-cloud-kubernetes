@@ -1,9 +1,9 @@
 enable_gke_hub_host = true
 
 gke_hub_memberships = {
-  # "services-us-east4-a" = {
-  #   cluster_id = "projects/plt-k8s-tf39-sb/locations/us-east4/clusters/services-us-east4-a"
-  # }
+  "services-us-east4-a" = {
+    cluster_id = "projects/plt-k8s-tf39-sb/locations/us-east4/clusters/services-us-east4-a"
+  }
 }
 
 master_ipv4_cidr_block = "10.63.240.0/28"
