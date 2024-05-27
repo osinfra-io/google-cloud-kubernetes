@@ -115,12 +115,6 @@ variable "istio_remote_injection_url" {
   default     = ""
 }
 
-variable "istio_remote_pilot_address" {
-  description = "The remote pilot and istiod service and endpoint"
-  type        = string
-  default     = ""
-}
-
 variable "istiod_injection_url" {
   description = "The sidecar injector mutating webhook configuration clientConfig.url value"
   type        = string
