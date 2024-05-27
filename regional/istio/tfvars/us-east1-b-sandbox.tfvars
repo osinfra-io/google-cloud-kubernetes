@@ -1,4 +1,3 @@
-istio_external_istiod     = true
 istio_gateway_cpu_request = "50m"
 istio_gateway_cpu_limit   = "1000m"
 
