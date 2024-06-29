@@ -11,7 +11,7 @@ repos:
       - id: check-symlinks
 
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.90.0
+    rev: v1.92.0
     hooks:
       - id: terraform_fmt
 
@@ -32,12 +32,12 @@ repos:
           - --hook-config=--create-file-if-not-exist=false
 
   - repo: https://github.com/bridgecrewio/checkov.git
-    rev: 3.2.109
+    rev: 3.2.156
     hooks:
       - id: checkov
         verbose: true
         args:
           - --skip-check
-          - "CKV_TF_1,CKV_TF_2"
+          - "CKV_TF_1,CKV_TF_2" # temp
           - --download-external-modules=true
           - --quiet
