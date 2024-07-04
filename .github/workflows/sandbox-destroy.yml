@@ -48,46 +48,6 @@ jobs:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
       infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
-  us_east1_b_onboarding:
-    name: "Onboarding: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.4
-    if: github.actor != 'dependabot[bot]'
-    needs: us_east1_b_istio
-    with:
-      checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
-      github_environment: "Sandbox Onboarding: Regional - us-east1-b"
-      service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
-      terraform_plan_args: -destroy -var-file=tfvars/us-east1-b-sandbox.tfvars -var-file=../../shared/tfvars/sandbox.tfvars
-      terraform_state_bucket: plt-k8s-2c8b-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east1-b-onboarding-sandbox
-      working_directory: regional/onboarding
-      workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
-    secrets:
-      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
-
-  us_east4_a_onboarding:
-    name: "Onboarding: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.4
-    if: github.actor != 'dependabot[bot]'
-    needs: us_east4_a_istio
-    with:
-      checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
-      github_environment: "Sandbox Onboarding: Regional - us-east4-a"
-      service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
-      terraform_plan_args: -destroy -var-file=tfvars/us-east4-a-sandbox.tfvars -var-file=../../shared/tfvars/sandbox.tfvars
-      terraform_state_bucket: plt-k8s-2c8b-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east4-a-onboarding-sandbox
-      working_directory: regional/onboarding
-      workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
-    secrets:
-      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
-
   us_east1_b_mci:
     name: "Multi-cluster Ingress: us-east1-b"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.4
@@ -128,11 +88,51 @@ jobs:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
       infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
+  us_east1_b_onboarding:
+    name: "Onboarding: us-east1-b"
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.4
+    if: github.actor != 'dependabot[bot]'
+    needs: [us_east1_b_istio, us_east1_b_mci]
+    with:
+      checkout_ref: ${{ github.ref }}
+      environment: us-east1-b-sandbox
+      github_environment: "Sandbox Onboarding: Regional - us-east1-b"
+      service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
+      terraform_plan_args: -destroy -var-file=tfvars/us-east1-b-sandbox.tfvars -var-file=../../shared/tfvars/sandbox.tfvars
+      terraform_state_bucket: plt-k8s-2c8b-sb
+      terraform_version: ${{ vars.TERRAFORM_VERSION }}
+      terraform_workspace: us-east1-b-onboarding-sandbox
+      working_directory: regional/onboarding
+      workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
+    secrets:
+      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
+
+  us_east4_a_onboarding:
+    name: "Onboarding: us-east4-a"
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.4
+    if: github.actor != 'dependabot[bot]'
+    needs: [us_east4_a_istio, us_east4_a_mci]
+    with:
+      checkout_ref: ${{ github.ref }}
+      environment: us-east4-a-sandbox
+      github_environment: "Sandbox Onboarding: Regional - us-east4-a"
+      service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
+      terraform_plan_args: -destroy -var-file=tfvars/us-east4-a-sandbox.tfvars -var-file=../../shared/tfvars/sandbox.tfvars
+      terraform_state_bucket: plt-k8s-2c8b-sb
+      terraform_version: ${{ vars.TERRAFORM_VERSION }}
+      terraform_workspace: us-east4-a-onboarding-sandbox
+      working_directory: regional/onboarding
+      workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
+    secrets:
+      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
+
   us_east1_b:
     name: "Regional: us-east1-b"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.4
     if: github.actor != 'dependabot[bot]'
-    needs: [us_east1_b_onboarding, us_east1_b_mci]
+    needs: us_east1_b_onboarding
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east1-b-sandbox
@@ -152,7 +152,7 @@ jobs:
     name: "Regional: us-east4-a"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.4
     if: github.actor != 'dependabot[bot]'
-    needs: [us_east4_a_onboarding, us_east4_a_mci]
+    needs: us_east4_a_onboarding
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east4-a-sandbox

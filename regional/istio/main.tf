@@ -71,12 +71,25 @@ data "terraform_remote_state" "regional" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine_istio" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/istio?ref=main"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/istio?ref=v0.1.3"
 
-  artifact_registry    = "us-docker.pkg.dev/plt-lz-services-tf79-prod/platform-docker-virtual"
-  cluster_prefix       = "services"
-  enable_istio_gateway = true
-  istio_gateway_dns    = var.istio_gateway_dns
-  project              = local.regional.project_id
-  region               = var.region
+  artifact_registry            = "us-docker.pkg.dev/plt-lz-services-tf79-prod/platform-docker-virtual"
+  cluster_prefix               = "services"
+  enable_istio_gateway         = true
+  istio_external_istiod        = var.istio_external_istiod
+  istio_gateway_memory_request = var.istio_gateway_memory_request
+  istio_gateway_memory_limit   = var.istio_gateway_memory_limit
+  istio_pilot_cpu_request      = var.istio_pilot_cpu_request
+  istio_pilot_cpu_limit        = var.istio_pilot_cpu_limit
+  istio_gateway_dns            = var.istio_gateway_dns
+  istio_pilot_memory_request   = var.istio_pilot_memory_request
+  istio_pilot_memory_limit     = var.istio_pilot_memory_limit
+  istio_proxy_cpu_request      = var.istio_proxy_cpu_request
+  istio_proxy_cpu_limit        = var.istio_proxy_cpu_limit
+  istio_proxy_memory_request   = var.istio_proxy_memory_request
+  istio_proxy_memory_limit     = var.istio_proxy_memory_limit
+  istio_remote_injection_path  = var.istio_remote_injection_path
+  istio_remote_injection_url   = var.istio_remote_injection_url
+  project                      = local.regional.project_id
+  region                       = var.region
 }
