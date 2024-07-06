@@ -26,14 +26,14 @@ istio_failover_to_region   = "us-east4"
 
 istio_virtual_services = {
   "customer-trust-nginx-us-east1-b" = {
-    destination_host = "nginx-us-east4-b.nginx.svc.cluster.local"
+    destination_host = "nginx-us-east1-b.nginx.svc.cluster.local"
     host             = "us-east1-b.sb.customer-trust.osinfra.io"
   }
 }
 
 gke_info_istio_virtual_services = {
   "gke-info-go-us-east1-b" = {
-    destination_host = "gke-info-go-us-east4-b.gke-info.svc.cluster.local"
+    destination_host = "gke-info-go-us-east1-b.gke-info.svc.cluster.local"
     host             = "us-east1-b.sb.gcp.osinfra.io"
   }
 
