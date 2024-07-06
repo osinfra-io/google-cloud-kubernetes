@@ -11,5 +11,4 @@ locals {
     platform    = "google-cloud-kubernetes"
     team        = "platform-google-cloud-kubernetes"
   }
-
 }

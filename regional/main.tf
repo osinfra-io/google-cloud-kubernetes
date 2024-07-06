@@ -46,10 +46,11 @@ module "kubernetes_engine_regional" {
   project                      = local.global.project_id
 
   resource_labels = {
-    env        = "sb"
+    env        = var.environment
     region     = var.region
-    repository = "terraform-google-kubernetes-engine"
-    team       = "kitchen"
+    repository = "google-cloud-kubernetes"
+    platform   = "google-cloud-kubernetes"
+    team       = "platform-google-cloud-kubernetes"
   }
 
   region                        = var.region
