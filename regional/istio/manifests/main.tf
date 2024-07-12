@@ -37,17 +37,6 @@ data "google_client_config" "current" {
 # Terraform Remote State Datasource
 # https://www.terraform.io/docs/language/state/remote-state-data.html
 
-data "terraform_remote_state" "global" {
-  backend = "gcs"
-
-  config = {
-    bucket = var.remote_bucket
-    prefix = "google-cloud-kubernetes"
-  }
-
-  workspace = "global-${var.environment}"
-}
-
 data "terraform_remote_state" "regional" {
   backend = "gcs"
 
@@ -62,19 +51,13 @@ data "terraform_remote_state" "regional" {
 # Google Kubernetes Engine Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
-module "kubernetes_engine_mci" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/mci?ref=v0.1.4"
+module "kubernetes_engine_istio_manifests" {
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/istio/manifests?ref=v0.1.4"
 
-  istio_gateway_mci_global_address = local.global.istio_gateway_mci_global_address
-
-  multi_cluster_service_clusters = [
-    {
-      "link" = "us-east1/services-us-east1-b"
-    },
-    {
-      "link" = "us-east4/services-us-east4-a"
-    }
-  ]
-
-  project = local.regional.project_id
+  common_gke_info_istio_virtual_services = var.common_gke_info_istio_virtual_services
+  common_istio_virtual_services          = var.common_istio_virtual_services
+  gke_info_istio_virtual_services        = var.gke_info_istio_virtual_services
+  istio_failover_from_region             = var.istio_failover_from_region
+  istio_failover_to_region               = var.istio_failover_to_region
+  istio_virtual_services                 = var.istio_virtual_services
 }

@@ -31,7 +31,7 @@ data "terraform_remote_state" "global" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine_regional" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional?ref=v0.1.3"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional?ref=v0.1.4"
 
   cluster_prefix               = "services"
   cluster_secondary_range_name = "k8s-secondary-pods"
@@ -46,10 +46,11 @@ module "kubernetes_engine_regional" {
   project                      = local.global.project_id
 
   resource_labels = {
-    env        = "sb"
+    env        = var.environment
     region     = var.region
-    repository = "terraform-google-kubernetes-engine"
-    team       = "kitchen"
+    repository = "google-cloud-kubernetes"
+    platform   = "google-cloud-kubernetes"
+    team       = "platform-google-cloud-kubernetes"
   }
 
   region                        = var.region
