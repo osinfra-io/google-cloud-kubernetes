@@ -15,7 +15,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kubernetes_engine_regional"></a> [kubernetes\_engine\_regional](#module\_kubernetes\_engine\_regional) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional | istio-remote |
+| <a name="module_kubernetes_engine_regional"></a> [kubernetes\_engine\_regional](#module\_kubernetes\_engine\_regional) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional | v0.1.4 |
 
 ## Resources
 

@@ -9,14 +9,14 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 5.36.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 5.37.0 |
 | <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kubernetes_engine_istio_manifests"></a> [kubernetes\_engine\_istio\_manifests](#module\_kubernetes\_engine\_istio\_manifests) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional/istio/manifests | istio-remote |
+| <a name="module_kubernetes_engine_istio_manifests"></a> [kubernetes\_engine\_istio\_manifests](#module\_kubernetes\_engine\_istio\_manifests) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional/istio/manifests | v0.1.4 |
 
 ## Resources
 
