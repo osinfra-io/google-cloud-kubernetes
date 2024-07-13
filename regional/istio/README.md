@@ -16,7 +16,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kubernetes_engine_istio"></a> [kubernetes\_engine\_istio](#module\_kubernetes\_engine\_istio) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional/istio | v0.1.4 |
+| <a name="module_kubernetes_engine_istio"></a> [kubernetes\_engine\_istio](#module\_kubernetes\_engine\_istio) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional/istio | v0.1.5 |
 
 ## Resources
 
