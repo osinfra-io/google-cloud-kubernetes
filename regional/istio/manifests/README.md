@@ -16,7 +16,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kubernetes_engine_istio_manifests"></a> [kubernetes\_engine\_istio\_manifests](#module\_kubernetes\_engine\_istio\_manifests) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional/istio/manifests | v0.1.4 |
+| <a name="module_kubernetes_engine_istio_manifests"></a> [kubernetes\_engine\_istio\_manifests](#module\_kubernetes\_engine\_istio\_manifests) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional/istio/manifests | gateway-tls |
 
 ## Resources
 
