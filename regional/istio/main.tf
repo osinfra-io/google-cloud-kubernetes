@@ -70,8 +70,8 @@ data "terraform_remote_state" "regional" {
 # Google Kubernetes Engine Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
-module "kubernetes_engine_istio" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/istio?ref=v0.1.5"
+module "kubernetes_istio" {
+  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional?ref=initial-development"
 
   artifact_registry            = "us-docker.pkg.dev/plt-lz-services-tf79-prod/platform-docker-virtual"
   cluster_prefix               = "services"
