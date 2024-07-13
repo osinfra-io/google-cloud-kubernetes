@@ -78,7 +78,7 @@ module "project" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine_global" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=gateway-tls"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=v0.1.5"
 
   istio_gateway_dns = var.istio_gateway_dns
   namespaces        = var.namespaces

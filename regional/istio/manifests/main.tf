@@ -52,7 +52,7 @@ data "terraform_remote_state" "regional" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine_istio_manifests" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/istio/manifests?ref=gateway-tls"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/istio/manifests?ref=v0.1.5"
 
   common_gke_info_istio_virtual_services = var.common_gke_info_istio_virtual_services
   common_istio_virtual_services          = var.common_istio_virtual_services
