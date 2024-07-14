@@ -16,7 +16,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kubernetes_engine_mci"></a> [kubernetes\_engine\_mci](#module\_kubernetes\_engine\_mci) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional/mci | v0.1.5 |
+| <a name="module_kubernetes_engine_mci"></a> [kubernetes\_engine\_mci](#module\_kubernetes\_engine\_mci) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional/mci | remove-istio |
 
 ## Resources
 

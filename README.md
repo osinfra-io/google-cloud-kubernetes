@@ -56,7 +56,7 @@ No providers.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_datadog"></a> [datadog](#module\_datadog) | github.com/osinfra-io/terraform-datadog-google-integration//global | v0.1.6 |
-| <a name="module_kubernetes_engine"></a> [kubernetes\_engine](#module\_kubernetes\_engine) | github.com/osinfra-io/terraform-google-kubernetes-engine | v0.1.5 |
+| <a name="module_kubernetes_engine"></a> [kubernetes\_engine](#module\_kubernetes\_engine) | github.com/osinfra-io/terraform-google-kubernetes-engine | remove-istio |
 | <a name="module_kubernetes_istio"></a> [kubernetes\_istio](#module\_kubernetes\_istio) | github.com/osinfra-io/terraform-kubernetes-istio | initial-development |
 | <a name="module_project"></a> [project](#module\_project) | github.com/osinfra-io/terraform-google-project//global | v0.2.2 |
 

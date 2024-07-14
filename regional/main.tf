@@ -31,7 +31,7 @@ data "terraform_remote_state" "global" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine_regional" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional?ref=v0.1.5"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional?ref=remove-istio"
 
   cluster_prefix               = "services"
   cluster_secondary_range_name = "k8s-secondary-pods"
