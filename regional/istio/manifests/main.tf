@@ -48,11 +48,11 @@ data "terraform_remote_state" "regional" {
   workspace = "${var.region}-${var.zone}-${var.environment}"
 }
 
-# Google Kubernetes Engine Module (osinfra.io)
-# https://github.com/osinfra-io/terraform-google-kubernetes-engine
+# Kubernetes Istio Module (osinfra.io)
+# https://github.com/osinfra-io/terraform-kubernetes-istio
 
 module "kubernetes_istio_manifests" {
-  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional/manifests?ref=initial-development"
+  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional/manifests?ref=v0.1.0"
 
   common_gke_info_istio_virtual_services = var.common_gke_info_istio_virtual_services
   common_istio_virtual_services          = var.common_istio_virtual_services

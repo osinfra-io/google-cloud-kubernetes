@@ -78,14 +78,17 @@ module "project" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=remove-istio"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=v0.1.6"
 
   namespaces = var.namespaces
   project    = module.project.project_id
 }
 
+# Kubernetes Istio Module (osinfra.io)
+# https://github.com/osinfra-io/terraform-kubernetes-istio
+
 module "kubernetes_istio" {
-  source = "github.com/osinfra-io/terraform-kubernetes-istio?ref=initial-development"
+  source = "github.com/osinfra-io/terraform-kubernetes-istio?ref=v0.1.0"
 
   istio_gateway_dns = var.istio_gateway_dns
   project           = module.project.project_id
