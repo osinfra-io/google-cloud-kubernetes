@@ -8,3 +8,5 @@ istio_gateway_dns = {
     project      = "plt-lz-networking-tfd8-sb"
   }
 }
+
+monthly_budget_amount = 25
