@@ -51,6 +51,7 @@ module "project" {
   environment                     = var.environment
   folder_id                       = var.folder_id
   labels                          = local.labels
+  monthly_budget_amount           = var.monthly_budget_amount
   prefix                          = "plt"
 
   services = [

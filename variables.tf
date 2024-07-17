@@ -50,6 +50,12 @@ variable "istio_gateway_dns" {
   default = {}
 }
 
+variable "monthly_budget_amount" {
+  description = "The monthly budget amount in USD to set for the project"
+  type        = number
+  default     = 5
+}
+
 variable "namespaces" {
   description = "A map of namespaces with the Google service account used for the namespace administrator and whether Istio injection is enabled or disabled"
   default     = {}
