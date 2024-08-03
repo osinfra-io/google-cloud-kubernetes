@@ -37,7 +37,7 @@ data "google_client_config" "current" {
 # Terraform Remote State Datasource
 # https://www.terraform.io/docs/language/state/remote-state-data.html
 
-data "terraform_remote_state" "global" {
+data "terraform_remote_state" "main" {
   backend = "gcs"
 
   config = {
@@ -45,7 +45,7 @@ data "terraform_remote_state" "global" {
     prefix = "google-cloud-kubernetes"
   }
 
-  workspace = "global-${var.environment}"
+  workspace = "main-${var.environment}"
 }
 
 data "terraform_remote_state" "regional" {
@@ -65,7 +65,7 @@ data "terraform_remote_state" "regional" {
 module "kubernetes_engine_mci" {
   source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/mci?ref=v0.1.6"
 
-  istio_gateway_mci_global_address = local.global.istio_gateway_mci_global_address
+  istio_gateway_mci_global_address = local.main.istio_gateway_mci_global_address
 
   multi_cluster_service_clusters = [
     {

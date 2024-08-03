@@ -36,7 +36,7 @@ data "google_client_config" "current" {
 # Terraform Remote State Datasource
 # https://www.terraform.io/docs/language/state/remote-state-data.html
 
-data "terraform_remote_state" "global" {
+data "terraform_remote_state" "main" {
   backend = "gcs"
 
   config = {
@@ -44,7 +44,7 @@ data "terraform_remote_state" "global" {
     prefix = "google-cloud-kubernetes"
   }
 
-  workspace = "global-${var.environment}"
+  workspace = "main-${var.environment}"
 }
 
 data "terraform_remote_state" "regional" {
@@ -68,5 +68,5 @@ module "kubernetes_engine_onboarding" {
   istio_control_plane_clusters             = var.istio_control_plane_clusters
   namespaces                               = var.namespaces
   project                                  = local.regional.project_id
-  workload_identity_service_account_emails = data.terraform_remote_state.global.outputs.workload_identity_service_account_emails
+  workload_identity_service_account_emails = data.terraform_remote_state.main.outputs.workload_identity_service_account_emails
 }
