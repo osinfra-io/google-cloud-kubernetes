@@ -90,8 +90,9 @@ module "kubernetes_engine" {
 # https://github.com/osinfra-io/terraform-kubernetes-istio
 
 module "kubernetes_istio" {
-  source = "github.com/osinfra-io/terraform-kubernetes-istio?ref=v0.1.0"
+  source = "github.com/osinfra-io/terraform-kubernetes-istio?ref=v0.1.2"
 
   istio_gateway_dns = var.istio_gateway_dns
+  labels            = local.labels
   project           = module.project.project_id
 }
