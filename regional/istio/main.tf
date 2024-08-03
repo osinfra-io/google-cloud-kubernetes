@@ -71,7 +71,7 @@ data "terraform_remote_state" "regional" {
 # https://github.com/osinfra-io/terraform-kubernetes-istio
 
 module "kubernetes_istio" {
-  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional?ref=v0.1.0"
+  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional?ref=v0.1.1"
 
   artifact_registry            = "us-docker.pkg.dev/plt-lz-services-tf79-prod/platform-docker-virtual"
   cluster_prefix               = "services"
@@ -90,6 +90,7 @@ module "kubernetes_istio" {
   istio_proxy_memory_limit     = var.istio_proxy_memory_limit
   istio_remote_injection_path  = var.istio_remote_injection_path
   istio_remote_injection_url   = var.istio_remote_injection_url
+  labels                       = local.labels
   project                      = local.regional.project_id
   region                       = var.region
 }
