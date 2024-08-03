@@ -56,7 +56,7 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east1-b-sandbox
-      github_environment: "Sandbox Multi-cluster Ingress: Regional - us-east1-a"
+      github_environment: "Sandbox Multi-cluster Ingress: Regional - us-east1-b"
       service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
       terraform_plan_args: -destroy -var-file=tfvars/us-east1-b-sandbox.tfvars
       terraform_state_bucket: plt-k8s-2c8b-sb
