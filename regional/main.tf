@@ -16,7 +16,7 @@ terraform {
 # Terraform Remote State Datasource
 # https://www.terraform.io/docs/language/state/remote-state-data.html
 
-data "terraform_remote_state" "global" {
+data "terraform_remote_state" "main" {
   backend = "gcs"
 
   config = {
@@ -24,7 +24,7 @@ data "terraform_remote_state" "global" {
     prefix = "google-cloud-kubernetes"
   }
 
-  workspace = "global-${var.environment}"
+  workspace = "main-${var.environment}"
 }
 
 # Google Kubernetes Engine Module (osinfra.io)
@@ -43,7 +43,7 @@ module "kubernetes_engine_regional" {
   node_location                = var.node_location
   node_pools                   = var.node_pools
   master_ipv4_cidr_block       = var.master_ipv4_cidr_block
-  project                      = local.global.project_id
+  project                      = local.main.project_id
 
   resource_labels = {
     env        = var.environment

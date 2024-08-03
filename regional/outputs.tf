@@ -29,5 +29,5 @@ output "service_account_gke_operations_email" {
 
 output "project_id" {
   description = "The project ID"
-  value       = local.global.project_id
+  value       = local.main.project_id
 }
