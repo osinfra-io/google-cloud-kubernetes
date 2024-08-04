@@ -78,11 +78,11 @@ module "kubernetes_istio" {
   enable_istio_gateway         = true
   istio_external_istiod        = var.istio_external_istiod
   istio_control_plane_clusters = var.istio_control_plane_clusters
+  istio_gateway_dns            = var.istio_gateway_dns
   istio_gateway_memory_request = var.istio_gateway_memory_request
   istio_gateway_memory_limit   = var.istio_gateway_memory_limit
   istio_pilot_cpu_request      = var.istio_pilot_cpu_request
   istio_pilot_cpu_limit        = var.istio_pilot_cpu_limit
-  istio_gateway_dns            = var.istio_gateway_dns
   istio_pilot_memory_request   = var.istio_pilot_memory_request
   istio_pilot_memory_limit     = var.istio_pilot_memory_limit
   istio_proxy_cpu_request      = var.istio_proxy_cpu_request
