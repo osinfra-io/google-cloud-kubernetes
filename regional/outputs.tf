@@ -22,12 +22,12 @@ output "kms_crypto_key_cluster_database_encryption_name" {
   value       = module.kubernetes_engine_regional.kms_crypto_key_cluster_database_encryption_name
 }
 
-output "service_account_gke_operations_email" {
-  description = "The email address of the Kubernetes minimum privilege service account for the cluster"
-  value       = module.kubernetes_engine_regional.service_account_gke_operations_email
-}
-
 output "project_id" {
   description = "The project ID"
   value       = local.main.project_id
+}
+
+output "service_account_gke_operations_email" {
+  description = "The email address of the Kubernetes minimum privilege service account for the cluster"
+  value       = module.kubernetes_engine_regional.service_account_gke_operations_email
 }

@@ -71,17 +71,19 @@ data "terraform_remote_state" "regional" {
 # https://github.com/osinfra-io/terraform-kubernetes-istio
 
 module "kubernetes_istio" {
-  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional?ref=v0.1.2"
+  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional?ref=v0.1.3"
 
   artifact_registry            = "us-docker.pkg.dev/plt-lz-services-tf79-prod/platform-docker-virtual"
   cluster_prefix               = "services"
   enable_istio_gateway         = true
+  environment                  = var.environment
   istio_external_istiod        = var.istio_external_istiod
+  istio_control_plane_clusters = var.istio_control_plane_clusters
+  istio_gateway_dns            = var.istio_gateway_dns
   istio_gateway_memory_request = var.istio_gateway_memory_request
   istio_gateway_memory_limit   = var.istio_gateway_memory_limit
   istio_pilot_cpu_request      = var.istio_pilot_cpu_request
   istio_pilot_cpu_limit        = var.istio_pilot_cpu_limit
-  istio_gateway_dns            = var.istio_gateway_dns
   istio_pilot_memory_request   = var.istio_pilot_memory_request
   istio_pilot_memory_limit     = var.istio_pilot_memory_limit
   istio_proxy_cpu_request      = var.istio_proxy_cpu_request

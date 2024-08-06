@@ -9,14 +9,14 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 5.39.1 |
+| <a name="provider_google"></a> [google](#provider\_google) | 5.40.0 |
 | <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kubernetes_engine_onboarding"></a> [kubernetes\_engine\_onboarding](#module\_kubernetes\_engine\_onboarding) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding | v0.1.6 |
+| <a name="module_kubernetes_engine_onboarding"></a> [kubernetes\_engine\_onboarding](#module\_kubernetes\_engine\_onboarding) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding | v0.1.7 |
 
 ## Resources
 
@@ -31,7 +31,6 @@ No requirements.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment for example: `sandbox`, `non-production`, `production` | `string` | `"sandbox"` | no |
-| <a name="input_istio_control_plane_clusters"></a> [istio\_control\_plane\_clusters](#input\_istio\_control\_plane\_clusters) | The GKE clusters that will be used as Istio control planes | `string` | `null` | no |
 | <a name="input_namespaces"></a> [namespaces](#input\_namespaces) | Map of namespaces and service accounts to onboard to GKE | `map(any)` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The region to deploy the resources to | `string` | n/a | yes |
 | <a name="input_remote_bucket"></a> [remote\_bucket](#input\_remote\_bucket) | The remote bucket the `terraform_remote_state` data source retrieves the state from | `string` | n/a | yes |

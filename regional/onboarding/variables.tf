@@ -4,12 +4,6 @@ variable "environment" {
   default     = "sandbox"
 }
 
-variable "istio_control_plane_clusters" {
-  description = "The GKE clusters that will be used as Istio control planes"
-  type        = string
-  default     = null
-}
-
 variable "namespaces" {
   description = "Map of namespaces and service accounts to onboard to GKE"
   type        = map(any)

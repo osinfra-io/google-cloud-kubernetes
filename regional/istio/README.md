@@ -9,14 +9,14 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 5.39.1 |
+| <a name="provider_google"></a> [google](#provider\_google) | 5.40.0 |
 | <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kubernetes_istio"></a> [kubernetes\_istio](#module\_kubernetes\_istio) | github.com/osinfra-io/terraform-kubernetes-istio//regional | v0.1.2 |
+| <a name="module_kubernetes_istio"></a> [kubernetes\_istio](#module\_kubernetes\_istio) | github.com/osinfra-io/terraform-kubernetes-istio//regional | v0.1.3 |
 
 ## Resources
 
@@ -30,6 +30,7 @@ No requirements.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment for example: `sandbox`, `non-production`, `production` | `string` | `"sandbox"` | no |
+| <a name="input_istio_control_plane_clusters"></a> [istio\_control\_plane\_clusters](#input\_istio\_control\_plane\_clusters) | The GKE clusters that will be used as Istio control planes | `string` | `null` | no |
 | <a name="input_istio_external_istiod"></a> [istio\_external\_istiod](#input\_istio\_external\_istiod) | Boolean to configure a remote cluster data plane controlled by an external istiod | `bool` | `false` | no |
 | <a name="input_istio_gateway_cpu_limit"></a> [istio\_gateway\_cpu\_limit](#input\_istio\_gateway\_cpu\_limit) | The CPU limit for the Istio gateway | `string` | `"2000m"` | no |
 | <a name="input_istio_gateway_cpu_request"></a> [istio\_gateway\_cpu\_request](#input\_istio\_gateway\_cpu\_request) | The CPU request for the Istio gateway | `string` | `"100m"` | no |
