@@ -24,7 +24,7 @@ jobs:
       terraform_state_bucket: plt-k8s-2c8b-sb
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       terraform_workspace: us-east1-b-datadog-manifests-sandbox
-      working_directory: regional/istio/manifests
+      working_directory: regional/datadog/manifests
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
@@ -47,7 +47,7 @@ jobs:
       terraform_state_bucket: plt-k8s-2c8b-sb
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       terraform_workspace: us-east4-a-datadog-manifests-sandbox
-      working_directory: regional/istio/manifests
+      working_directory: regional/datadog/manifests
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
@@ -69,7 +69,7 @@ jobs:
       terraform_state_bucket: plt-k8s-2c8b-sb
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       terraform_workspace: us-east1-b-datadog-sandbox
-      working_directory: regional/istio
+      working_directory: regional/datadog
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
@@ -91,7 +91,7 @@ jobs:
       terraform_state_bucket: plt-k8s-2c8b-sb
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       terraform_workspace: us-east4-a-datadog-sandbox
-      working_directory: regional/istio
+      working_directory: regional/datadog
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
