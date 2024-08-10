@@ -1,0 +1,92 @@
+---
+apiVersion: v3
+kind: system
+metadata:
+  name: istio
+  displayName: Istio
+  links:
+    - name: Gitbook
+      type: doc
+      provider: wiki
+      url: "https://docs.osinfra.io/product-guides/google-cloud-platform/kubernetes/istio"
+
+    - name: GitHub
+      type: repo
+      provider: github
+      url: "https://github.com/osinfra-io/google-cloud-kubernetes"
+
+  contacts:
+    - type: email
+      contact: platform-google-cloud-kubernetes@osinfra.io
+    - type: google-chat
+      contact: "https://mail.google.com/chat/u/0/#chat/space/AAAA1mERq4Q"
+
+  description: >
+    Istio extends Kubernetes to establish a programmable, application-aware network using the powerful Envoy service proxy. Working with both Kubernetes and traditional workloads, Istio brings standard, universal traffic management, telemetry, and security to complex deployments.
+
+  owner: platform-google-cloud-kubernetes
+
+spec:
+  components:
+    - service:istio-control-plane
+    - service:istio-gateway
+
+datadog:
+  performanceData:
+    tags:
+      - 'service:istio-control-plane'
+      - 'service:istio-gateway'
+
+  pipelines:
+    fingerprints:
+      - 0FQTEZZ2hCJC
+
+---
+apiVersion: v3
+kind: service
+metadata:
+  name: istio-control-plane
+  displayName: Istio Control Plane
+
+spec:
+  tier: Zero
+  type: web
+  languages:
+    - cpp
+
+datadog:
+  performanceData:
+    tags:
+      - 'service:istio-control-plane'
+
+---
+apiVersion: v3
+kind: service
+metadata:
+  name: istio-gateway
+  displayName: Istio Gateway
+
+  links:
+    - name: Sandbox
+      type: other
+      url: "https://sb.gcp.osinfra.io/gke-info"
+
+    - name: Pre-Production
+      type: other
+      url: "https://pre-prod.gcp.osinfra.io/gke-info"
+
+    - name: Production
+      type: other
+      url: "https://gcp.osinfra.io/gke-info"
+
+spec:
+  tier: Zero
+  type: web
+
+  dependsOn:
+    - service:istio-control-plane
+
+datadog:
+  performanceData:
+    tags:
+      - 'service:istio-gateway'
