@@ -52,7 +52,7 @@ spec:
   tier: Zero
   type: web
   languages:
-    - cpp
+    - go
 
 datadog:
   performanceData:
