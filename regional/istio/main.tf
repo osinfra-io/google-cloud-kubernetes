@@ -92,7 +92,7 @@ module "kubernetes_istio" {
   istio_proxy_memory_limit     = var.istio_proxy_memory_limit
   istio_remote_injection_path  = var.istio_remote_injection_path
   istio_remote_injection_url   = var.istio_remote_injection_url
-  labels                       = local.labels
-  project                      = local.regional.project_id
-  region                       = var.region
+  # labels                       = local.labels
+  project = local.regional.project_id
+  region  = var.region
 }
