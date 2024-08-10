@@ -49,7 +49,7 @@ module "project" {
   billing_account                 = var.billing_account
   cis_2_2_logging_sink_project_id = var.cis_2_2_logging_sink_project_id
   description                     = "k8s"
-  environment                     = var.environment
+  environment                     = local.env
   folder_id                       = var.folder_id
   labels                          = local.labels
   monthly_budget_amount           = var.monthly_budget_amount
