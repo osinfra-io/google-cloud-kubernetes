@@ -7,12 +7,12 @@ metadata:
   links:
     - name: Gitbook
       type: doc
-      provider: wiki
+      provider: Gitbook
       url: "https://docs.osinfra.io/product-guides/google-cloud-platform/kubernetes/istio"
 
     - name: GitHub
       type: repo
-      provider: github
+      provider: Github
       url: "https://github.com/osinfra-io/google-cloud-kubernetes"
 
   contacts:
