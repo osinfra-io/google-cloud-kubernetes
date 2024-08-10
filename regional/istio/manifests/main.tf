@@ -52,7 +52,7 @@ data "terraform_remote_state" "regional" {
 # https://github.com/osinfra-io/terraform-kubernetes-istio
 
 module "kubernetes_istio_manifests" {
-  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional/manifests?ref=v0.1.3"
+  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional/manifests?ref=resource-alignment"
 
   common_gke_info_istio_virtual_services = var.common_gke_info_istio_virtual_services
   common_istio_virtual_services          = var.common_istio_virtual_services

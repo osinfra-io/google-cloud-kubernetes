@@ -62,7 +62,7 @@ data "terraform_remote_state" "regional" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine_onboarding" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding?ref=v0.1.7"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding?ref=resource-alignment"
 
   namespaces                               = var.namespaces
   project                                  = local.regional.project_id

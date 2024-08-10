@@ -70,7 +70,7 @@ data "terraform_remote_state" "regional" {
 # https://github.com/osinfra-io/terraform-kubernetes-datadog-operator
 
 module "kubernetes_datadog_operator" {
-  source = "github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional?ref=v0.1.0"
+  source = "github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional?ref=resource-alignment"
 
   datadog_api_key = var.datadog_api_key
   datadog_app_key = var.datadog_app_key
