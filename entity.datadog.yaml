@@ -3,6 +3,11 @@ apiVersion: v3
 kind: system
 metadata:
   name: istio
+  description: >
+    Istio extends Kubernetes to establish a programmable, application-aware network using the powerful Envoy service proxy.
+    Working with both Kubernetes and traditional workloads, Istio brings standard, universal traffic management, telemetry,
+    and security to complex deployments.
+
   displayName: Istio
   links:
     - name: Gitbook
@@ -20,9 +25,6 @@ metadata:
       contact: platform-google-cloud-kubernetes@osinfra.io
     - type: google-chat
       contact: "https://mail.google.com/chat/u/0/#chat/space/AAAA1mERq4Q"
-
-  description: >
-    Istio extends Kubernetes to establish a programmable, application-aware network using the powerful Envoy service proxy. Working with both Kubernetes and traditional workloads, Istio brings standard, universal traffic management, telemetry, and security to complex deployments.
 
   owner: platform-google-cloud-kubernetes
 
@@ -46,6 +48,7 @@ apiVersion: v3
 kind: service
 metadata:
   name: istio-control-plane
+  description: The control plane manages and configures proxies to route traffic.
   displayName: Istio Control Plane
 
 spec:
@@ -64,44 +67,45 @@ apiVersion: v3
 kind: service
 metadata:
   name: istio-gateway
+  description: The gateway describes a load balancer operating at the edge of the mesh receiving incoming or outgoing HTTP/TCP connections.
   displayName: Istio Gateway
 
   links:
     - name: Sandbox
       type: other
-      url: "https://sb.gcp.osinfra.io/gke-info/health"
+      url: "https://sb.gcp.osinfra.io/gke-info-go/health"
 
     - name: "Sandbox: us-east1-b"
       type: other
-      url: "https://us-east1-b.sb.gcp.osinfra.io/gke-info-go/gke-info/health"
+      url: "https://us-east1-b.sb.gcp.osinfra.io/gke-info-go/health"
 
     - name: "Sandbox: us-east4-a"
       type: other
-      url: "https://us-east4-a.sb.gcp.osinfra.io/gke-info-go/gke-info/health"
+      url: "https://us-east4-a.sb.gcp.osinfra.io/gke-info-go/health"
 
     - name: Pre-Production
       type: other
-      url: "https://pre-prod.gcp.osinfra.io/gke-info/health"
+      url: "https://pre-prod.gcp.osinfra.io/gke-info-go/health"
 
     - name: "Pre-Production: us-east1-b"
       type: other
-      url: "https://us-east1-b.pre-prod.gcp.osinfra.io/gke-info/health"
+      url: "https://us-east1-b.pre-prod.gcp.osinfra.io/gke-info-go/health"
 
     - name: "Pre-Production: us-east4-a"
       type: other
-      url: "https://us-east4-a.pre-prod.gcp.osinfra.io/gke-info/health"
+      url: "https://us-east4-a.pre-prod.gcp.osinfra.io/gke-info-go/health"
 
     - name: Production
       type: other
-      url: "https://gcp.osinfra.io/gke-info/health"
+      url: "https://gcp.osinfra.io/gke-info-go/health"
 
     - name: "Production: us-east1-b"
       type: other
-      url: "https://us-east1-b.gcp.osinfra.io/gke-info/health"
+      url: "https://us-east1-b.gcp.osinfra.io/gke-info-go/health"
 
     - name: "Production: us-east4-a"
       type: other
-      url: "https://us-east4-a.gcp.osinfra.io/gke-info/health"
+      url: "https://us-east4-a.gcp.osinfra.io/gke-info-go/health"
 
 spec:
   tier: Zero
