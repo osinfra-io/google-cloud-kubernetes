@@ -16,7 +16,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kubernetes_datadog_operator_manifests"></a> [kubernetes\_datadog\_operator\_manifests](#module\_kubernetes\_datadog\_operator\_manifests) | github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional/manifests | resource-alignment |
+| <a name="module_kubernetes_datadog_operator_manifests"></a> [kubernetes\_datadog\_operator\_manifests](#module\_kubernetes\_datadog\_operator\_manifests) | github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional/manifests | main |
 
 ## Resources
 
