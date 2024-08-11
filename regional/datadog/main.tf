@@ -3,7 +3,6 @@
 
 terraform {
   required_providers {
-
     # Google Cloud Provider
     # https://www.terraform.io/docs/providers/google/index.html
 
@@ -11,11 +10,31 @@ terraform {
       source = "hashicorp/google"
     }
 
+    helm = {
+      source = "hashicorp/helm"
+    }
+
     kubernetes = {
       source = "hashicorp/kubernetes"
     }
   }
 }
+
+# Helm Provider
+# https://registry.terraform.io/providers/hashicorp/helm/latest
+
+provider "helm" {
+  kubernetes {
+
+    cluster_ca_certificate = base64decode(
+      local.regional.container_cluster_ca_certificate
+    )
+
+    host  = local.regional.container_cluster_endpoint
+    token = data.google_client_config.current.access_token
+  }
+}
+
 # Kubernetes Provider
 # https://registry.terraform.io/providers/hashicorp/kubernetes/latest
 
@@ -36,17 +55,6 @@ data "google_client_config" "current" {
 # Terraform Remote State Datasource
 # https://www.terraform.io/docs/language/state/remote-state-data.html
 
-data "terraform_remote_state" "main" {
-  backend = "gcs"
-
-  config = {
-    bucket = var.remote_bucket
-    prefix = "google-cloud-kubernetes"
-  }
-
-  workspace = "main-${var.environment}"
-}
-
 data "terraform_remote_state" "regional" {
   backend = "gcs"
 
@@ -58,13 +66,15 @@ data "terraform_remote_state" "regional" {
   workspace = "${var.region}-${var.zone}-${var.environment}"
 }
 
-# Google Kubernetes Engine Module (osinfra.io)
-# https://github.com/osinfra-io/terraform-google-kubernetes-engine
+# Kubernetes Datadog Operator Module (osinfra.io)
+# https://github.com/osinfra-io/terraform-kubernetes-datadog-operator
 
-module "kubernetes_engine_onboarding" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding?ref=main"
+module "kubernetes_datadog_operator" {
+  source = "github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional?ref=main"
 
-  namespaces                               = var.namespaces
-  project                                  = local.regional.project_id
-  workload_identity_service_account_emails = data.terraform_remote_state.main.outputs.workload_identity_service_account_emails
+  cluster_prefix  = "services"
+  datadog_api_key = var.datadog_api_key
+  datadog_app_key = var.datadog_app_key
+  environment     = var.environment
+  region          = var.region
 }

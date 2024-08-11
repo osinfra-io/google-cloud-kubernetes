@@ -3,6 +3,8 @@
 
 locals {
 
+  main = data.terraform_remote_state.main.outputs
+
   labels = {
     cost-center = "x001"
     env         = var.environment

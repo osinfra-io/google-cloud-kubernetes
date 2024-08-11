@@ -37,17 +37,6 @@ data "google_client_config" "current" {
 # Terraform Remote State Datasource
 # https://www.terraform.io/docs/language/state/remote-state-data.html
 
-data "terraform_remote_state" "main" {
-  backend = "gcs"
-
-  config = {
-    bucket = var.remote_bucket
-    prefix = "google-cloud-kubernetes"
-  }
-
-  workspace = "main-${var.environment}"
-}
-
 data "terraform_remote_state" "regional" {
   backend = "gcs"
 
@@ -59,22 +48,17 @@ data "terraform_remote_state" "regional" {
   workspace = "${var.region}-${var.zone}-${var.environment}"
 }
 
-# Google Kubernetes Engine Module (osinfra.io)
-# https://github.com/osinfra-io/terraform-google-kubernetes-engine
+# Kubernetes Datadog Operator Module (osinfra.io)
+# https://github.com/osinfra-io/terraform-kubernetes-datadog-operator
 
-module "kubernetes_engine_mci" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/mci?ref=v0.1.7"
+module "kubernetes_datadog_operator_manifests" {
+  source = "github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional/manifests?ref=main"
 
-  istio_gateway_mci_global_address = local.main.istio_gateway_mci_global_address
-
-  multi_cluster_service_clusters = [
-    {
-      "link" = "us-east1/services-us-east1-b"
-    },
-    {
-      "link" = "us-east4/services-us-east4-a"
-    }
-  ]
-
-  project = local.regional.project_id
+  cluster_prefix  = "services"
+  datadog_api_key = var.datadog_api_key
+  datadog_app_key = var.datadog_app_key
+  environment     = var.environment
+  region          = var.region
+  registry        = "us-docker.pkg.dev/plt-lz-services-tf79-prod/platform-docker-virtual"
+  team            = "platform-google-cloud-kubernetes"
 }

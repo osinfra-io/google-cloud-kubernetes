@@ -2,8 +2,6 @@
 # https://www.terraform.io/docs/language/values/locals.html
 
 locals {
-  domain_environment = var.environment == "prod" ? "" : var.environment
-  env                = var.environment == "sandbox" ? "sb" : var.environment == "non-production" ? "non-prod" : var.environment == "production" ? "prod" : "none"
 
   labels = {
     cost-center = "x001"
@@ -12,4 +10,6 @@ locals {
     platform    = "google-cloud-kubernetes"
     team        = "platform-google-cloud-kubernetes"
   }
+
+  regional = data.terraform_remote_state.regional.outputs
 }
