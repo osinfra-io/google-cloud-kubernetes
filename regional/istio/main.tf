@@ -88,8 +88,6 @@ module "kubernetes_istio" {
   cluster_prefix                   = "services"
   enable_istio_gateway             = true
   environment                      = var.environment
-  istio_external_istiod            = var.istio_external_istiod
-  istio_control_plane_clusters     = var.istio_control_plane_clusters
   istio_gateway_dns                = var.istio_gateway_dns
   istio_gateway_mci_global_address = local.main.istio_gateway_mci_global_address
   istio_gateway_memory_request     = var.istio_gateway_memory_request
@@ -102,17 +100,15 @@ module "kubernetes_istio" {
   istio_proxy_cpu_limit            = var.istio_proxy_cpu_limit
   istio_proxy_memory_request       = var.istio_proxy_memory_request
   istio_proxy_memory_limit         = var.istio_proxy_memory_limit
-  istio_remote_injection_path      = var.istio_remote_injection_path
-  istio_remote_injection_url       = var.istio_remote_injection_url
   # labels                       = local.labels
 
   multi_cluster_service_clusters = [
     {
       "link" = "us-east1/services-us-east1-b"
     },
-    # {
-    #   "link" = "us-east4/services-us-east4-a"
-    # }
+    {
+      "link" = "us-east4/services-us-east4-a"
+    }
   ]
 
   project = local.regional.project_id
