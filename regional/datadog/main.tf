@@ -70,7 +70,7 @@ data "terraform_remote_state" "regional" {
 # https://github.com/osinfra-io/terraform-kubernetes-datadog-operator
 
 module "kubernetes_datadog_operator" {
-  source = "github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional?ref=main"
+  source = "github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional?ref=limits"
 
   cluster_prefix  = "services"
   datadog_api_key = var.datadog_api_key
