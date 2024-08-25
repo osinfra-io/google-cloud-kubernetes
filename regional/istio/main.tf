@@ -106,9 +106,9 @@ module "kubernetes_istio" {
     {
       "link" = "us-east1/services-us-east1-b"
     },
-    {
-      "link" = "us-east4/services-us-east4-a"
-    }
+    # {
+    #   "link" = "us-east4/services-us-east4-a"
+    # }
   ]
 
   project = local.regional.project_id
