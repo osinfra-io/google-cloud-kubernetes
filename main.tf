@@ -93,6 +93,6 @@ module "kubernetes_istio" {
   source = "github.com/osinfra-io/terraform-kubernetes-istio?ref=brettcurtis%2Fissue2"
 
   istio_gateway_dns = var.istio_gateway_dns
-  # labels            = local.labels # TODO:#71
-  project = module.project.project_id
+  labels            = local.labels
+  project           = module.project.project_id
 }

@@ -100,7 +100,7 @@ module "kubernetes_istio" {
   istio_proxy_cpu_limit            = var.istio_proxy_cpu_limit
   istio_proxy_memory_request       = var.istio_proxy_memory_request
   istio_proxy_memory_limit         = var.istio_proxy_memory_limit
-  # labels                       = local.labels
+  labels                           = local.labels
 
   multi_cluster_service_clusters = [
     {
