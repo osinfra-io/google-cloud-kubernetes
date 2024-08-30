@@ -80,7 +80,7 @@ module "project" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=provider"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=main"
 
   namespaces = var.namespaces
   project    = module.project.project_id
@@ -90,7 +90,7 @@ module "kubernetes_engine" {
 # https://github.com/osinfra-io/terraform-kubernetes-istio
 
 module "kubernetes_istio" {
-  source = "github.com/osinfra-io/terraform-kubernetes-istio?ref=brettcurtis%2Fissue2"
+  source = "github.com/osinfra-io/terraform-kubernetes-istio?ref=main"
 
   istio_gateway_dns = var.istio_gateway_dns
   labels            = local.labels

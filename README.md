@@ -42,7 +42,7 @@ Links to documentation and other resources required to develop and iterate in th
 
 ### 📓 Terraform Documentation
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 #### Requirements
 
 No requirements.
@@ -56,8 +56,8 @@ No providers.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_datadog"></a> [datadog](#module\_datadog) | github.com/osinfra-io/terraform-datadog-google-integration | v0.2.1 |
-| <a name="module_kubernetes_engine"></a> [kubernetes\_engine](#module\_kubernetes\_engine) | github.com/osinfra-io/terraform-google-kubernetes-engine | provider |
-| <a name="module_kubernetes_istio"></a> [kubernetes\_istio](#module\_kubernetes\_istio) | github.com/osinfra-io/terraform-kubernetes-istio | brettcurtis%2Fissue2 |
+| <a name="module_kubernetes_engine"></a> [kubernetes\_engine](#module\_kubernetes\_engine) | github.com/osinfra-io/terraform-google-kubernetes-engine | main |
+| <a name="module_kubernetes_istio"></a> [kubernetes\_istio](#module\_kubernetes\_istio) | github.com/osinfra-io/terraform-kubernetes-istio | main |
 | <a name="module_project"></a> [project](#module\_project) | github.com/osinfra-io/terraform-google-project | v0.3.1 |
 
 #### Resources
@@ -89,7 +89,7 @@ No resources.
 | <a name="output_project_id"></a> [project\_id](#output\_project\_id) | The project ID |
 | <a name="output_project_number"></a> [project\_number](#output\_project\_number) | The project number |
 | <a name="output_workload_identity_service_account_emails"></a> [workload\_identity\_service\_account\_emails](#output\_workload\_identity\_service\_account\_emails) | n/a |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
 
 ### 📓 Terraform Regional Documentation
 

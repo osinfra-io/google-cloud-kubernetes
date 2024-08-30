@@ -1,6 +1,6 @@
 # Terraform Documentation
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 No requirements.
@@ -16,7 +16,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kubernetes_datadog_operator_manifests"></a> [kubernetes\_datadog\_operator\_manifests](#module\_kubernetes\_datadog\_operator\_manifests) | github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional/manifests | limits |
+| <a name="module_kubernetes_datadog_operator_manifests"></a> [kubernetes\_datadog\_operator\_manifests](#module\_kubernetes\_datadog\_operator\_manifests) | github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional/manifests | main |
 
 ## Resources
 
@@ -39,4 +39,4 @@ No requirements.
 ## Outputs
 
 No outputs.
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->

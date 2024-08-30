@@ -1,6 +1,6 @@
 # Terraform Documentation
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 No requirements.
@@ -16,7 +16,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kubernetes_engine_onboarding"></a> [kubernetes\_engine\_onboarding](#module\_kubernetes\_engine\_onboarding) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding | provider |
+| <a name="module_kubernetes_engine_onboarding"></a> [kubernetes\_engine\_onboarding](#module\_kubernetes\_engine\_onboarding) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding | main |
 
 ## Resources
 
@@ -39,4 +39,4 @@ No requirements.
 ## Outputs
 
 No outputs.
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->

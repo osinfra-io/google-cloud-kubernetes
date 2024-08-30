@@ -1,6 +1,6 @@
 # Terraform Documentation
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 No requirements.
@@ -15,7 +15,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kubernetes_engine_regional"></a> [kubernetes\_engine\_regional](#module\_kubernetes\_engine\_regional) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional | provider |
+| <a name="module_kubernetes_engine_regional"></a> [kubernetes\_engine\_regional](#module\_kubernetes\_engine\_regional) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional | main |
 
 ## Resources
 
@@ -48,4 +48,4 @@ No requirements.
 | <a name="output_kms_key_ring_cluster_database_encryption_name"></a> [kms\_key\_ring\_cluster\_database\_encryption\_name](#output\_kms\_key\_ring\_cluster\_database\_encryption\_name) | The name of the Google Cloud KMS key ring |
 | <a name="output_project_id"></a> [project\_id](#output\_project\_id) | The project ID |
 | <a name="output_service_account_gke_operations_email"></a> [service\_account\_gke\_operations\_email](#output\_service\_account\_gke\_operations\_email) | The email address of the Kubernetes minimum privilege service account for the cluster |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
