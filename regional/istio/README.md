@@ -1,6 +1,6 @@
 # Terraform Documentation
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 No requirements.
@@ -9,7 +9,7 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 5.40.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 6.0.1 |
 | <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 
 ## Modules
@@ -31,8 +31,6 @@ No requirements.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment for example: `sandbox`, `non-production`, `production` | `string` | `"sandbox"` | no |
-| <a name="input_istio_control_plane_clusters"></a> [istio\_control\_plane\_clusters](#input\_istio\_control\_plane\_clusters) | The GKE clusters that will be used as Istio control planes | `string` | `null` | no |
-| <a name="input_istio_external_istiod"></a> [istio\_external\_istiod](#input\_istio\_external\_istiod) | Boolean to configure a remote cluster data plane controlled by an external istiod | `bool` | `false` | no |
 | <a name="input_istio_gateway_cpu_limit"></a> [istio\_gateway\_cpu\_limit](#input\_istio\_gateway\_cpu\_limit) | The CPU limit for the Istio gateway | `string` | `"2000m"` | no |
 | <a name="input_istio_gateway_cpu_request"></a> [istio\_gateway\_cpu\_request](#input\_istio\_gateway\_cpu\_request) | The CPU request for the Istio gateway | `string` | `"100m"` | no |
 | <a name="input_istio_gateway_dns"></a> [istio\_gateway\_dns](#input\_istio\_gateway\_dns) | Map of attributes for the Istio gateway domain names, it is also used to create the managed certificate resource | <pre>map(object({<br>    managed_zone = string<br>    project      = string<br>  }))</pre> | `{}` | no |
@@ -59,4 +57,4 @@ No requirements.
 ## Outputs
 
 No outputs.
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
