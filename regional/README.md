@@ -44,8 +44,9 @@ No requirements.
 |------|-------------|
 | <a name="output_container_cluster_ca_certificate"></a> [container\_cluster\_ca\_certificate](#output\_container\_cluster\_ca\_certificate) | Base64 encoded public certificate that is the root of trust for the cluster |
 | <a name="output_container_cluster_endpoint"></a> [container\_cluster\_endpoint](#output\_container\_cluster\_endpoint) | The connection endpoint for the cluster |
+| <a name="output_kms_crypto_key_cluster_boot_disk_encryption_name"></a> [kms\_crypto\_key\_cluster\_boot\_disk\_encryption\_name](#output\_kms\_crypto\_key\_cluster\_boot\_disk\_encryption\_name) | The name of the Google Cloud KMS crypto key for cluster boot disk encryption |
 | <a name="output_kms_crypto_key_cluster_database_encryption_name"></a> [kms\_crypto\_key\_cluster\_database\_encryption\_name](#output\_kms\_crypto\_key\_cluster\_database\_encryption\_name) | The name of the Google Cloud KMS crypto key for cluster database encryption |
-| <a name="output_kms_key_ring_cluster_database_encryption_name"></a> [kms\_key\_ring\_cluster\_database\_encryption\_name](#output\_kms\_key\_ring\_cluster\_database\_encryption\_name) | The name of the Google Cloud KMS key ring |
+| <a name="output_kms_key_ring_cluster_encryption_name"></a> [kms\_key\_ring\_cluster\_encryption\_name](#output\_kms\_key\_ring\_cluster\_encryption\_name) | The name of the Google Cloud KMS key ring |
 | <a name="output_project_id"></a> [project\_id](#output\_project\_id) | The project ID |
 | <a name="output_service_account_gke_operations_email"></a> [service\_account\_gke\_operations\_email](#output\_service\_account\_gke\_operations\_email) | The email address of the Kubernetes minimum privilege service account for the cluster |
 <!-- END_TF_DOCS -->
