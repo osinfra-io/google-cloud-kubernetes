@@ -12,14 +12,19 @@ output "container_cluster_endpoint" {
   value       = module.kubernetes_engine_regional.container_cluster_endpoint
 }
 
-output "kms_key_ring_cluster_database_encryption_name" {
+output "kms_key_ring_cluster_encryption_name" {
   description = "The name of the Google Cloud KMS key ring"
-  value       = module.kubernetes_engine_regional.kms_key_ring_cluster_database_encryption_name
+  value       = module.kubernetes_engine_regional.kms_key_ring_cluster_encryption_name
 }
 
 output "kms_crypto_key_cluster_database_encryption_name" {
   description = "The name of the Google Cloud KMS crypto key for cluster database encryption"
   value       = module.kubernetes_engine_regional.kms_crypto_key_cluster_database_encryption_name
+}
+
+output "kms_crypto_key_cluster_boot_disk_encryption_name" {
+  description = "The name of the Google Cloud KMS crypto key for cluster boot disk encryption"
+  value       = module.kubernetes_engine_regional.kms_crypto_key_cluster_boot_disk_encryption_name
 }
 
 output "project_id" {
