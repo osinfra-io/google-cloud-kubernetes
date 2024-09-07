@@ -53,7 +53,7 @@ metadata:
 
 spec:
   tier: Zero
-  type: web
+  type: service
   languages:
     - go
 
