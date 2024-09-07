@@ -55,6 +55,6 @@ module "kubernetes_engine_regional" {
 
   region                        = var.region
   services_secondary_range_name = "k8s-secondary-services"
-  subnet                        = "services-${var.region}-${var.zone}"
+  subnet                        = "plt-${var.region}-${var.zone}"
   vpc_host_project_id           = var.vpc_host_project_id
 }

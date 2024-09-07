@@ -54,11 +54,11 @@ data "terraform_remote_state" "regional" {
 module "kubernetes_datadog_operator_manifests" {
   source = "github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional/manifests?ref=templates"
 
-  cluster_prefix  = "services"
+  cluster_prefix  = "plt"
   datadog_api_key = var.datadog_api_key
   datadog_app_key = var.datadog_app_key
   environment     = var.environment
   region          = var.region
-  registry        = "us-docker.pkg.dev/plt-lz-services-tf79-prod/platform-docker-virtual"
+  registry        = "us-docker.pkg.dev/plt-lz-services-tf79-prod/plt-docker-virtual"
   team            = "platform-google-cloud-kubernetes"
 }

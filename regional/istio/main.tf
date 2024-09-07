@@ -84,8 +84,8 @@ data "terraform_remote_state" "regional" {
 module "kubernetes_istio" {
   source = "github.com/osinfra-io/terraform-kubernetes-istio//regional?ref=main"
 
-  artifact_registry                = "us-docker.pkg.dev/plt-lz-services-tf79-prod/platform-docker-virtual"
-  cluster_prefix                   = "services"
+  artifact_registry                = "us-docker.pkg.dev/plt-lz-services-tf79-prod/plt-docker-virtual"
+  cluster_prefix                   = "plt"
   enable_istio_gateway             = true
   environment                      = var.environment
   istio_gateway_dns                = var.istio_gateway_dns
