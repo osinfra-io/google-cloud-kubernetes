@@ -33,7 +33,7 @@ data "terraform_remote_state" "main" {
 module "kubernetes_engine_regional" {
   source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional?ref=main"
 
-  cluster_prefix               = "services"
+  cluster_prefix               = "plt"
   cluster_secondary_range_name = "k8s-secondary-pods"
   enable_deletion_protection   = false
   enable_gke_hub_host          = var.enable_gke_hub_host

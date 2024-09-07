@@ -1,8 +1,8 @@
 enable_gke_hub_host = true
 
 # gke_hub_memberships = {
-#   "services-us-east4-a" = {
-#     cluster_id = "projects/plt-k8s-tf39-sb/locations/us-east4/clusters/services-us-east4-a"
+#   "plt-us-east4-a" = {
+#     cluster_id = "projects/plt-k8s-tf39-sb/locations/us-east4/clusters/plt-us-east4-a"
 #   }
 # }
 

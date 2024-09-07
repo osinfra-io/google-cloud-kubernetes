@@ -104,10 +104,10 @@ module "kubernetes_istio" {
 
   multi_cluster_service_clusters = [
     {
-      "link" = "us-east1/services-us-east1-b"
+      "link" = "us-east1/plt-us-east1-b"
     },
     # {
-    #   "link" = "us-east4/services-us-east4-a"
+    #   "link" = "us-east4/plt-us-east4-a"
     # }
   ]
 
