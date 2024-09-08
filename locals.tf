@@ -4,13 +4,13 @@
 locals {
   domain_environment = var.environment == "prod" ? "" : var.environment
 
+  env = lookup(local.env_map, var.environment, "none")
+
   env_map = {
     "non-production" = "non-prod"
     "production"     = "prod"
     "sandbox"        = "sb"
   }
-
-  env = lookup(local.env_map, var.environment, "none")
 
   labels = {
     cost-center = "x001"
