@@ -5,9 +5,9 @@ locals {
   domain_environment = var.environment == "prod" ? "" : var.environment
 
   env_map = {
-    "sandbox"        = "sb"
     "non-production" = "non-prod"
     "production"     = "prod"
+    "sandbox"        = "sb"
   }
 
   env = lookup(local.env_map, var.environment, "none")
