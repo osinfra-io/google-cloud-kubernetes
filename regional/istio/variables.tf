@@ -4,13 +4,13 @@ variable "environment" {
   default     = "sandbox"
 }
 
-variable "istio_gateway_cpu_request" {
+variable "istio_gateway_cpu_requests" {
   description = "The CPU request for the Istio gateway"
   type        = string
   default     = "25m"
 }
 
-variable "istio_gateway_cpu_limit" {
+variable "istio_gateway_cpu_limits" {
   description = "The CPU limit for the Istio gateway"
   type        = string
   default     = "100m"
@@ -25,13 +25,13 @@ variable "istio_gateway_dns" {
   default = {}
 }
 
-variable "istio_gateway_memory_request" {
+variable "istio_gateway_memory_requests" {
   description = "The memory request for the Istio gateway"
   type        = string
   default     = "32Mi"
 }
 
-variable "istio_gateway_memory_limit" {
+variable "istio_gateway_memory_limits" {
   description = "The memory limit for the Istio gateway"
   type        = string
   default     = "128Mi"
@@ -43,25 +43,25 @@ variable "istio_pilot_autoscale_min" {
   default     = 1
 }
 
-variable "istio_pilot_cpu_request" {
+variable "istio_pilot_cpu_requests" {
   description = "The CPU request for the Istio pilot"
   type        = string
   default     = "25m"
 }
 
-variable "istio_pilot_cpu_limit" {
+variable "istio_pilot_cpu_limits" {
   description = "The CPU limit for the Istio pilot"
   type        = string
   default     = "100m"
 }
 
-variable "istio_pilot_memory_request" {
+variable "istio_pilot_memory_requests" {
   description = "The memory request for the Istio pilot"
   type        = string
   default     = "32Mi"
 }
 
-variable "istio_pilot_memory_limit" {
+variable "istio_pilot_memory_limits" {
   description = "The memory limit for the Istio pilot"
   type        = string
   default     = "128Mi"
@@ -73,25 +73,25 @@ variable "istio_pilot_replica_count" {
   default     = 1
 }
 
-variable "istio_proxy_cpu_request" {
+variable "istio_proxy_cpu_requests" {
   description = "The CPU request for the Istio proxy"
   type        = string
   default     = "25m"
 }
 
-variable "istio_proxy_cpu_limit" {
+variable "istio_proxy_cpu_limits" {
   description = "The CPU limit for the Istio proxy"
   type        = string
   default     = "100m"
 }
 
-variable "istio_proxy_memory_request" {
+variable "istio_proxy_memory_requests" {
   description = "The memory request for the Istio proxy"
   type        = string
   default     = "32Mi"
 }
 
-variable "istio_proxy_memory_limit" {
+variable "istio_proxy_memory_limits" {
   description = "The memory limit for the Istio proxy"
   type        = string
   default     = "128Mi"

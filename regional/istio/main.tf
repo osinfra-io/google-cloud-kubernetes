@@ -90,16 +90,16 @@ module "kubernetes_istio" {
   environment                      = var.environment
   istio_gateway_dns                = var.istio_gateway_dns
   istio_gateway_mci_global_address = local.main.istio_gateway_mci_global_address
-  istio_gateway_memory_request     = var.istio_gateway_memory_request
-  istio_gateway_memory_limit       = var.istio_gateway_memory_limit
-  istio_pilot_cpu_request          = var.istio_pilot_cpu_request
-  istio_pilot_cpu_limit            = var.istio_pilot_cpu_limit
-  istio_pilot_memory_request       = var.istio_pilot_memory_request
-  istio_pilot_memory_limit         = var.istio_pilot_memory_limit
-  istio_proxy_cpu_request          = var.istio_proxy_cpu_request
-  istio_proxy_cpu_limit            = var.istio_proxy_cpu_limit
-  istio_proxy_memory_request       = var.istio_proxy_memory_request
-  istio_proxy_memory_limit         = var.istio_proxy_memory_limit
+  istio_gateway_memory_limits      = var.istio_gateway_memory_limits
+  istio_gateway_memory_requests    = var.istio_gateway_memory_requests
+  istio_pilot_cpu_limits           = var.istio_pilot_cpu_limits
+  istio_pilot_cpu_requests         = var.istio_pilot_cpu_requests
+  istio_pilot_memory_limits        = var.istio_pilot_memory_limits
+  istio_pilot_memory_requests      = var.istio_pilot_memory_requests
+  istio_proxy_cpu_limits           = var.istio_proxy_cpu_limits
+  istio_proxy_cpu_requests         = var.istio_proxy_cpu_requests
+  istio_proxy_memory_limits        = var.istio_proxy_memory_limits
+  istio_proxy_memory_requests      = var.istio_proxy_memory_requests
   labels                           = local.labels
 
   multi_cluster_service_clusters = [
