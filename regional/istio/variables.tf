@@ -34,7 +34,7 @@ variable "gateway_memory_requests" {
 variable "gateway_memory_limits" {
   description = "The memory limit for the Istio gateway"
   type        = string
-  default     = "128Mi"
+  default     = "64Mi"
 }
 
 variable "pilot_autoscale_min" {
@@ -52,7 +52,7 @@ variable "pilot_cpu_requests" {
 variable "pilot_cpu_limits" {
   description = "The CPU limit for the Istio pilot"
   type        = string
-  default     = "100m"
+  default     = "50m"
 }
 
 variable "pilot_memory_requests" {
@@ -64,7 +64,7 @@ variable "pilot_memory_requests" {
 variable "pilot_memory_limits" {
   description = "The memory limit for the Istio pilot"
   type        = string
-  default     = "128Mi"
+  default     = "64Mi"
 }
 
 variable "pilot_replica_count" {
@@ -82,7 +82,7 @@ variable "proxy_cpu_requests" {
 variable "proxy_cpu_limits" {
   description = "The CPU limit for the Istio proxy"
   type        = string
-  default     = "100m"
+  default     = "50m"
 }
 
 variable "proxy_memory_requests" {
@@ -94,7 +94,7 @@ variable "proxy_memory_requests" {
 variable "proxy_memory_limits" {
   description = "The memory limit for the Istio proxy"
   type        = string
-  default     = "128Mi"
+  default     = "64Mi"
 }
 
 variable "istio_remote_injection_path" {
