@@ -57,7 +57,7 @@ module "kubernetes_datadog_operator_manifests" {
   api_key                 = var.datadog_api_key
   app_key                 = var.datadog_app_key
   environment             = var.environment
-  kubernetes_cluster_name = local.regional.container_cluster_name
+  kubernetes_cluster_name = local.regional.kubernetes_engine_container_cluster_name
   region                  = var.region
   registry                = "us-docker.pkg.dev/plt-lz-services-tf79-prod/plt-docker-virtual"
   team                    = "platform-google-cloud-kubernetes"

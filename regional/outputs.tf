@@ -12,6 +12,11 @@ output "kubernetes_engine_container_cluster_endpoint" {
   value       = module.kubernetes_engine_regional.container_cluster_endpoint
 }
 
+output "kubernetes_engine_container_cluster_name" {
+  description = "The name of the cluster, unique within the project and location"
+  value       = module.kubernetes_engine_regional.container_cluster_name
+}
+
 output "kubernetes_engine_service_account_gke_operations_email" {
   description = "The email address of the Kubernetes minimum privilege service account for the cluster"
   value       = module.kubernetes_engine_regional.service_account_gke_operations_email
