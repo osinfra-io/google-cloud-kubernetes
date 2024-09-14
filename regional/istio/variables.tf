@@ -4,19 +4,19 @@ variable "environment" {
   default     = "sandbox"
 }
 
-variable "istio_gateway_cpu_requests" {
+variable "gateway_cpu_requests" {
   description = "The CPU request for the Istio gateway"
   type        = string
   default     = "25m"
 }
 
-variable "istio_gateway_cpu_limits" {
+variable "gateway_cpu_limits" {
   description = "The CPU limit for the Istio gateway"
   type        = string
   default     = "100m"
 }
 
-variable "istio_gateway_dns" {
+variable "gateway_dns" {
   description = "Map of attributes for the Istio gateway domain names, it is also used to create the managed certificate resource"
   type = map(object({
     managed_zone = string
@@ -25,73 +25,73 @@ variable "istio_gateway_dns" {
   default = {}
 }
 
-variable "istio_gateway_memory_requests" {
+variable "gateway_memory_requests" {
   description = "The memory request for the Istio gateway"
   type        = string
   default     = "32Mi"
 }
 
-variable "istio_gateway_memory_limits" {
+variable "gateway_memory_limits" {
   description = "The memory limit for the Istio gateway"
   type        = string
   default     = "128Mi"
 }
 
-variable "istio_pilot_autoscale_min" {
+variable "pilot_autoscale_min" {
   description = "The minimum number of Istio pilot replicas to run"
   type        = number
   default     = 1
 }
 
-variable "istio_pilot_cpu_requests" {
+variable "pilot_cpu_requests" {
   description = "The CPU request for the Istio pilot"
   type        = string
   default     = "25m"
 }
 
-variable "istio_pilot_cpu_limits" {
+variable "pilot_cpu_limits" {
   description = "The CPU limit for the Istio pilot"
   type        = string
   default     = "100m"
 }
 
-variable "istio_pilot_memory_requests" {
+variable "pilot_memory_requests" {
   description = "The memory request for the Istio pilot"
   type        = string
   default     = "32Mi"
 }
 
-variable "istio_pilot_memory_limits" {
+variable "pilot_memory_limits" {
   description = "The memory limit for the Istio pilot"
   type        = string
   default     = "128Mi"
 }
 
-variable "istio_pilot_replica_count" {
+variable "pilot_replica_count" {
   description = "The number of Istio pilot replicas to run"
   type        = number
   default     = 1
 }
 
-variable "istio_proxy_cpu_requests" {
+variable "proxy_cpu_requests" {
   description = "The CPU request for the Istio proxy"
   type        = string
   default     = "25m"
 }
 
-variable "istio_proxy_cpu_limits" {
+variable "proxy_cpu_limits" {
   description = "The CPU limit for the Istio proxy"
   type        = string
   default     = "100m"
 }
 
-variable "istio_proxy_memory_requests" {
+variable "proxy_memory_requests" {
   description = "The memory request for the Istio proxy"
   type        = string
   default     = "32Mi"
 }
 
-variable "istio_proxy_memory_limits" {
+variable "proxy_memory_limits" {
   description = "The memory limit for the Istio proxy"
   type        = string
   default     = "128Mi"

@@ -6,9 +6,9 @@ output "container_deployer_service_accounts" {
   value       = module.kubernetes_engine.container_deployer_service_accounts
 }
 
-output "istio_gateway_mci_global_address" {
+output "gateway_mci_global_address" {
   description = "The IP address for the Istio Gateway multi-cluster ingress"
-  value       = module.kubernetes_istio.istio_gateway_mci_global_address
+  value       = module.kubernetes_istio.gateway_mci_global_address
 }
 
 output "istio_gateway_mci_ssl_certificate_name" {

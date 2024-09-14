@@ -57,7 +57,7 @@ No providers.
 |------|--------|---------|
 | <a name="module_datadog"></a> [datadog](#module\_datadog) | github.com/osinfra-io/terraform-datadog-google-integration | v0.2.1 |
 | <a name="module_kubernetes_engine"></a> [kubernetes\_engine](#module\_kubernetes\_engine) | github.com/osinfra-io/terraform-google-kubernetes-engine | main |
-| <a name="module_kubernetes_istio"></a> [kubernetes\_istio](#module\_kubernetes\_istio) | github.com/osinfra-io/terraform-kubernetes-istio | main |
+| <a name="module_kubernetes_istio"></a> [kubernetes\_istio](#module\_kubernetes\_istio) | github.com/osinfra-io/terraform-kubernetes-istio | lables |
 | <a name="module_project"></a> [project](#module\_project) | github.com/osinfra-io/terraform-google-project | v0.3.1 |
 
 #### Resources
@@ -75,7 +75,7 @@ No resources.
 | <a name="input_enable_datadog"></a> [enable\_datadog](#input\_enable\_datadog) | Enable Datadog integration | `bool` | `false` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment for example: `sandbox`, `non-production`, `production` | `string` | `"sandbox"` | no |
 | <a name="input_folder_id"></a> [folder\_id](#input\_folder\_id) | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
-| <a name="input_istio_gateway_dns"></a> [istio\_gateway\_dns](#input\_istio\_gateway\_dns) | Map of attributes for the Istio gateway domain names, it is also used to create the managed certificate resource | <pre>map(object({<br>    managed_zone = string<br>    project      = string<br>  }))</pre> | `{}` | no |
+| <a name="input_gateway_dns"></a> [gateway\_dns](#input\_gateway\_dns) | Map of attributes for the Istio gateway domain names, it is also used to create the managed certificate resource | <pre>map(object({<br>    managed_zone = string<br>    project      = string<br>  }))</pre> | `{}` | no |
 | <a name="input_monthly_budget_amount"></a> [monthly\_budget\_amount](#input\_monthly\_budget\_amount) | The monthly budget amount in USD to set for the project | `number` | `5` | no |
 | <a name="input_namespaces"></a> [namespaces](#input\_namespaces) | A map of namespaces with the Google service account used for the namespace administrator and whether Istio injection is enabled or disabled | <pre>map(object({<br>    google_service_account = string<br>    istio_injection        = optional(string, "disabled")<br>  }))</pre> | `{}` | no |
 
@@ -84,7 +84,7 @@ No resources.
 | Name | Description |
 |------|-------------|
 | <a name="output_container_deployer_service_accounts"></a> [container\_deployer\_service\_accounts](#output\_container\_deployer\_service\_accounts) | The service accounts for the container deployer |
-| <a name="output_istio_gateway_mci_global_address"></a> [istio\_gateway\_mci\_global\_address](#output\_istio\_gateway\_mci\_global\_address) | The IP address for the Istio Gateway multi-cluster ingress |
+| <a name="output_gateway_mci_global_address"></a> [gateway\_mci\_global\_address](#output\_gateway\_mci\_global\_address) | The IP address for the Istio Gateway multi-cluster ingress |
 | <a name="output_istio_gateway_mci_ssl_certificate_name"></a> [istio\_gateway\_mci\_ssl\_certificate\_name](#output\_istio\_gateway\_mci\_ssl\_certificate\_name) | The name of the SSL certificate for the Istio Gateway multi-cluster ingress |
 | <a name="output_project_id"></a> [project\_id](#output\_project\_id) | The project ID |
 | <a name="output_project_number"></a> [project\_number](#output\_project\_number) | The project number |

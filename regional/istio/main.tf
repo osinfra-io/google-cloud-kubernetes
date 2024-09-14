@@ -84,23 +84,23 @@ data "terraform_remote_state" "regional" {
 module "kubernetes_istio" {
   source = "github.com/osinfra-io/terraform-kubernetes-istio//regional?ref=lables"
 
-  artifact_registry                = "us-docker.pkg.dev/plt-lz-services-tf79-prod/plt-docker-virtual"
-  cluster_prefix                   = "plt"
-  enable_istio_gateway             = true
-  environment                      = var.environment
-  istio_gateway_dns                = var.istio_gateway_dns
-  istio_gateway_mci_global_address = local.main.istio_gateway_mci_global_address
-  istio_gateway_memory_limits      = var.istio_gateway_memory_limits
-  istio_gateway_memory_requests    = var.istio_gateway_memory_requests
-  istio_pilot_cpu_limits           = var.istio_pilot_cpu_limits
-  istio_pilot_cpu_requests         = var.istio_pilot_cpu_requests
-  istio_pilot_memory_limits        = var.istio_pilot_memory_limits
-  istio_pilot_memory_requests      = var.istio_pilot_memory_requests
-  istio_proxy_cpu_limits           = var.istio_proxy_cpu_limits
-  istio_proxy_cpu_requests         = var.istio_proxy_cpu_requests
-  istio_proxy_memory_limits        = var.istio_proxy_memory_limits
-  istio_proxy_memory_requests      = var.istio_proxy_memory_requests
-  labels                           = local.labels
+  artifact_registry          = "us-docker.pkg.dev/plt-lz-services-tf79-prod/plt-docker-virtual"
+  cluster_prefix             = "plt"
+  enable_istio_gateway       = true
+  environment                = var.environment
+  gateway_dns                = var.gateway_dns
+  gateway_mci_global_address = local.main.gateway_mci_global_address
+  gateway_memory_limits      = var.gateway_memory_limits
+  gateway_memory_requests    = var.gateway_memory_requests
+  pilot_cpu_limits           = var.pilot_cpu_limits
+  pilot_cpu_requests         = var.pilot_cpu_requests
+  pilot_memory_limits        = var.pilot_memory_limits
+  pilot_memory_requests      = var.pilot_memory_requests
+  proxy_cpu_limits           = var.proxy_cpu_limits
+  proxy_cpu_requests         = var.proxy_cpu_requests
+  proxy_memory_limits        = var.proxy_memory_limits
+  proxy_memory_requests      = var.proxy_memory_requests
+  labels                     = local.labels
 
   multi_cluster_service_clusters = [
     {

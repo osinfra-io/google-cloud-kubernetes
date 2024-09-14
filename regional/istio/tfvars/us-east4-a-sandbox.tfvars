@@ -1,6 +1,6 @@
 istio_external_istiod = true
 
-istio_gateway_dns = {
+gateway_dns = {
   "us-east4-a.sb.gcp.osinfra.io" = {
     managed_zone = "sb-gcp-osinfra-io"
     project      = "plt-lz-networking-tfd8-sb"
