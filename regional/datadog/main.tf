@@ -75,6 +75,6 @@ module "kubernetes_datadog_operator" {
   api_key                 = var.datadog_api_key
   app_key                 = var.datadog_app_key
   environment             = var.environment
-  kubernetes_cluster_name = local.regional.kubernetes_cluster_name
+  kubernetes_cluster_name = local.regional.kubernetes_engine_cluster_name
   region                  = var.region
 }
