@@ -88,6 +88,8 @@ module "kubernetes_istio" {
   cluster_prefix             = "plt"
   enable_istio_gateway       = true
   environment                = var.environment
+  gateway_cpu_limits         = var.gateway_cpu_limits
+  gateway_cpu_requests       = var.gateway_cpu_requests
   gateway_dns                = var.gateway_dns
   gateway_mci_global_address = local.main.kubernetes_istio_gateway_mci_global_address
   gateway_memory_limits      = var.gateway_memory_limits
