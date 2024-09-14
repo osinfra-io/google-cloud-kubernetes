@@ -82,26 +82,18 @@ data "terraform_remote_state" "regional" {
 # https://github.com/osinfra-io/terraform-kubernetes-istio
 
 module "kubernetes_istio" {
-  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional?ref=lables"
+  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional?ref=main"
 
   artifact_registry          = "us-docker.pkg.dev/plt-lz-services-tf79-prod/plt-docker-virtual"
   cluster_prefix             = "plt"
   enable_istio_gateway       = true
   environment                = var.environment
-  gateway_cpu_limits         = var.gateway_cpu_limits
-  gateway_cpu_requests       = var.gateway_cpu_requests
-  gateway_dns                = var.gateway_dns
+  gateway_cpu_limits         = var.kubernetes_istio_gateway_cpu_limits
+  gateway_cpu_requests       = var.kubernetes_istio_gateway_cpu_requests
+  gateway_dns                = var.kubernetes_istio_gateway_dns
   gateway_mci_global_address = local.main.kubernetes_istio_gateway_mci_global_address
-  gateway_memory_limits      = var.gateway_memory_limits
-  gateway_memory_requests    = var.gateway_memory_requests
-  pilot_cpu_limits           = var.pilot_cpu_limits
-  pilot_cpu_requests         = var.pilot_cpu_requests
-  pilot_memory_limits        = var.pilot_memory_limits
-  pilot_memory_requests      = var.pilot_memory_requests
-  proxy_cpu_limits           = var.proxy_cpu_limits
-  proxy_cpu_requests         = var.proxy_cpu_requests
-  proxy_memory_limits        = var.proxy_memory_limits
-  proxy_memory_requests      = var.proxy_memory_requests
+  gateway_memory_limits      = var.kubernetes_istio_gateway_memory_limits
+  gateway_memory_requests    = var.kubernetes_istio_gateway_memory_requests
   labels                     = local.labels
 
   multi_cluster_service_clusters = [
@@ -113,6 +105,15 @@ module "kubernetes_istio" {
     # }
   ]
 
-  project = local.regional.project_id
-  region  = var.region
+  pilot_cpu_limits      = var.kubernetes_istio_pilot_cpu_limits
+  pilot_cpu_requests    = var.kubernetes_istio_pilot_cpu_requests
+  pilot_memory_limits   = var.kubernetes_istio_pilot_memory_limits
+  pilot_memory_requests = var.kubernetes_istio_pilot_memory_requests
+  project               = local.regional.project_id
+  proxy_cpu_limits      = var.kubernetes_istio_proxy_cpu_limits
+  proxy_cpu_requests    = var.kubernetes_istio_proxy_cpu_requests
+  proxy_memory_limits   = var.kubernetes_istio_proxy_memory_limits
+  proxy_memory_requests = var.kubernetes_istio_proxy_memory_requests
+
+  region = var.region
 }

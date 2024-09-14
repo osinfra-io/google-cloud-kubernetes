@@ -1,22 +1,25 @@
+# Input Variables
+# https://www.terraform.io/language/values/variables
+
 variable "environment" {
   description = "The environment for example: `sandbox`, `non-production`, `production`"
   type        = string
   default     = "sandbox"
 }
 
-variable "gateway_cpu_requests" {
-  description = "The CPU request for the Istio gateway"
-  type        = string
-  default     = "25m"
-}
-
-variable "gateway_cpu_limits" {
+variable "kubernetes_istio_gateway_cpu_limits" {
   description = "The CPU limit for the Istio gateway"
   type        = string
   default     = "100m"
 }
 
-variable "gateway_dns" {
+variable "kubernetes_istio_gateway_cpu_requests" {
+  description = "The CPU request for the Istio gateway"
+  type        = string
+  default     = "25m"
+}
+
+variable "kubernetes_istio_gateway_dns" {
   description = "Map of attributes for the Istio gateway domain names, it is also used to create the managed certificate resource"
   type = map(object({
     managed_zone = string
@@ -25,100 +28,76 @@ variable "gateway_dns" {
   default = {}
 }
 
-variable "gateway_memory_requests" {
-  description = "The memory request for the Istio gateway"
-  type        = string
-  default     = "32Mi"
-}
-
-variable "gateway_memory_limits" {
+variable "kubernetes_istio_gateway_memory_limits" {
   description = "The memory limit for the Istio gateway"
   type        = string
   default     = "64Mi"
 }
 
-variable "pilot_autoscale_min" {
+variable "kubernetes_istio_gateway_memory_requests" {
+  description = "The memory request for the Istio gateway"
+  type        = string
+  default     = "32Mi"
+}
+
+variable "kubernetes_istio_pilot_autoscale_min" {
   description = "The minimum number of Istio pilot replicas to run"
   type        = number
   default     = 1
 }
 
-variable "pilot_cpu_requests" {
-  description = "The CPU request for the Istio pilot"
-  type        = string
-  default     = "10m"
-}
-
-variable "pilot_cpu_limits" {
+variable "kubernetes_istio_pilot_cpu_limits" {
   description = "The CPU limit for the Istio pilot"
   type        = string
   default     = "25m"
 }
 
-variable "pilot_memory_requests" {
-  description = "The memory request for the Istio pilot"
+variable "kubernetes_istio_pilot_cpu_requests" {
+  description = "The CPU request for the Istio pilot"
   type        = string
-  default     = "32Mi"
+  default     = "10m"
 }
 
-variable "pilot_memory_limits" {
+variable "kubernetes_istio_pilot_memory_limits" {
   description = "The memory limit for the Istio pilot"
   type        = string
   default     = "64Mi"
 }
 
-variable "pilot_replica_count" {
+variable "kubernetes_istio_pilot_memory_requests" {
+  description = "The memory request for the Istio pilot"
+  type        = string
+  default     = "32Mi"
+}
+
+variable "kubernetes_istio_pilot_replica_count" {
   description = "The number of Istio pilot replicas to run"
   type        = number
   default     = 1
 }
 
-variable "proxy_cpu_requests" {
-  description = "The CPU request for the Istio proxy"
-  type        = string
-  default     = "10m"
-}
-
-variable "proxy_cpu_limits" {
+variable "kubernetes_istio_proxy_cpu_limits" {
   description = "The CPU limit for the Istio proxy"
   type        = string
   default     = "25m"
 }
 
-variable "proxy_memory_requests" {
-  description = "The memory request for the Istio proxy"
+variable "kubernetes_istio_proxy_cpu_requests" {
+  description = "The CPU request for the Istio proxy"
   type        = string
-  default     = "32Mi"
+  default     = "10m"
 }
 
-variable "proxy_memory_limits" {
+variable "kubernetes_istio_proxy_memory_limits" {
   description = "The memory limit for the Istio proxy"
   type        = string
   default     = "64Mi"
 }
 
-variable "istio_remote_injection_path" {
-  description = "The sidecar injector mutating webhook configuration path value for the clientConfig.service field"
+variable "kubernetes_istio_proxy_memory_requests" {
+  description = "The memory request for the Istio proxy"
   type        = string
-  default     = "/inject"
-}
-
-variable "istio_remote_injection_url" {
-  description = "The sidecar injector mutating webhook configuration clientConfig.url value"
-  type        = string
-  default     = ""
-}
-
-variable "istiod_injection_url" {
-  description = "The sidecar injector mutating webhook configuration clientConfig.url value"
-  type        = string
-  default     = ""
-}
-
-variable "istiod_injection_path" {
-  description = "The sidecar injector mutating webhook configuration path value for the clientConfig.service field"
-  type        = string
-  default     = "/inject"
+  default     = "32Mi"
 }
 
 variable "region" {
