@@ -21,9 +21,9 @@ terraform {
 
 provider "kubernetes" {
   cluster_ca_certificate = base64decode(
-    local.regional.container_cluster_ca_certificate
+    local.regional.kubernetes_engine_container_cluster_ca_certificate
   )
-  host  = "https://${local.regional.container_cluster_endpoint}"
+  host  = "https://${local.regional.kubernetes_engine_container_cluster_endpoint}"
   token = data.google_client_config.current.access_token
 }
 
