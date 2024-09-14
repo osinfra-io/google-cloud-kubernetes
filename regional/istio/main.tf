@@ -89,7 +89,7 @@ module "kubernetes_istio" {
   enable_istio_gateway       = true
   environment                = var.environment
   gateway_dns                = var.gateway_dns
-  gateway_mci_global_address = local.main.gateway_mci_global_address
+  gateway_mci_global_address = local.main.kubernetes_istio_gateway_mci_global_address
   gateway_memory_limits      = var.gateway_memory_limits
   gateway_memory_requests    = var.gateway_memory_requests
   pilot_cpu_limits           = var.pilot_cpu_limits

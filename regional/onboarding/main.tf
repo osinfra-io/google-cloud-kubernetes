@@ -66,5 +66,5 @@ module "kubernetes_engine_onboarding" {
 
   namespaces                               = var.namespaces
   project                                  = local.regional.project_id
-  workload_identity_service_account_emails = data.terraform_remote_state.main.outputs.workload_identity_service_account_emails
+  workload_identity_service_account_emails = local.main.kubernetes_engine_workload_identity_service_account_emails
 }
