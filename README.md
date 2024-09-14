@@ -83,12 +83,12 @@ No resources.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_container_deployer_service_accounts"></a> [container\_deployer\_service\_accounts](#output\_container\_deployer\_service\_accounts) | The service accounts for the container deployer |
-| <a name="output_gateway_mci_global_address"></a> [gateway\_mci\_global\_address](#output\_gateway\_mci\_global\_address) | The IP address for the Istio Gateway multi-cluster ingress |
-| <a name="output_istio_gateway_mci_ssl_certificate_name"></a> [istio\_gateway\_mci\_ssl\_certificate\_name](#output\_istio\_gateway\_mci\_ssl\_certificate\_name) | The name of the SSL certificate for the Istio Gateway multi-cluster ingress |
+| <a name="output_kubernetes_engine_container_deployer_service_accounts"></a> [kubernetes\_engine\_container\_deployer\_service\_accounts](#output\_kubernetes\_engine\_container\_deployer\_service\_accounts) | The service accounts for the container deployer |
+| <a name="output_kubernetes_engine_workload_identity_service_account_emails"></a> [kubernetes\_engine\_workload\_identity\_service\_account\_emails](#output\_kubernetes\_engine\_workload\_identity\_service\_account\_emails) | n/a |
+| <a name="output_kubernetes_istio_gateway_mci_global_address"></a> [kubernetes\_istio\_gateway\_mci\_global\_address](#output\_kubernetes\_istio\_gateway\_mci\_global\_address) | The IP address for the Istio Gateway multi-cluster ingress |
+| <a name="output_kubernetes_istio_gateway_mci_ssl_certificate_name"></a> [kubernetes\_istio\_gateway\_mci\_ssl\_certificate\_name](#output\_kubernetes\_istio\_gateway\_mci\_ssl\_certificate\_name) | The name of the SSL certificate for the Istio Gateway multi-cluster ingress |
 | <a name="output_project_id"></a> [project\_id](#output\_project\_id) | The project ID |
 | <a name="output_project_number"></a> [project\_number](#output\_project\_number) | The project number |
-| <a name="output_workload_identity_service_account_emails"></a> [workload\_identity\_service\_account\_emails](#output\_workload\_identity\_service\_account\_emails) | n/a |
 <!-- END_TF_DOCS -->
 
 ### 📓 Terraform Regional Documentation
