@@ -41,8 +41,8 @@ No requirements.
 | <a name="input_istiod_injection_path"></a> [istiod\_injection\_path](#input\_istiod\_injection\_path) | The sidecar injector mutating webhook configuration path value for the clientConfig.service field | `string` | `"/inject"` | no |
 | <a name="input_istiod_injection_url"></a> [istiod\_injection\_url](#input\_istiod\_injection\_url) | The sidecar injector mutating webhook configuration clientConfig.url value | `string` | `""` | no |
 | <a name="input_pilot_autoscale_min"></a> [pilot\_autoscale\_min](#input\_pilot\_autoscale\_min) | The minimum number of Istio pilot replicas to run | `number` | `1` | no |
-| <a name="input_pilot_cpu_limits"></a> [pilot\_cpu\_limits](#input\_pilot\_cpu\_limits) | The CPU limit for the Istio pilot | `string` | `"50m"` | no |
-| <a name="input_pilot_cpu_requests"></a> [pilot\_cpu\_requests](#input\_pilot\_cpu\_requests) | The CPU request for the Istio pilot | `string` | `"25m"` | no |
+| <a name="input_pilot_cpu_limits"></a> [pilot\_cpu\_limits](#input\_pilot\_cpu\_limits) | The CPU limit for the Istio pilot | `string` | `"25m"` | no |
+| <a name="input_pilot_cpu_requests"></a> [pilot\_cpu\_requests](#input\_pilot\_cpu\_requests) | The CPU request for the Istio pilot | `string` | `"10m"` | no |
 | <a name="input_pilot_memory_limits"></a> [pilot\_memory\_limits](#input\_pilot\_memory\_limits) | The memory limit for the Istio pilot | `string` | `"64Mi"` | no |
 | <a name="input_pilot_memory_requests"></a> [pilot\_memory\_requests](#input\_pilot\_memory\_requests) | The memory request for the Istio pilot | `string` | `"32Mi"` | no |
 | <a name="input_pilot_replica_count"></a> [pilot\_replica\_count](#input\_pilot\_replica\_count) | The number of Istio pilot replicas to run | `number` | `1` | no |
