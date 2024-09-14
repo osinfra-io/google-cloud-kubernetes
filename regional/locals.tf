@@ -11,4 +11,6 @@ locals {
     platform    = "google-cloud-kubernetes"
     team        = "platform-google-cloud-kubernetes"
   }
+
+  subnet = "plt-${var.region}-${var.zone}"
 }

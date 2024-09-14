@@ -36,13 +36,13 @@ module "kubernetes_engine_regional" {
   cluster_prefix               = "plt"
   cluster_secondary_range_name = "k8s-secondary-pods"
   enable_deletion_protection   = false
-  enable_gke_hub_host          = var.enable_gke_hub_host
-  gke_hub_memberships          = var.gke_hub_memberships
+  enable_gke_hub_host          = var.kubernetes_engine_enable_gke_hub_host
+  gke_hub_memberships          = var.kubernetes_engine_gke_hub_memberships
   labels                       = local.labels
   network                      = "standard-shared"
-  node_location                = var.node_location
-  node_pools                   = var.node_pools
-  master_ipv4_cidr_block       = var.master_ipv4_cidr_block
+  node_location                = var.kubernetes_engine_node_location
+  node_pools                   = var.kubernetes_engine_node_pools
+  master_ipv4_cidr_block       = var.kubernetes_engine_master_ipv4_cidr_block
   project                      = local.main.project_id
 
   resource_labels = {
@@ -55,6 +55,6 @@ module "kubernetes_engine_regional" {
 
   region                        = var.region
   services_secondary_range_name = "k8s-secondary-services"
-  subnet                        = "plt-${var.region}-${var.zone}"
-  vpc_host_project_id           = var.vpc_host_project_id
+  subnet                        = local.subnet
+  vpc_host_project_id           = var.kubernetes_engine_vpc_host_project_id
 }

@@ -1,12 +1,10 @@
-environment   = "non-production"
-region        = "us-east4"
-remote_bucket = "plt-k8s-3bfe-nonprod"
-
-gateway_dns = {
+environment = "non-production"
+kubernetes_istio_gateway_dns = {
   "us-east4-c.nonprod.gcp.osinfra.io" = {
     managed_zone = "nonprod-gcp-osinfra-io"
     project      = "plt-lz-networking-tf81-nonprod"
   }
 }
-
-zone = "c"
+region        = "us-east4"
+remote_bucket = "plt-k8s-3bfe-nonprod"
+zone          = "c"

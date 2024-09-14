@@ -1,7 +1,4 @@
-istio_gateway_cpu_request = "50m"
-istio_gateway_cpu_limit   = "1000m"
-
-gateway_dns = {
+kubernetes_istio_gateway_dns = {
   "us-east4-b.sb.gcp.osinfra.io" = {
     managed_zone = "sb-gcp-osinfra-io"
     project      = "plt-lz-networking-tfd8-sb"
