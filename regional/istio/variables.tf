@@ -76,13 +76,13 @@ variable "pilot_replica_count" {
 variable "proxy_cpu_requests" {
   description = "The CPU request for the Istio proxy"
   type        = string
-  default     = "25m"
+  default     = "10m"
 }
 
 variable "proxy_cpu_limits" {
   description = "The CPU limit for the Istio proxy"
   type        = string
-  default     = "50m"
+  default     = "25m"
 }
 
 variable "proxy_memory_requests" {
