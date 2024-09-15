@@ -37,7 +37,7 @@ module "datadog" {
   is_cspm_enabled                    = true
   is_security_command_center_enabled = true
   labels                             = local.labels
-  project                            = module.project.project_id
+  project                            = module.project.id
 }
 
 # Google Project Module (osinfra.io)
@@ -83,7 +83,7 @@ module "kubernetes_engine" {
   source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=main"
 
   namespaces = var.kubernetes_engine_namespaces
-  project    = module.project.project_id
+  project    = module.project.id
 }
 
 # Kubernetes Istio Module (osinfra.io)
@@ -94,5 +94,5 @@ module "kubernetes_istio" {
 
   gateway_dns = var.kubernetes_istio_gateway_dns
   labels      = local.labels
-  project     = module.project.project_id
+  project     = module.project.id
 }

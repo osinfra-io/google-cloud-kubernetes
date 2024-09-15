@@ -23,10 +23,10 @@ output "kubernetes_istio_gateway_mci_ssl_certificate_name" {
 
 output "project_id" {
   description = "The project ID"
-  value       = module.project.project_id
+  value       = module.project.id
 }
 
 output "project_number" {
   description = "The project number"
-  value       = module.project.project_number
+  value       = module.project.number
 }
