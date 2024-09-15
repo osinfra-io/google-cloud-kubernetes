@@ -21,9 +21,9 @@ terraform {
 
 provider "kubernetes" {
   cluster_ca_certificate = base64decode(
-    local.regional.container_cluster_ca_certificate
+    local.regional.kubernetes_engine_container_cluster_ca_certificate
   )
-  host  = "https://${local.regional.container_cluster_endpoint}"
+  host  = "https://${local.regional.kubernetes_engine_container_cluster_endpoint}"
   token = data.google_client_config.current.access_token
 }
 
@@ -64,7 +64,7 @@ data "terraform_remote_state" "regional" {
 module "kubernetes_engine_onboarding" {
   source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding?ref=main"
 
-  namespaces                               = var.namespaces
+  namespaces                               = var.kubernetes_engine_namespaces
   project                                  = local.regional.project_id
-  workload_identity_service_account_emails = data.terraform_remote_state.main.outputs.workload_identity_service_account_emails
+  workload_identity_service_account_emails = local.main.kubernetes_engine_workload_identity_service_account_emails
 }

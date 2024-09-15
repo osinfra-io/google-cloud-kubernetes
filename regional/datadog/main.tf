@@ -27,10 +27,10 @@ provider "helm" {
   kubernetes {
 
     cluster_ca_certificate = base64decode(
-      local.regional.container_cluster_ca_certificate
+      local.regional.kubernetes_engine_container_cluster_ca_certificate
     )
 
-    host  = local.regional.container_cluster_endpoint
+    host  = local.regional.kubernetes_engine_container_cluster_endpoint
     token = data.google_client_config.current.access_token
   }
 }
@@ -40,9 +40,9 @@ provider "helm" {
 
 provider "kubernetes" {
   cluster_ca_certificate = base64decode(
-    local.regional.container_cluster_ca_certificate
+    local.regional.kubernetes_engine_container_cluster_ca_certificate
   )
-  host  = "https://${local.regional.container_cluster_endpoint}"
+  host  = "https://${local.regional.kubernetes_engine_container_cluster_endpoint}"
   token = data.google_client_config.current.access_token
 }
 
@@ -72,9 +72,9 @@ data "terraform_remote_state" "regional" {
 module "kubernetes_datadog_operator" {
   source = "github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional?ref=main"
 
-  cluster_prefix  = "services"
-  datadog_api_key = var.datadog_api_key
-  datadog_app_key = var.datadog_app_key
-  environment     = var.environment
-  region          = var.region
+  api_key                 = var.datadog_api_key
+  app_key                 = var.datadog_app_key
+  environment             = var.environment
+  kubernetes_cluster_name = local.regional.kubernetes_engine_container_cluster_name
+  region                  = var.region
 }

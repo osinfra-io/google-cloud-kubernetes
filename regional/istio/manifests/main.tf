@@ -22,9 +22,9 @@ terraform {
 
 provider "kubernetes" {
   cluster_ca_certificate = base64decode(
-    local.regional.container_cluster_ca_certificate
+    local.regional.kubernetes_engine_container_cluster_ca_certificate
   )
-  host  = "https://${local.regional.container_cluster_endpoint}"
+  host  = "https://${local.regional.kubernetes_engine_container_cluster_endpoint}"
   token = data.google_client_config.current.access_token
 }
 
@@ -54,10 +54,10 @@ data "terraform_remote_state" "regional" {
 module "kubernetes_istio_manifests" {
   source = "github.com/osinfra-io/terraform-kubernetes-istio//regional/manifests?ref=main"
 
-  common_gke_info_istio_virtual_services = var.common_gke_info_istio_virtual_services
-  common_istio_virtual_services          = var.common_istio_virtual_services
-  gke_info_istio_virtual_services        = var.gke_info_istio_virtual_services
-  istio_failover_from_region             = var.istio_failover_from_region
-  istio_failover_to_region               = var.istio_failover_to_region
-  istio_virtual_services                 = var.istio_virtual_services
+  common_gke_info_virtual_services = var.kubernetes_istio_common_gke_info_virtual_services
+  common_virtual_services          = var.kubernetes_istio_common_virtual_services
+  gke_info_virtual_services        = var.kubernetes_istio_gke_info_virtual_services
+  failover_from_region             = var.kubernetes_istio_failover_from_region
+  failover_to_region               = var.kubernetes_istio_failover_to_region
+  virtual_services                 = var.kubernetes_istio_virtual_services
 }

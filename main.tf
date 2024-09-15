@@ -31,7 +31,7 @@ provider "datadog" {
 
 module "datadog" {
   source = "github.com/osinfra-io/terraform-datadog-google-integration?ref=v0.2.1"
-  count  = var.enable_datadog ? 1 : 0
+  count  = var.datadog_enable ? 1 : 0
 
   api_key                            = var.datadog_api_key
   is_cspm_enabled                    = true
@@ -46,13 +46,13 @@ module "datadog" {
 module "project" {
   source = "github.com/osinfra-io/terraform-google-project?ref=v0.3.1"
 
-  billing_account                 = var.billing_account
-  cis_2_2_logging_sink_project_id = var.cis_2_2_logging_sink_project_id
+  billing_account                 = var.project_billing_account
+  cis_2_2_logging_sink_project_id = var.project_cis_2_2_logging_sink_project_id
   description                     = "k8s"
   environment                     = local.env
-  folder_id                       = var.folder_id
+  folder_id                       = var.project_folder_id
   labels                          = local.labels
-  monthly_budget_amount           = var.monthly_budget_amount
+  monthly_budget_amount           = var.project_monthly_budget_amount
   prefix                          = "plt"
 
   services = [
@@ -82,7 +82,7 @@ module "project" {
 module "kubernetes_engine" {
   source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=main"
 
-  namespaces = var.namespaces
+  namespaces = var.kubernetes_engine_namespaces
   project    = module.project.project_id
 }
 
@@ -92,7 +92,7 @@ module "kubernetes_engine" {
 module "kubernetes_istio" {
   source = "github.com/osinfra-io/terraform-kubernetes-istio?ref=main"
 
-  istio_gateway_dns = var.istio_gateway_dns
-  labels            = local.labels
-  project           = module.project.project_id
+  gateway_dns = var.kubernetes_istio_gateway_dns
+  labels      = local.labels
+  project     = module.project.project_id
 }

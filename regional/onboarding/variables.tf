@@ -1,10 +1,13 @@
+# Input Variables
+# https://www.terraform.io/language/values/variables
+
 variable "environment" {
   description = "The environment for example: `sandbox`, `non-production`, `production`"
   type        = string
   default     = "sandbox"
 }
 
-variable "namespaces" {
+variable "kubernetes_engine_namespaces" {
   description = "Map of namespaces and service accounts to onboard to GKE"
   type        = map(any)
 }

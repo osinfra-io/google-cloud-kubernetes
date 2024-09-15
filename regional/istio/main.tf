@@ -28,10 +28,10 @@ provider "helm" {
   kubernetes {
 
     cluster_ca_certificate = base64decode(
-      local.regional.container_cluster_ca_certificate
+      local.regional.kubernetes_engine_container_cluster_ca_certificate
     )
 
-    host  = local.regional.container_cluster_endpoint
+    host  = local.regional.kubernetes_engine_container_cluster_endpoint
     token = data.google_client_config.current.access_token
   }
 }
@@ -41,9 +41,9 @@ provider "helm" {
 
 provider "kubernetes" {
   cluster_ca_certificate = base64decode(
-    local.regional.container_cluster_ca_certificate
+    local.regional.kubernetes_engine_container_cluster_ca_certificate
   )
-  host  = "https://${local.regional.container_cluster_endpoint}"
+  host  = "https://${local.regional.kubernetes_engine_container_cluster_endpoint}"
   token = data.google_client_config.current.access_token
 }
 
@@ -84,33 +84,36 @@ data "terraform_remote_state" "regional" {
 module "kubernetes_istio" {
   source = "github.com/osinfra-io/terraform-kubernetes-istio//regional?ref=main"
 
-  artifact_registry                = "us-docker.pkg.dev/plt-lz-services-tf79-prod/platform-docker-virtual"
-  cluster_prefix                   = "services"
-  enable_istio_gateway             = true
-  environment                      = var.environment
-  istio_gateway_dns                = var.istio_gateway_dns
-  istio_gateway_mci_global_address = local.main.istio_gateway_mci_global_address
-  istio_gateway_memory_request     = var.istio_gateway_memory_request
-  istio_gateway_memory_limit       = var.istio_gateway_memory_limit
-  istio_pilot_cpu_request          = var.istio_pilot_cpu_request
-  istio_pilot_cpu_limit            = var.istio_pilot_cpu_limit
-  istio_pilot_memory_request       = var.istio_pilot_memory_request
-  istio_pilot_memory_limit         = var.istio_pilot_memory_limit
-  istio_proxy_cpu_request          = var.istio_proxy_cpu_request
-  istio_proxy_cpu_limit            = var.istio_proxy_cpu_limit
-  istio_proxy_memory_request       = var.istio_proxy_memory_request
-  istio_proxy_memory_limit         = var.istio_proxy_memory_limit
-  labels                           = local.labels
+  artifact_registry          = "us-docker.pkg.dev/plt-lz-services-tf79-prod/plt-docker-virtual"
+  cluster_prefix             = "plt"
+  enable_istio_gateway       = true
+  environment                = var.environment
+  gateway_cpu_limits         = var.kubernetes_istio_gateway_cpu_limits
+  gateway_cpu_requests       = var.kubernetes_istio_gateway_cpu_requests
+  gateway_dns                = var.kubernetes_istio_gateway_dns
+  gateway_mci_global_address = local.main.kubernetes_istio_gateway_mci_global_address
+  gateway_memory_limits      = var.kubernetes_istio_gateway_memory_limits
+  gateway_memory_requests    = var.kubernetes_istio_gateway_memory_requests
+  labels                     = local.labels
 
   multi_cluster_service_clusters = [
     {
-      "link" = "us-east1/services-us-east1-b"
+      "link" = "us-east1/plt-us-east1-b"
     },
     # {
-    #   "link" = "us-east4/services-us-east4-a"
+    #   "link" = "us-east4/plt-us-east4-a"
     # }
   ]
 
-  project = local.regional.project_id
-  region  = var.region
+  pilot_cpu_limits      = var.kubernetes_istio_pilot_cpu_limits
+  pilot_cpu_requests    = var.kubernetes_istio_pilot_cpu_requests
+  pilot_memory_limits   = var.kubernetes_istio_pilot_memory_limits
+  pilot_memory_requests = var.kubernetes_istio_pilot_memory_requests
+  project               = local.regional.project_id
+  proxy_cpu_limits      = var.kubernetes_istio_proxy_cpu_limits
+  proxy_cpu_requests    = var.kubernetes_istio_proxy_cpu_requests
+  proxy_memory_limits   = var.kubernetes_istio_proxy_memory_limits
+  proxy_memory_requests = var.kubernetes_istio_proxy_memory_requests
+
+  region = var.region
 }

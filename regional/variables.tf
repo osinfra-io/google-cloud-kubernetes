@@ -1,16 +1,19 @@
+# Input Variables
+# https://www.terraform.io/language/values/variables
+
 variable "environment" {
   description = "The environment for example: `sandbox`, `non-production`, `production`"
   type        = string
   default     = "sandbox"
 }
 
-variable "enable_gke_hub_host" {
+variable "kubernetes_engine_enable_gke_hub_host" {
   description = "Whether or not to enable GKE Hub Host"
   type        = bool
   default     = false
 }
 
-variable "gke_hub_memberships" {
+variable "kubernetes_engine_gke_hub_memberships" {
   description = "The map of GKE Hub Memberships to create"
   type = map(object({
     cluster_id = string
@@ -18,17 +21,17 @@ variable "gke_hub_memberships" {
   default = {}
 }
 
-variable "master_ipv4_cidr_block" {
+variable "kubernetes_engine_master_ipv4_cidr_block" {
   description = "The IP range in CIDR notation to use for the hosted master network"
   type        = string
 }
 
-variable "node_location" {
+variable "kubernetes_engine_node_location" {
   description = "The zone to deploy the nodes to"
   type        = string
 }
 
-variable "node_pools" {
+variable "kubernetes_engine_node_pools" {
   description = "The node pools to create in the cluster"
   type = map(object({
     auto_repair                              = optional(bool)
@@ -57,6 +60,11 @@ variable "node_pools" {
   }
 }
 
+variable "kubernetes_engine_vpc_host_project_id" {
+  description = "Host project for the shared VPC"
+  type        = string
+}
+
 variable "region" {
   description = "The region to deploy the resources to"
   type        = string
@@ -65,11 +73,6 @@ variable "region" {
 variable "remote_bucket" {
   type        = string
   description = "The remote bucket the `terraform_remote_state` data source retrieves the state from"
-}
-
-variable "vpc_host_project_id" {
-  description = "Host project for the shared VPC"
-  type        = string
 }
 
 variable "zone" {
