@@ -118,14 +118,14 @@ jobs:
       infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east1_b_cert_manager:
-    name: "Jetstack cert-manager: us-east1-b"
+    name: "cert-manager: us-east1-b"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
     if: github.actor != 'dependabot[bot]'
     needs: us_east1_b
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east1-b-sandbox
-      github_environment: "Sandbox Jetstack cert-manager: Regional - us-east1-b"
+      github_environment: "Sandbox cert-manager: Regional - us-east1-b"
       service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
       terraform_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
       terraform_state_bucket: plt-k8s-2c8b-sb
