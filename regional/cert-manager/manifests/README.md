@@ -9,12 +9,14 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 6.3.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 6.4.0 |
 | <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_kubernetes_cert_manager_manifests"></a> [kubernetes\_cert\_manager\_manifests](#module\_kubernetes\_cert\_manager\_manifests) | github.com/osinfra-io/terraform-kubernetes-cert-manager//regional/manifests | dev |
 
 ## Resources
 
