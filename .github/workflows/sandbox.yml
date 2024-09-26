@@ -143,7 +143,6 @@ jobs:
     if: github.actor != 'dependabot[bot]'
     needs:
       - us_east1_b_cert_manager
-      - us_east1_b_istio
 
     with:
       checkout_ref: ${{ github.ref }}
