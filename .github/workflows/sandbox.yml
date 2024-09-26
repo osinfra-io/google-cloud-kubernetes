@@ -187,7 +187,7 @@ jobs:
     name: "Istio: us-east1-b"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
     if: github.actor != 'dependabot[bot]'
-    needs: us_east1_b
+    needs: us_east1_b_cert_manager
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east1-b-sandbox
