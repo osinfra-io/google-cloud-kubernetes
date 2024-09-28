@@ -4,7 +4,7 @@ kubernetes_engine_node_location          = "us-east1-b"
 
 kubernetes_engine_node_pools = {
   default-pool = {
-    machine_type   = "e2-standard-2"
+    machine_type   = "e2-standard-4"
     max_node_count = 1
     min_node_count = 0
   }
