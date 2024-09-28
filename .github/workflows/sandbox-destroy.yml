@@ -218,6 +218,7 @@ jobs:
     name: "Onboarding: us-east1-b"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
     if: github.actor != 'dependabot[bot]'
+    needs: [us_east1_b_datadog, us_east1_b_cert_manager, us_east1_b_cert_manager_istio_csr, us_east1_b_istio]
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east1-b-sandbox
@@ -237,6 +238,7 @@ jobs:
     name: "Onboarding: us-east4-a"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
     if: github.actor != 'dependabot[bot]'
+    needs: [us_east4_a_datadog, us_east4_a_cert_manager, us_east4_a_cert_manager_istio_csr, us_east4_a_istio]
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east4-a-sandbox
@@ -256,7 +258,7 @@ jobs:
     name: "Regional: us-east1-b"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
     if: github.actor != 'dependabot[bot]'
-    needs: [us_east1_b_datadog, us_east1_b_cert_manager, us_east1_b_cert_manager_istio_csr, us_east1_b_istio, us_east1_b_onboarding]
+    needs: us_east1_b_onboarding
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east1-b-sandbox
@@ -276,7 +278,7 @@ jobs:
     name: "Regional: us-east4-a"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
     if: github.actor != 'dependabot[bot]'
-    needs: [us_east4_a_datadog, us_east4_a_cert_manager, us_east4_a_cert_manager_istio_csr, us_east4_a_istio, us_east4_a_onboarding]
+    needs: us_east4_a_onboarding
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east4-a-sandbox
