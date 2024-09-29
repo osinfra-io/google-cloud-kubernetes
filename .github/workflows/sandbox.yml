@@ -117,11 +117,131 @@ jobs:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
       infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
+  us_east1_b_cert_manager:
+    name: "cert-manager: us-east1-b"
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    if: github.actor != 'dependabot[bot]'
+    needs: us_east1_b_onboarding
+    with:
+      checkout_ref: ${{ github.ref }}
+      environment: us-east1-b-sandbox
+      github_environment: "Sandbox cert-manager: Regional - us-east1-b"
+      service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
+      terraform_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
+      terraform_state_bucket: plt-k8s-2c8b-sb
+      terraform_version: ${{ vars.TERRAFORM_VERSION }}
+      terraform_workspace: us-east1-b-cert-manager-sandbox
+      working_directory: regional/cert-manager
+      workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
+    secrets:
+      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
+
+  us_east4_a_cert_manager:
+    name: "cert-manager: us-east4-a"
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    if: github.actor != 'dependabot[bot]'
+    needs: us_east4_a_onboarding
+    with:
+      checkout_ref: ${{ github.ref }}
+      environment: us-east4-a-sandbox
+      github_environment: "Sandbox cert-manager: Regional - us-east4-a"
+      service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
+      terraform_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
+      terraform_state_bucket: plt-k8s-2c8b-sb
+      terraform_version: ${{ vars.TERRAFORM_VERSION }}
+      terraform_workspace: us-east4-a-cert-manager-sandbox
+      working_directory: regional/cert-manager
+      workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
+    secrets:
+      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
+
+  us_east1_b_cert_manager_manifests:
+    name: "cert-manager Manifests: us-east1-b"
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    if: github.actor != 'dependabot[bot]'
+    needs: us_east1_b_cert_manager
+    with:
+      checkout_ref: ${{ github.ref }}
+      environment: us-east1-b-sandbox
+      github_environment: "Sandbox cert-manager Manifests: Regional - us-east1-b"
+      service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
+      terraform_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
+      terraform_state_bucket: plt-k8s-2c8b-sb
+      terraform_version: ${{ vars.TERRAFORM_VERSION }}
+      terraform_workspace: us-east1-b-cert-manager-manifests-sandbox
+      working_directory: regional/cert-manager/manifests
+      workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
+    secrets:
+      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
+
+  us_east4_a_cert_manager_manifests:
+    name: "cert-manager Manifests: us-east4-a"
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    if: github.actor != 'dependabot[bot]'
+    needs: us_east4_a_cert_manager
+    with:
+      checkout_ref: ${{ github.ref }}
+      environment: us-east4-a-sandbox
+      github_environment: "Sandbox cert-manager Manifests: Regional - us-east4-a"
+      service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
+      terraform_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
+      terraform_state_bucket: plt-k8s-2c8b-sb
+      terraform_version: ${{ vars.TERRAFORM_VERSION }}
+      terraform_workspace: us-east4-a-cert-manager-manifests-sandbox
+      working_directory: regional/cert-manager/manifests
+      workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
+    secrets:
+      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
+
+  us_east1_b_cert_manager_istio_csr:
+    name: "cert-manager Istio CSR: us-east1-b"
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    if: github.actor != 'dependabot[bot]'
+    needs: us_east1_b_cert_manager_manifests
+    with:
+      checkout_ref: ${{ github.ref }}
+      environment: us-east1-b-sandbox
+      github_environment: "Sandbox cert-manager Istio CSR: Regional - us-east1-b"
+      service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
+      terraform_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
+      terraform_state_bucket: plt-k8s-2c8b-sb
+      terraform_version: ${{ vars.TERRAFORM_VERSION }}
+      terraform_workspace: us-east1-b-cert-manager-istio-csr-sandbox
+      working_directory: regional/cert-manager/istio-csr
+      workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
+    secrets:
+      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
+
+  us_east4_a_cert_manager_istio_csr:
+    name: "cert-manager Istio CSR: us-east4-a"
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    if: github.actor != 'dependabot[bot]'
+    needs: us_east4_a_cert_manager_manifests
+    with:
+      checkout_ref: ${{ github.ref }}
+      environment: us-east4-a-sandbox
+      github_environment: "Sandbox cert-manager Istio CSR: Regional - us-east4-a"
+      service_account: plt-k8s-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
+      terraform_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
+      terraform_state_bucket: plt-k8s-2c8b-sb
+      terraform_version: ${{ vars.TERRAFORM_VERSION }}
+      terraform_workspace: us-east4-a-cert-manager-istio-csr-sandbox
+      working_directory: regional/cert-manager/istio-csr
+      workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
+    secrets:
+      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
+
   us_east1_b_istio:
     name: "Istio: us-east1-b"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
     if: github.actor != 'dependabot[bot]'
-    needs: us_east1_b
+    needs: us_east1_b_cert_manager_istio_csr
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east1-b-sandbox
@@ -141,7 +261,7 @@ jobs:
     name: "Istio: us-east4-a"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
     if: github.actor != 'dependabot[bot]'
-    needs: us_east4_a
+    needs: us_east4_a_cert_manager_istio_csr
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east4-a-sandbox
@@ -201,7 +321,7 @@ jobs:
     name: "Datadog: us-east1-b"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
     if: github.actor != 'dependabot[bot]'
-    needs: us_east1_b
+    needs: us_east1_b_onboarding
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east1-b-sandbox
@@ -224,7 +344,7 @@ jobs:
     name: "Datadog: us-east4-a"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
     if: github.actor != 'dependabot[bot]'
-    needs: us_east4_a
+    needs: us_east4_a_onboarding
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east4-a-sandbox
