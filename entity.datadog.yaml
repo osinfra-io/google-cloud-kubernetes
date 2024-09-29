@@ -15,10 +15,15 @@ metadata:
       provider: Gitbook
       url: "https://docs.osinfra.io/product-guides/google-cloud-platform/kubernetes/istio"
 
-    - name: GitHub
+    - name: Terraform Root Module
       type: repo
       provider: Github
       url: "https://github.com/osinfra-io/google-cloud-kubernetes"
+
+    - name: Terraform Child Module
+      type: repo
+      provider: Github
+      url: "https://github.com/osinfra-io/terraform-kubernetes-istio"
 
   contacts:
     - type: email
@@ -85,17 +90,17 @@ metadata:
       type: other
       url: "https://us-east4-a.sb.gcp.osinfra.io"
 
-    - name: Pre-Production
+    - name: Non-Production
       type: other
-      url: "https://pre-prod.gcp.osinfra.io"
+      url: "https://nonprod.gcp.osinfra.io"
 
-    - name: "Pre-Production: us-east1-b"
+    - name: "Non-Production: us-east1-b"
       type: other
-      url: "https://us-east1-b.pre-prod.gcp.osinfra.io"
+      url: "https://us-east1-b.nonprod.gcp.osinfra.io"
 
-    - name: "Pre-Production: us-east4-a"
+    - name: "Non-Production: us-east4-a"
       type: other
-      url: "https://us-east4-a.pre-prod.gcp.osinfra.io"
+      url: "https://us-east4-a.nonprod.gcp.osinfra.io"
 
     - name: Production
       type: other
@@ -135,10 +140,15 @@ metadata:
       provider: Gitbook
       url: "https://docs.osinfra.io/product-guides/google-cloud-platform/kubernetes/cert-manager"
 
-    - name: GitHub
+    - name: Terraform Root Module
       type: repo
       provider: Github
       url: "https://github.com/osinfra-io/google-cloud-kubernetes"
+
+    - name: Terraform Child Module
+      type: repo
+      provider: Github
+      url: "https://github.com/osinfra-io/terraform-kubernetes-cert-manager"
 
   contacts:
     - type: email
