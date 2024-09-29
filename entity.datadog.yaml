@@ -30,14 +30,14 @@ metadata:
 
 spec:
   components:
-    - service:istio-control-plane
-    - service:istio-gateway
+    - 'service:istio-control-plane'
+    - 'service:istio-gateway'
 
 datadog:
   performanceData:
     tags:
-      - service:istio-control-plane
-      - service:istio-gateway
+      - 'service:istio-control-plane'
+      - 'service:istio-gateway'
 
   pipelines:
     fingerprints:
@@ -60,7 +60,7 @@ spec:
 datadog:
   performanceData:
     tags:
-      - service:istio-control-plane
+      - 'service:istio-control-plane'
 
 ---
 apiVersion: v3
@@ -116,7 +116,7 @@ spec:
 datadog:
   performanceData:
     tags:
-      - service:istio-gateway
+      - 'service:istio-gateway'
 
 ---
 apiVersion: v3
@@ -148,18 +148,18 @@ metadata:
 
 spec:
   components:
-    - service:cert-manager
-    - service:cert-manager-cainjector
-    - service:cert-manager-istio-csr
-    - service:cert-manager-webhook
+    - 'service:cert-manager'
+    - 'service:cert-manager-cainjector'
+    - 'service:cert-manager-istio-csr'
+    - 'service:cert-manager-webhook'
 
 datadog:
   performanceData:
     tags:
-      - service:cert-manager
-      - service:cert-manager-cainjector
-      - service:cert-manager-istio-csr
-      - service:cert-manager-webhook
+      - 'service:cert-manager'
+      - 'service:cert-manager-cainjector'
+      - 'service:cert-manager-istio-csr'
+      - 'service:cert-manager-webhook'
 
   pipelines:
     fingerprints:
@@ -182,7 +182,7 @@ spec:
 datadog:
   performanceData:
     tags:
-      - service:cert-manager
+      - 'service:cert-manager'
 
 ---
 apiVersion: v3
@@ -201,7 +201,7 @@ spec:
 datadog:
   performanceData:
     tags:
-      - service:cert-manager-cainjector
+      - 'service:cert-manager-cainjector'
 
 ---
 apiVersion: v3
@@ -220,7 +220,7 @@ spec:
 datadog:
   performanceData:
     tags:
-      - service:cert-manager-istio-csr
+      - 'service:cert-manager-istio-csr'
 
 ---
 apiVersion: v3
@@ -239,4 +239,4 @@ spec:
 datadog:
   performanceData:
     tags:
-      - service:cert-manager-webhook
+      - 'service:cert-manager-webhook'
