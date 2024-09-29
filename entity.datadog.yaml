@@ -50,6 +50,7 @@ metadata:
   name: istio-control-plane
   description: The control plane manages and configures proxies to route traffic.
   displayName: istio-control-plane
+  inheritFrom: system.istio
 
 spec:
   tier: Zero
@@ -69,6 +70,7 @@ metadata:
   name: istio-gateway
   description: The gateway describes a load balancer operating at the edge of the mesh receiving incoming or outgoing HTTP/TCP connections.
   displayName: istio-gateway
+  inheritFrom: system.istio
 
   links:
     - name: Sandbox
@@ -172,6 +174,7 @@ metadata:
   name: cert-manager
   description: This is the main service responsible for managing the lifecycle of certificates within your Kubernetes cluster.
   displayName: cert-manager
+  inheritFrom: system.cert-manager
 
 spec:
   tier: Zero
@@ -191,6 +194,7 @@ metadata:
   name: cert-manager-cainjector
   description: The CA (Certificate Authority) injector is responsible for injecting CA certificates into certain Kubernetes resources that need them, such as `ValidatingWebhookConfiguration`, `MutatingWebhookConfiguration`, and `APIServices`.
   displayName: cert-manager-cainjector
+  inheritFrom: system.cert-manager
 
 spec:
   tier: Zero
@@ -210,6 +214,7 @@ metadata:
   name: cert-manager-istio-csr
   description: This service integrates cert-manager with Istio, specifically handling certificate signing requests (CSR) for workloads within Istio service mesh.
   displayName: cert-manager-istio-csr
+  inheritFrom: system.cert-manager
 
 spec:
   tier: Zero
@@ -229,6 +234,7 @@ metadata:
   name: cert-manager-webhook
   description: This service is responsible for handling webhook-based validation and mutation of cert-manager resources.
   displayName: cert-manager-webhook
+  inheritFrom: system.cert-manager
 
 spec:
   tier: Zero
