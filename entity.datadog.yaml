@@ -8,7 +8,7 @@ metadata:
     Working with both Kubernetes and traditional workloads, Istio brings standard, universal traffic management, telemetry,
     and security to complex deployments.
 
-  displayName: Istio
+  displayName: istio
   links:
     - name: Gitbook
       type: doc
@@ -49,7 +49,7 @@ kind: service
 metadata:
   name: istio-control-plane
   description: The control plane manages and configures proxies to route traffic.
-  displayName: Istio Control Plane
+  displayName: istio-control-plane
 
 spec:
   tier: Zero
@@ -68,7 +68,7 @@ kind: service
 metadata:
   name: istio-gateway
   description: The gateway describes a load balancer operating at the edge of the mesh receiving incoming or outgoing HTTP/TCP connections.
-  displayName: Istio Gateway
+  displayName: istio-gateway
 
   links:
     - name: Sandbox
@@ -117,3 +117,126 @@ datadog:
   performanceData:
     tags:
       - service:istio-gateway
+
+---
+apiVersion: v3
+kind: system
+metadata:
+  name: cert-manager
+  description: >
+    cert-manager is a powerful and extensible X.509 certificate controller for Kubernetes workloads.
+
+  displayName: cert-manager
+  links:
+    - name: Gitbook
+      type: doc
+      provider: Gitbook
+      url: "https://docs.osinfra.io/product-guides/google-cloud-platform/kubernetes/cert-manager"
+
+    - name: GitHub
+      type: repo
+      provider: Github
+      url: "https://github.com/osinfra-io/google-cloud-kubernetes"
+
+  contacts:
+    - type: email
+      contact: platform-google-cloud-kubernetes@osinfra.io
+    - type: google-chat
+      contact: "https://mail.google.com/chat/u/0/#chat/space/AAAA1mERq4Q"
+
+  owner: platform-google-cloud-kubernetes
+
+spec:
+  components:
+    - service:cert-manager
+    - service:cert-manager-cainjector
+    - service:cert-manager-istio-csr
+    - service:cert-manager-webhook
+
+datadog:
+  performanceData:
+    tags:
+      - service:cert-manager
+      - service:cert-manager-cainjector
+      - service:cert-manager-istio-csr
+      - service:cert-manager-webhook
+
+  pipelines:
+    fingerprints:
+      - 0FQTEZZ2hCJC
+
+---
+apiVersion: v3
+kind: service
+metadata:
+  name: cert-manager
+  description: This is the main service responsible for managing the lifecycle of certificates within your Kubernetes cluster.
+  displayName: cert-manager
+
+spec:
+  tier: Zero
+  type: service
+  languages:
+    - go
+
+datadog:
+  performanceData:
+    tags:
+      - service:cert-manager
+
+---
+apiVersion: v3
+kind: service
+metadata:
+  name: cert-manager-cainjector
+  description: The CA (Certificate Authority) injector is responsible for injecting CA certificates into certain Kubernetes resources that need them, such as `ValidatingWebhookConfiguration`, `MutatingWebhookConfiguration`, and `APIServices`.
+  displayName: cert-manager-cainjector
+
+spec:
+  tier: Zero
+  type: service
+  languages:
+    - go
+
+datadog:
+  performanceData:
+    tags:
+      - service:cert-manager-cainjector
+
+---
+apiVersion: v3
+kind: service
+metadata:
+  name: cert-manager-istio-csr
+  description: This service integrates cert-manager with Istio, specifically handling certificate signing requests (CSR) for workloads within Istio service mesh.
+  displayName: cert-manager-istio-csr
+
+spec:
+  tier: Zero
+  type: service
+  languages:
+    - go
+
+datadog:
+  performanceData:
+    tags:
+      - service:cert-manager-istio-csr
+
+---
+apiVersion: v3
+kind: service
+metadata:
+  name: cert-manager-webhook
+  description: This service is responsible for handling webhook-based validation and mutation of cert-manager resources.
+  displayName: cert-manager-webhook
+
+spec:
+  tier: Zero
+  type: service
+  languages:
+    - go
+
+datadog:
+  performanceData:
+    tags:
+      - service:cert-manager-webhook
