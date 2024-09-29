@@ -10,7 +10,7 @@ metadata:
 
   displayName: istio
   links:
-    - name: Gitbook
+    - name: docs.osinfra.io
       type: doc
       provider: Gitbook
       url: "https://docs.osinfra.io/product-guides/google-cloud-platform/kubernetes/istio"
@@ -135,7 +135,7 @@ metadata:
 
   displayName: cert-manager
   links:
-    - name: Gitbook
+    - name: docs.osinfra.io
       type: doc
       provider: Gitbook
       url: "https://docs.osinfra.io/product-guides/google-cloud-platform/kubernetes/cert-manager"
