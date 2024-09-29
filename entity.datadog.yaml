@@ -30,8 +30,8 @@ metadata:
 
 spec:
   components:
-    - 'service:istio-control-plane'
-    - 'service:istio-gateway'
+    - service:istio-control-plane
+    - service:istio-gateway
 
 datadog:
   performanceData:
@@ -148,10 +148,10 @@ metadata:
 
 spec:
   components:
-    - 'service:cert-manager'
-    - 'service:cert-manager-cainjector'
-    - 'service:cert-manager-istio-csr'
-    - 'service:cert-manager-webhook'
+    - service:cert-manager
+    - service:cert-manager-cainjector
+    - service:cert-manager-istio-csr
+    - service:cert-manager-webhook
 
 datadog:
   performanceData:
