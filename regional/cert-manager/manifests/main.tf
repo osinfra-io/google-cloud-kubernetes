@@ -52,5 +52,5 @@ data "terraform_remote_state" "regional" {
 # https://github.com/osinfra-io/terraform-kubernetes-istio
 
 module "kubernetes_cert_manager_manifests" {
-  source = "github.com/osinfra-io/terraform-kubernetes-cert-manager//regional/manifests?ref=dev"
+  source = "github.com/osinfra-io/terraform-kubernetes-cert-manager//regional/manifests?ref=main"
 }
