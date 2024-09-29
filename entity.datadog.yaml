@@ -15,12 +15,12 @@ metadata:
       provider: Gitbook
       url: "https://docs.osinfra.io/product-guides/google-cloud-platform/kubernetes/istio"
 
-    - name: Terraform Root Module
+    - name: google-cloud-kubernetes
       type: repo
       provider: Github
       url: "https://github.com/osinfra-io/google-cloud-kubernetes"
 
-    - name: Terraform Child Module
+    - name: terraform-kubernetes-istio
       type: repo
       provider: Github
       url: "https://github.com/osinfra-io/terraform-kubernetes-istio"
@@ -78,39 +78,39 @@ metadata:
   inheritFrom: system:istio
 
   links:
-    - name: Sandbox
+    - name: sb.gcp.osinfra.io
       type: other
       url: "https://sb.gcp.osinfra.io"
 
-    - name: "Sandbox: us-east1-b"
+    - name: us-east1-b.sb.gcp.osinfra.io
       type: other
       url: "https://us-east1-b.sb.gcp.osinfra.io"
 
-    - name: "Sandbox: us-east4-a"
+    - name: us-east4-a.sb.gcp.osinfra.io
       type: other
       url: "https://us-east4-a.sb.gcp.osinfra.io"
 
-    - name: Non-Production
+    - name: nonprod.gcp.osinfra.io
       type: other
       url: "https://nonprod.gcp.osinfra.io"
 
-    - name: "Non-Production: us-east1-b"
+    - name: us-east1-b.nonprod.gcp.osinfra.io
       type: other
       url: "https://us-east1-b.nonprod.gcp.osinfra.io"
 
-    - name: "Non-Production: us-east4-a"
+    - name: us-east4-a.nonprod.gcp.osinfra.io
       type: other
       url: "https://us-east4-a.nonprod.gcp.osinfra.io"
 
-    - name: Production
+    - name: gcp.osinfra.io
       type: other
       url: "https://gcp.osinfra.io"
 
-    - name: "Production: us-east1-b"
+    - name: us-east1-b.gcp.osinfra.io
       type: other
       url: "https://us-east1-b.gcp.osinfra.io"
 
-    - name: "Production: us-east4-a"
+    - name: us-east4-a.gcp.osinfra.io
       type: other
       url: "https://us-east4-a.gcp.osinfra.io"
 
@@ -140,12 +140,12 @@ metadata:
       provider: Gitbook
       url: "https://docs.osinfra.io/product-guides/google-cloud-platform/kubernetes/cert-manager"
 
-    - name: Terraform Root Module
+    - name: google-cloud-kubernetes
       type: repo
       provider: Github
       url: "https://github.com/osinfra-io/google-cloud-kubernetes"
 
-    - name: Terraform Child Module
+    - name: terraform-kubernetes-cert-manager
       type: repo
       provider: Github
       url: "https://github.com/osinfra-io/terraform-kubernetes-cert-manager"
