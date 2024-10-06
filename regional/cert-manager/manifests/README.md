@@ -16,7 +16,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kubernetes_cert_manager_manifests"></a> [kubernetes\_cert\_manager\_manifests](#module\_kubernetes\_cert\_manager\_manifests) | github.com/osinfra-io/terraform-kubernetes-cert-manager//regional/manifests | main |
+| <a name="module_kubernetes_cert_manager_manifests"></a> [kubernetes\_cert\_manager\_manifests](#module\_kubernetes\_cert\_manager\_manifests) | github.com/osinfra-io/terraform-kubernetes-cert-manager//regional/manifests | opa |
 
 ## Resources
 
