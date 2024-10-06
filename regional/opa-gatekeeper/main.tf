@@ -3,7 +3,6 @@
 
 terraform {
   required_providers {
-
     # Google Cloud Provider
     # https://www.terraform.io/docs/providers/google/index.html
 
@@ -11,9 +10,28 @@ terraform {
       source = "hashicorp/google"
     }
 
+    helm = {
+      source = "hashicorp/helm"
+    }
+
     kubernetes = {
       source = "hashicorp/kubernetes"
     }
+  }
+}
+
+# Helm Provider
+# https://registry.terraform.io/providers/hashicorp/helm/latest
+
+provider "helm" {
+  kubernetes {
+
+    cluster_ca_certificate = base64decode(
+      local.regional.kubernetes_engine_container_cluster_ca_certificate
+    )
+
+    host  = local.regional.kubernetes_engine_container_cluster_endpoint
+    token = data.google_client_config.current.access_token
   }
 }
 
@@ -48,17 +66,12 @@ data "terraform_remote_state" "regional" {
   workspace = "${var.region}-${var.zone}-${var.environment}"
 }
 
-# Kubernetes Datadog Operator Module (osinfra.io)
-# https://github.com/osinfra-io/terraform-kubernetes-datadog-operator
+# Kubernetes Open Policy Agent Gatekeeper Module (osinfra.io)
+# https://github.com/osinfra-io/terraform-kubernetes-opa-gatekeeper
 
-# module "kubernetes_datadog_operator_manifests" {
-#   source = "github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional/manifests?ref=main"
+module "kubernetes_opa_gatekeeper" {
+  source = "github.com/osinfra-io/terraform-kubernetes-opa-gatekeeper//regional?ref=dev"
 
-#   api_key                 = var.datadog_api_key
-#   app_key                 = var.datadog_app_key
-#   environment             = var.environment
-#   kubernetes_cluster_name = local.regional.kubernetes_engine_container_cluster_name
-#   region                  = var.region
-#   registry                = "us-docker.pkg.dev/plt-lz-services-tf79-prod/plt-docker-virtual"
-#   team                    = "platform-google-cloud-kubernetes"
-# }
+  environment = var.environment
+  region      = var.region
+}
