@@ -14,16 +14,13 @@ No requirements.
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_kubernetes_cert_manager"></a> [kubernetes\_cert\_manager](#module\_kubernetes\_cert\_manager) | github.com/osinfra-io/terraform-kubernetes-cert-manager//regional | main |
+No modules.
 
 ## Resources
 
 | Name | Type |
 |------|------|
 | [google_client_config.current](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/client_config) | data source |
-| [terraform_remote_state.main](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
 | [terraform_remote_state.regional](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
 
 ## Inputs
