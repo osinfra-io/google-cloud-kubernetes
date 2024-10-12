@@ -15,8 +15,8 @@ region                                = "us-east1"
 remote_bucket                         = "plt-k8s-2c8b-sb"
 zone                                  = "b"
 
-# gke_hub_memberships = {
-#   "plt-us-east4-a" = {
-#     cluster_id = "projects/plt-k8s-tf39-sb/locations/us-east4/clusters/plt-us-east4-a"
-#   }
-# }
+gke_hub_memberships = {
+  "plt-us-east4-a" = {
+    cluster_id = "projects/plt-k8s-tf39-sb/locations/us-east4/clusters/plt-us-east4-a"
+  }
+}
