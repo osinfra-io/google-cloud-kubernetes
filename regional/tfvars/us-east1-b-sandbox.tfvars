@@ -1,4 +1,11 @@
-kubernetes_engine_enable_gke_hub_host    = true
+kubernetes_engine_enable_gke_hub_host = true
+
+kubernetes_engine_gke_hub_memberships = {
+  "plt-us-east4-a" = {
+    cluster_id = "projects/plt-k8s-tf39-sb/locations/us-east4/clusters/plt-us-east4-a"
+  }
+}
+
 kubernetes_engine_master_ipv4_cidr_block = "10.63.240.0/28"
 kubernetes_engine_node_location          = "us-east1-b"
 
@@ -14,9 +21,3 @@ kubernetes_engine_vpc_host_project_id = "plt-lz-networking-tfd8-sb"
 region                                = "us-east1"
 remote_bucket                         = "plt-k8s-2c8b-sb"
 zone                                  = "b"
-
-gke_hub_memberships = {
-  "plt-us-east4-a" = {
-    cluster_id = "projects/plt-k8s-tf39-sb/locations/us-east4/clusters/plt-us-east4-a"
-  }
-}
