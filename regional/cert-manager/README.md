@@ -16,7 +16,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kubernetes_cert_manager"></a> [kubernetes\_cert\_manager](#module\_kubernetes\_cert\_manager) | github.com/osinfra-io/terraform-kubernetes-cert-manager//regional | main |
+| <a name="module_kubernetes_cert_manager"></a> [kubernetes\_cert\_manager](#module\_kubernetes\_cert\_manager) | github.com/osinfra-io/terraform-kubernetes-cert-manager//regional | v0.1.0 |
 
 ## Resources
 

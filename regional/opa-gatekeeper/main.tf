@@ -70,7 +70,7 @@ data "terraform_remote_state" "regional" {
 # https://github.com/osinfra-io/terraform-kubernetes-opa-gatekeeper
 
 module "kubernetes_opa_gatekeeper" {
-  source = "github.com/osinfra-io/terraform-kubernetes-opa-gatekeeper//regional?ref=dev"
+  source = "github.com/osinfra-io/terraform-kubernetes-opa-gatekeeper//regional?ref=v0.1.0"
 
   environment = var.environment
   region      = var.region

@@ -16,7 +16,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kubernetes_istio_manifests"></a> [kubernetes\_istio\_manifests](#module\_kubernetes\_istio\_manifests) | github.com/osinfra-io/terraform-kubernetes-istio//regional/manifests | cert |
+| <a name="module_kubernetes_istio_manifests"></a> [kubernetes\_istio\_manifests](#module\_kubernetes\_istio\_manifests) | github.com/osinfra-io/terraform-kubernetes-istio//regional/manifests | v0.1.4 |
 
 ## Resources
 
