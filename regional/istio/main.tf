@@ -116,4 +116,5 @@ module "kubernetes_istio" {
   proxy_memory_requests = var.kubernetes_istio_proxy_memory_requests
 
   region = var.region
+  zone   = var.zone
 }
