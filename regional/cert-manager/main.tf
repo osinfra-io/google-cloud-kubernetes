@@ -82,7 +82,7 @@ data "terraform_remote_state" "regional" {
 # https://github.com/osinfra-io/terraform-kubernetes-cert-manager
 
 module "kubernetes_cert_manager" {
-  source = "github.com/osinfra-io/terraform-kubernetes-cert-manager//regional?ref=v0.1.0"
+  source = "github.com/osinfra-io/terraform-kubernetes-cert-manager//regional?ref=v0.1.1"
 
   artifact_registry = "us-docker.pkg.dev/plt-lz-services-tf79-prod/plt-docker-virtual"
   environment       = var.environment
