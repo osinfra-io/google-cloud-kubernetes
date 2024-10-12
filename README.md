@@ -58,7 +58,7 @@ No providers.
 | <a name="module_datadog"></a> [datadog](#module\_datadog) | github.com/osinfra-io/terraform-datadog-google-integration | v0.3.0 |
 | <a name="module_kubernetes_engine"></a> [kubernetes\_engine](#module\_kubernetes\_engine) | github.com/osinfra-io/terraform-google-kubernetes-engine | v0.1.8 |
 | <a name="module_kubernetes_istio"></a> [kubernetes\_istio](#module\_kubernetes\_istio) | github.com/osinfra-io/terraform-kubernetes-istio | v0.1.4 |
-| <a name="module_project"></a> [project](#module\_project) | github.com/osinfra-io/terraform-google-project | v0.4.0 |
+| <a name="module_project"></a> [project](#module\_project) | github.com/osinfra-io/terraform-google-project | v0.4.1 |
 
 #### Resources
 
