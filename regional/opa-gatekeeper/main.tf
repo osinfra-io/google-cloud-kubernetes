@@ -3,7 +3,6 @@
 
 terraform {
   required_providers {
-
     # Google Cloud Provider
     # https://www.terraform.io/docs/providers/google/index.html
 
@@ -11,9 +10,28 @@ terraform {
       source = "hashicorp/google"
     }
 
+    helm = {
+      source = "hashicorp/helm"
+    }
+
     kubernetes = {
       source = "hashicorp/kubernetes"
     }
+  }
+}
+
+# Helm Provider
+# https://registry.terraform.io/providers/hashicorp/helm/latest
+
+provider "helm" {
+  kubernetes {
+
+    cluster_ca_certificate = base64decode(
+      local.regional.kubernetes_engine_container_cluster_ca_certificate
+    )
+
+    host  = local.regional.kubernetes_engine_container_cluster_endpoint
+    token = data.google_client_config.current.access_token
   }
 }
 
@@ -48,9 +66,12 @@ data "terraform_remote_state" "regional" {
   workspace = "${var.region}-${var.zone}-${var.environment}"
 }
 
-# Kubernetes cert-manager Module (osinfra.io)
-# https://github.com/osinfra-io/terraform-kubernetes-cert-manager
+# Kubernetes Open Policy Agent Gatekeeper Module (osinfra.io)
+# https://github.com/osinfra-io/terraform-kubernetes-opa-gatekeeper
 
-module "kubernetes_cert_manager_manifests" {
-  source = "github.com/osinfra-io/terraform-kubernetes-cert-manager//regional/manifests?ref=main"
+module "kubernetes_opa_gatekeeper" {
+  source = "github.com/osinfra-io/terraform-kubernetes-opa-gatekeeper//regional?ref=v0.1.0"
+
+  environment = var.environment
+  region      = var.region
 }

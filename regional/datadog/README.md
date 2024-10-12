@@ -9,14 +9,12 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 6.4.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 6.6.0 |
 | <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_kubernetes_datadog_operator"></a> [kubernetes\_datadog\_operator](#module\_kubernetes\_datadog\_operator) | github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional | main |
+No modules.
 
 ## Resources
 

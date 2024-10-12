@@ -1,6 +1,3 @@
-# Input Variables
-# https://www.terraform.io/language/values/variables
-
 variable "environment" {
   description = "The environment for example: `sandbox`, `non-production`, `production`"
   type        = string
