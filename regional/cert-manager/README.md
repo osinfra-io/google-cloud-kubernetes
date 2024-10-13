@@ -16,7 +16,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kubernetes_cert_manager"></a> [kubernetes\_cert\_manager](#module\_kubernetes\_cert\_manager) | github.com/osinfra-io/terraform-kubernetes-cert-manager//regional | v0.1.1 |
+| <a name="module_kubernetes_cert_manager"></a> [kubernetes\_cert\_manager](#module\_kubernetes\_cert\_manager) | github.com/osinfra-io/terraform-kubernetes-cert-manager//regional | main |
 
 ## Resources
 
@@ -30,10 +30,7 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_environment"></a> [environment](#input\_environment) | The environment for example: `sandbox`, `non-production`, `production` | `string` | `"sandbox"` | no |
-| <a name="input_region"></a> [region](#input\_region) | The region to deploy the resources to | `string` | n/a | yes |
 | <a name="input_remote_bucket"></a> [remote\_bucket](#input\_remote\_bucket) | The remote bucket the `terraform_remote_state` data source retrieves the state from | `string` | n/a | yes |
-| <a name="input_zone"></a> [zone](#input\_zone) | The zone to deploy the resources to | `string` | n/a | yes |
 
 ## Outputs
 

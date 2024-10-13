@@ -24,14 +24,14 @@ data "terraform_remote_state" "main" {
     prefix = "google-cloud-kubernetes"
   }
 
-  workspace = "main-${var.environment}"
+  workspace = "main-${local.environment}"
 }
 
 # Google Kubernetes Engine Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine_regional" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional?ref=v0.1.8"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional?ref=main"
 
   cluster_prefix               = "plt"
   cluster_secondary_range_name = "k8s-secondary-pods"
@@ -40,20 +40,18 @@ module "kubernetes_engine_regional" {
   gke_hub_memberships          = var.kubernetes_engine_gke_hub_memberships
   labels                       = local.labels
   network                      = "standard-shared"
-  node_location                = var.kubernetes_engine_node_location
   node_pools                   = var.kubernetes_engine_node_pools
   master_ipv4_cidr_block       = var.kubernetes_engine_master_ipv4_cidr_block
   project                      = local.main.project_id
 
   resource_labels = {
-    env        = var.environment
-    region     = var.region
+    env        = local.environment
+    region     = local.region
     repository = "google-cloud-kubernetes"
     platform   = "google-cloud-kubernetes"
     team       = "platform-google-cloud-kubernetes"
   }
 
-  region                        = var.region
   services_secondary_range_name = "k8s-secondary-services"
   subnet                        = local.subnet
   vpc_host_project_id           = var.kubernetes_engine_vpc_host_project_id

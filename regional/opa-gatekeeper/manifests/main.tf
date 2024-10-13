@@ -45,7 +45,7 @@ data "terraform_remote_state" "regional" {
     prefix = "google-cloud-kubernetes"
   }
 
-  workspace = "${var.region}-${var.zone}-${var.environment}"
+  workspace = "${local.region}-${local.zone}-${local.environment}"
 }
 
 # Kubernetes Open Policy Agent Gatekeepr Module (osinfra.io)

@@ -64,7 +64,7 @@ data "terraform_remote_state" "main" {
     prefix = "google-cloud-kubernetes"
   }
 
-  workspace = "main-${var.environment}"
+  workspace = "main-${local.environment}"
 }
 
 data "terraform_remote_state" "regional" {
@@ -75,19 +75,18 @@ data "terraform_remote_state" "regional" {
     prefix = "google-cloud-kubernetes"
   }
 
-  workspace = "${var.region}-${var.zone}-${var.environment}"
+  workspace = "${local.region}-${local.zone}-${local.environment}"
 }
 
 # Kubernetes Istio Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-kubernetes-istio
 
 module "kubernetes_istio" {
-  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional?ref=v0.1.4"
+  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional?ref=main"
 
   artifact_registry          = "us-docker.pkg.dev/plt-lz-services-tf79-prod/plt-docker-virtual"
   cluster_prefix             = "plt"
   enable_istio_gateway       = true
-  environment                = var.environment
   gateway_cpu_limits         = var.kubernetes_istio_gateway_cpu_limits
   gateway_cpu_requests       = var.kubernetes_istio_gateway_cpu_requests
   gateway_dns                = var.kubernetes_istio_gateway_dns
@@ -114,7 +113,4 @@ module "kubernetes_istio" {
   proxy_cpu_requests    = var.kubernetes_istio_proxy_cpu_requests
   proxy_memory_limits   = var.kubernetes_istio_proxy_memory_limits
   proxy_memory_requests = var.kubernetes_istio_proxy_memory_requests
-
-  region = var.region
-  zone   = var.zone
 }

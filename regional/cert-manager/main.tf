@@ -64,7 +64,7 @@ data "terraform_remote_state" "main" {
     prefix = "google-cloud-kubernetes"
   }
 
-  workspace = "main-${var.environment}"
+  workspace = "main-${local.environment}"
 }
 
 data "terraform_remote_state" "regional" {
@@ -75,16 +75,12 @@ data "terraform_remote_state" "regional" {
     prefix = "google-cloud-kubernetes"
   }
 
-  workspace = "${var.region}-${var.zone}-${var.environment}"
+  workspace = "${local.region}-${local.zone}-${local.environment}"
 }
 
 # Kubernetes cert-manager Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-kubernetes-cert-manager
 
 module "kubernetes_cert_manager" {
-  source = "github.com/osinfra-io/terraform-kubernetes-cert-manager//regional?ref=v0.1.1"
-
-  artifact_registry = "us-docker.pkg.dev/plt-lz-services-tf79-prod/plt-docker-virtual"
-  environment       = var.environment
-  region            = var.region
+  source = "github.com/osinfra-io/terraform-kubernetes-cert-manager//regional?ref=main"
 }
