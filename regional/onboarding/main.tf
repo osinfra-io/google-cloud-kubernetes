@@ -65,6 +65,6 @@ module "kubernetes_engine_onboarding" {
   source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding?ref=main"
 
   namespaces                               = var.kubernetes_engine_namespaces
-  project                                  = local.regional.project_id
+  project                                  = local.main.project_id
   workload_identity_service_account_emails = local.main.kubernetes_engine_workload_identity_service_account_emails
 }
