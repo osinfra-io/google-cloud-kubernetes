@@ -108,7 +108,7 @@ module "kubernetes_istio" {
   pilot_cpu_requests    = var.kubernetes_istio_pilot_cpu_requests
   pilot_memory_limits   = var.kubernetes_istio_pilot_memory_limits
   pilot_memory_requests = var.kubernetes_istio_pilot_memory_requests
-  project               = local.regional.project_id
+  project               = local.main.project_id
   proxy_cpu_limits      = var.kubernetes_istio_proxy_cpu_limits
   proxy_cpu_requests    = var.kubernetes_istio_proxy_cpu_requests
   proxy_memory_limits   = var.kubernetes_istio_proxy_memory_limits
