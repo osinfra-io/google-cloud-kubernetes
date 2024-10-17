@@ -1,5 +1,3 @@
-environment = "non-production"
-
 kubernetes_istio_gateway_dns = {
   "nonprod.gcp.osinfra.io" = {
     managed_zone = "nonprod-gcp-osinfra-io"

@@ -2,9 +2,15 @@
 # https://www.terraform.io/docs/language/values/locals.html
 
 locals {
-  domain_environment = var.environment == "prod" ? "" : var.environment
+  domain_environment = local.environment == "prod" ? "" : local.environment
 
-  env = lookup(local.env_map, var.environment, "none")
+  env = lookup(local.env_map, local.environment, "none")
+
+  environment = (
+    terraform.workspace == "default" ?
+    "mock-environment" :
+    regex(".*-(?P<environment>[^-]+)$", terraform.workspace)["environment"]
+  )
 
   env_map = {
     "non-production" = "nonprod"
@@ -14,7 +20,7 @@ locals {
 
   labels = {
     cost-center = "x001"
-    env         = var.environment
+    env         = local.environment
     repository  = "google-cloud-kubernetes"
     platform    = "google-cloud-kubernetes"
     team        = "platform-google-cloud-kubernetes"

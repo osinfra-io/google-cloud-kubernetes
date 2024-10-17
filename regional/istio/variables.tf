@@ -1,12 +1,6 @@
 # Input Variables
 # https://www.terraform.io/language/values/variables
 
-variable "environment" {
-  description = "The environment for example: `sandbox`, `non-production`, `production`"
-  type        = string
-  default     = "sandbox"
-}
-
 variable "kubernetes_istio_gateway_cpu_limits" {
   description = "The CPU limit for the Istio gateway"
   type        = string
@@ -100,17 +94,7 @@ variable "kubernetes_istio_proxy_memory_requests" {
   default     = "32Mi"
 }
 
-variable "region" {
-  description = "The region to deploy the resources to"
-  type        = string
-}
-
 variable "remote_bucket" {
   type        = string
   description = "The remote bucket the `terraform_remote_state` data source retrieves the state from"
-}
-
-variable "zone" {
-  description = "The zone to deploy the resources to"
-  type        = string
 }

@@ -1,5 +1,3 @@
-environment = "production"
-
 kubernetes_istio_gateway_dns = {
   "gcp.osinfra.io" = {
     managed_zone = "gcp-osinfra-io"

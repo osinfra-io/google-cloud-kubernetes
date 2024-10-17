@@ -19,12 +19,6 @@ variable "datadog_enable" {
   default     = false
 }
 
-variable "environment" {
-  description = "The environment for example: `sandbox`, `non-production`, `production`"
-  type        = string
-  default     = "sandbox"
-}
-
 variable "kubernetes_engine_namespaces" {
   description = "A map of namespaces with the Google service account used for the namespace administrator and whether Istio injection is enabled or disabled"
   default     = {}
