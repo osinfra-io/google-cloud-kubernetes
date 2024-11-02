@@ -1,31 +1,3 @@
-terraform {
-
-  # Requiring Providers
-  # https://www.terraform.io/language/providers/requirements#requiring-providers
-
-  required_providers {
-
-    # Datadog Provider
-    # https://registry.terraform.io/providers/DataDog/datadog/latest/docs
-
-    datadog = {
-      source = "datadog/datadog"
-    }
-
-    # Google Cloud Platform Provider
-    # https://registry.terraform.io/providers/hashicorp/google/latest/docs
-
-    google = {
-      source = "hashicorp/google"
-    }
-  }
-}
-
-provider "datadog" {
-  api_key = var.datadog_api_key
-  app_key = var.datadog_app_key
-}
-
 # Datadog Google Cloud Platform Integration Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-datadog-google-integration
 
@@ -36,7 +8,7 @@ module "datadog" {
   api_key                            = var.datadog_api_key
   is_cspm_enabled                    = true
   is_security_command_center_enabled = true
-  labels                             = local.labels
+  labels                             = module.helpers.labels
   project                            = module.project.id
 }
 
@@ -44,14 +16,14 @@ module "datadog" {
 # https://github.com/osinfra-io/terraform-google-project
 
 module "project" {
-  source = "github.com/osinfra-io/terraform-google-project?ref=v0.4.1"
+  source = "github.com/osinfra-io/terraform-google-project?ref=align"
 
   billing_account                 = var.project_billing_account
   cis_2_2_logging_sink_project_id = var.project_cis_2_2_logging_sink_project_id
   description                     = "k8s"
-  environment                     = local.env
+  environment                     = module.helpers.environment
   folder_id                       = var.project_folder_id
-  labels                          = local.labels
+  labels                          = module.helpers.labels
   monthly_budget_amount           = var.project_monthly_budget_amount
   prefix                          = "plt"
 
@@ -93,6 +65,6 @@ module "kubernetes_istio" {
   source = "github.com/osinfra-io/terraform-kubernetes-istio?ref=main"
 
   gateway_dns = var.kubernetes_istio_gateway_dns
-  labels      = local.labels
+  labels      = module.helpers.labels
   project     = module.project.id
 }

@@ -1,0 +1,69 @@
+# Required Providers
+# https://www.terraform.io/docs/language/providers/requirements.html#requiring-providers
+
+terraform {
+  required_providers {
+
+    # Google Cloud Provider
+    # https://www.terraform.io/docs/providers/google/index.html
+
+    google = {
+      source = "hashicorp/google"
+    }
+
+    helm = {
+      source = "hashicorp/helm"
+    }
+
+    kubernetes = {
+      source = "hashicorp/kubernetes"
+    }
+  }
+}
+
+# Helm Provider
+# https://registry.terraform.io/providers/hashicorp/helm/latest
+
+provider "helm" {
+  kubernetes {
+
+    cluster_ca_certificate = base64decode(
+      data.google_container_cluster.this.master_auth.0.cluster_ca_certificate
+    )
+
+    host  = data.google_container_cluster.this.endpoint
+    token = data.google_client_config.current.access_token
+  }
+}
+
+# Kubernetes Provider
+# https://registry.terraform.io/providers/hashicorp/kubernetes/latest
+
+provider "kubernetes" {
+  cluster_ca_certificate = base64decode(
+    data.google_container_cluster.this.master_auth.0.cluster_ca_certificate
+  )
+  host  = "https://${data.google_container_cluster.this.endpoint}"
+  token = data.google_client_config.current.access_token
+}
+
+# Google Client Config Data Source
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/client_config
+
+data "google_client_config" "current" {
+}
+
+# Google Container Cluster Data Source
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/container_cluster
+
+data "google_container_cluster" "this" {
+  name     = "ptl-${module.helpers.region}-${module.helpers.zone}"
+  location = module.helpers.region
+  project  = data.google_project.this.project_id
+}
+
+# Google Project Data Source
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/projects
+
+data "google_project" "this" {
+}

@@ -24,7 +24,7 @@ data "terraform_remote_state" "main" {
     prefix = "google-cloud-kubernetes"
   }
 
-  workspace = "main-${local.environment}"
+  workspace = "main-${module.helpers.environment}"
 }
 
 # Google Kubernetes Engine Module (osinfra.io)
@@ -38,15 +38,15 @@ module "kubernetes_engine_regional" {
   enable_deletion_protection   = false
   enable_gke_hub_host          = var.kubernetes_engine_enable_gke_hub_host
   gke_hub_memberships          = var.kubernetes_engine_gke_hub_memberships
-  labels                       = local.labels
+  labels                       = module.helpers.labels
   network                      = "standard-shared"
   node_pools                   = var.kubernetes_engine_node_pools
   master_ipv4_cidr_block       = var.kubernetes_engine_master_ipv4_cidr_block
   project                      = local.main.project_id
 
   resource_labels = {
-    env        = local.environment
-    region     = local.region
+    env        = module.helpers.environment
+    region     = module.helpers.region
     repository = "google-cloud-kubernetes"
     platform   = "google-cloud-kubernetes"
     team       = "platform-google-cloud-kubernetes"
