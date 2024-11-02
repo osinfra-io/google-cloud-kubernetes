@@ -28,9 +28,7 @@ No requirements.
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_cert_manager_istio_csr_cluster_id"></a> [cert\_manager\_istio\_csr\_cluster\_id](#input\_cert\_manager\_istio\_csr\_cluster\_id) | The cluster ID to use for the Istio CSR | `string` | n/a | yes |
+No inputs.
 
 ## Outputs
 

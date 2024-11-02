@@ -63,7 +63,7 @@ data "google_container_cluster" "this" {
 }
 
 # Google Project Data Source
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/projects
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/project
 
 data "google_project" "this" {
 }

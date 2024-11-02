@@ -6,7 +6,7 @@ data "terraform_remote_state" "main" {
 
   config = {
     bucket = var.remote_bucket
-    prefix = "google-cloud-kubernetes"
+    prefix = module.helpers.repository
   }
 
   workspace = "main-${module.helpers.environment}"
@@ -20,5 +20,5 @@ module "kubernetes_engine_onboarding" {
 
   namespaces                               = var.kubernetes_engine_namespaces
   project                                  = data.google_project.this.project_id
-  workload_identity_service_account_emails = data.terraform_remote_state.main.outputs.workload_identity_service_account_emails
+  workload_identity_service_account_emails = data.terraform_remote_state.main.outputs.kubernetes_engine_workload_identity_service_account_emails
 }

@@ -6,7 +6,7 @@ data "terraform_remote_state" "main" {
 
   config = {
     bucket = var.remote_bucket
-    prefix = "google-cloud-kubernetes"
+    prefix = module.helpers.repository
   }
 
   workspace = "main-${module.helpers.environment}"
