@@ -62,8 +62,15 @@ data "google_container_cluster" "this" {
   project  = data.google_project.this.project_id
 }
 
+# Google Projects Data Source
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/projects
+
+data "google_projects" "this" {
+  filter = "name:plt-k8s-*-${module.helpers.env}"
+}
+
 # Google Project Data Source
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/project
-
 data "google_project" "this" {
+  project_id = data.google_projects.this.projects[0].project_id
 }
