@@ -46,8 +46,3 @@ variable "kubernetes_istio_virtual_services" {
     host             = string
   }))
 }
-
-variable "remote_bucket" {
-  type        = string
-  description = "The remote bucket the `terraform_remote_state` data source retrieves the state from"
-}

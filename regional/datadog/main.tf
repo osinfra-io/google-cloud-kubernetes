@@ -6,5 +6,5 @@
 
 #   api_key                 = var.datadog_api_key
 #   app_key                 = var.datadog_app_key
-#   kubernetes_cluster_name = local.regional.kubernetes_engine_container_cluster_name
+#   kubernetes_cluster_name = data.google_container_cluster.this.name
 # }

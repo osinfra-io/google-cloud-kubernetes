@@ -11,6 +11,4 @@ kubernetes_engine_node_pools = {
 }
 
 kubernetes_engine_vpc_host_project_id = "plt-lz-networking-tfd8-sb"
-region                                = "us-east1"
 remote_bucket                         = "plt-k8s-2c8b-sb"
-zone                                  = "d"
