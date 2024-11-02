@@ -1,5 +1,5 @@
 terraform {
   backend "gcs" {
-    prefix = module.helpers.repository
+    prefix = "google-cloud-kubernetes"
   }
 }
