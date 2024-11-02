@@ -40,8 +40,5 @@ No requirements.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_kubernetes_engine_container_cluster_ca_certificate"></a> [kubernetes\_engine\_container\_cluster\_ca\_certificate](#output\_kubernetes\_engine\_container\_cluster\_ca\_certificate) | Base64 encoded public certificate that is the root of trust for the cluster |
-| <a name="output_kubernetes_engine_container_cluster_endpoint"></a> [kubernetes\_engine\_container\_cluster\_endpoint](#output\_kubernetes\_engine\_container\_cluster\_endpoint) | The connection endpoint for the cluster |
-| <a name="output_kubernetes_engine_container_cluster_name"></a> [kubernetes\_engine\_container\_cluster\_name](#output\_kubernetes\_engine\_container\_cluster\_name) | The name of the cluster, unique within the project and location |
 | <a name="output_kubernetes_engine_service_account_gke_operations_email"></a> [kubernetes\_engine\_service\_account\_gke\_operations\_email](#output\_kubernetes\_engine\_service\_account\_gke\_operations\_email) | The email address of the Kubernetes minimum privilege service account for the cluster |
 <!-- END_TF_DOCS -->
