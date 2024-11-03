@@ -2,5 +2,5 @@
 # https://github.com/osinfra-io/terraform-kubernetes-opa-gatekeeper
 
 module "kubernetes_opa_gatekeeper" {
-  source = "github.com/osinfra-io/terraform-kubernetes-opa-gatekeeper//regional?ref=main"
+  source = "github.com/osinfra-io/terraform-kubernetes-opa-gatekeeper//regional?ref=refactor"
 }
