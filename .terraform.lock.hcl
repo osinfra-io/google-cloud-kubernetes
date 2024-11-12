@@ -25,6 +25,7 @@ provider "registry.terraform.io/datadog/datadog" {
 provider "registry.terraform.io/hashicorp/google" {
   version = "6.11.1"
   hashes = [
+    "h1:78p5tPrJ/zPzsyGR0NnnDYC4a2Sej8EbQaW4JxkEtCQ=",
     "h1:s6rm2nFy0kEhCv1qIp6ekwizVs6JTsUh8D+vEZGEvRk=",
     "zh:272eb98b17e3a277394efbf9fbd81aab6705502c56e34b11b455893e09a69bfe",
     "zh:2d8e91565dc179f84175208a8feb51fff629e6cbc2024f7da31f3b6caf12a6ca",
