@@ -38,7 +38,3 @@ kubernetes_istio_virtual_services = {
     host             = "us-east1-b.sb.customer-trust.osinfra.io"
   }
 }
-
-region        = "us-east1"
-remote_bucket = "plt-k8s-2c8b-sb"
-zone          = "b"

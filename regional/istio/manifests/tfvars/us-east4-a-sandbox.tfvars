@@ -1,7 +1,3 @@
-region        = "us-east4"
-remote_bucket = "plt-k8s-2c8b-sb"
-zone          = "a"
-
 kubernetes_istio_common_gke_info_virtual_services = {
   "customer-trust-gke-info" = {
     destination_host = "gke-info-go.customer-trust-gke-info.svc.cluster.local"

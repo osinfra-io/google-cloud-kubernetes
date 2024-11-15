@@ -2,15 +2,6 @@
 # https://www.terraform.io/docs/language/values/locals.html
 
 locals {
-  main = data.terraform_remote_state.main.outputs
-
-  labels = {
-    cost-center = "x001"
-    env         = var.environment
-    repository  = "google-cloud-kubernetes"
-    platform    = "google-cloud-kubernetes"
-    team        = "platform-google-cloud-kubernetes"
-  }
-
-  subnet = "plt-${var.region}-${var.zone}"
+  main   = data.terraform_remote_state.main.outputs
+  subnet = "plt-${module.helpers.region}-${module.helpers.zone}"
 }
