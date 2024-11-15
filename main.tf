@@ -16,7 +16,7 @@ module "datadog" {
 # https://github.com/osinfra-io/terraform-google-project
 
 module "project" {
-  source = "github.com/osinfra-io/terraform-google-project?ref=helpers"
+  source = "github.com/osinfra-io/terraform-google-project?ref=v0.4.5"
 
   billing_account                 = var.project_billing_account
   cis_2_2_logging_sink_project_id = var.project_cis_2_2_logging_sink_project_id
