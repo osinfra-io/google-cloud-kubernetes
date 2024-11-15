@@ -16,6 +16,7 @@ No requirements.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_helpers"></a> [helpers](#module\_helpers) | github.com/osinfra-io/terraform-core-helpers | v0.1.1 |
+| <a name="module_kubernetes_datadog_operator"></a> [kubernetes\_datadog\_operator](#module\_kubernetes\_datadog\_operator) | github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional | v0.1.4 |
 
 ## Resources
 

@@ -1,4 +1,4 @@
-datadog_enable = false
+datadog_enable = true
 
 kubernetes_istio_gateway_dns = {
   "sb.gcp.osinfra.io" = {

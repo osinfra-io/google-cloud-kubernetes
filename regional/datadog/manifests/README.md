@@ -7,17 +7,25 @@ No requirements.
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_google"></a> [google](#provider\_google) | 6.11.1 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_helpers"></a> [helpers](#module\_helpers) | github.com/osinfra-io/terraform-core-helpers | v0.1.1 |
+| <a name="module_kubernetes_datadog_operator_manifests"></a> [kubernetes\_datadog\_operator\_manifests](#module\_kubernetes\_datadog\_operator\_manifests) | github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional/manifests | v0.1.4 |
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [google_client_config.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/client_config) | data source |
+| [google_container_cluster.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/container_cluster) | data source |
+| [google_project.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/project) | data source |
+| [google_projects.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/projects) | data source |
 
 ## Inputs
 

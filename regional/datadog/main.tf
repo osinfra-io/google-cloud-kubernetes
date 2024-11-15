@@ -1,10 +1,10 @@
 # Kubernetes Datadog Operator Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-kubernetes-datadog-operator
 
-# module "kubernetes_datadog_operator" {
-#   source = "github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional?ref=v0.1.3"
+module "kubernetes_datadog_operator" {
+  source = "github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional?ref=v0.1.4"
 
-#   api_key                 = var.datadog_api_key
-#   app_key                 = var.datadog_app_key
-#   kubernetes_cluster_name = data.google_container_cluster.this.name
-# }
+  api_key        = var.datadog_api_key
+  app_key        = var.datadog_app_key
+  cluster_prefix = "plt"
+}
