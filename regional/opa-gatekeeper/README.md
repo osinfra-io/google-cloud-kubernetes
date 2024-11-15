@@ -16,7 +16,7 @@ No requirements.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_helpers"></a> [helpers](#module\_helpers) | github.com/osinfra-io/terraform-core-helpers | v0.1.1 |
-| <a name="module_kubernetes_opa_gatekeeper"></a> [kubernetes\_opa\_gatekeeper](#module\_kubernetes\_opa\_gatekeeper) | github.com/osinfra-io/terraform-kubernetes-opa-gatekeeper//regional | refactor |
+| <a name="module_kubernetes_opa_gatekeeper"></a> [kubernetes\_opa\_gatekeeper](#module\_kubernetes\_opa\_gatekeeper) | github.com/osinfra-io/terraform-kubernetes-opa-gatekeeper//regional | v0.1.1 |
 
 ## Resources
 
