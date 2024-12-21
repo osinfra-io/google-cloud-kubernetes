@@ -9,14 +9,14 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 6.12.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 6.14.1 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_helpers"></a> [helpers](#module\_helpers) | github.com/osinfra-io/terraform-core-helpers//root | v0.1.2 |
-| <a name="module_kubernetes_datadog_operator_manifests"></a> [kubernetes\_datadog\_operator\_manifests](#module\_kubernetes\_datadog\_operator\_manifests) | github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional/manifests | v0.1.4 |
+| <a name="module_kubernetes_datadog_operator_manifests"></a> [kubernetes\_datadog\_operator\_manifests](#module\_kubernetes\_datadog\_operator\_manifests) | github.com/osinfra-io/terraform-kubernetes-datadog-operator//regional/manifests | v0.1.5 |
 
 ## Resources
 
