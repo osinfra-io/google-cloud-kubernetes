@@ -5,4 +5,4 @@ kubernetes_istio_gateway_dns = {
   }
 }
 
-remote_bucket = "plt-k8s-e194-prod"
+remote_bucket = "plt-k8s-53a5-prod"
