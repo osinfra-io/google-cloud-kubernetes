@@ -30,12 +30,12 @@ module "kubernetes_istio" {
   labels                     = module.helpers.labels
 
   multi_cluster_service_clusters = [
-    {
-      "link" = "us-east1/plt-us-east1-b"
-    },
-    {
-      "link" = "us-east4/plt-us-east4-a"
-    }
+    # {
+    #   "link" = "us-east1/plt-us-east1-b"
+    # },
+    # {
+    #   "link" = "us-east4/plt-us-east4-a"
+    # }
   ]
 
   pilot_cpu_limits      = var.kubernetes_istio_pilot_cpu_limits
