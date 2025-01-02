@@ -44,6 +44,7 @@ module "project" {
     "multiclusterservicediscovery.googleapis.com",
     "servicenetworking.googleapis.com",
     "serviceusage.googleapis.com",
+    "sqladmin.googleapis.com",
     "trafficdirector.googleapis.com"
   ]
 }
