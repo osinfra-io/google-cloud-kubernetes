@@ -53,7 +53,7 @@ module "project" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=fix"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=v0.2.1"
 
   namespaces = var.kubernetes_engine_namespaces
   project    = module.project.id
