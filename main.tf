@@ -38,11 +38,13 @@ module "project" {
     "dns.googleapis.com",
     "gkehub.googleapis.com",
     "iam.googleapis.com",
+    "iap.googleapis.com",
     "monitoring.googleapis.com",
     "multiclusteringress.googleapis.com",
     "multiclusterservicediscovery.googleapis.com",
     "servicenetworking.googleapis.com",
     "serviceusage.googleapis.com",
+    "sqladmin.googleapis.com",
     "trafficdirector.googleapis.com"
   ]
 }
@@ -51,7 +53,7 @@ module "project" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=v0.2.0"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=v0.2.1"
 
   namespaces = var.kubernetes_engine_namespaces
   project    = module.project.id
