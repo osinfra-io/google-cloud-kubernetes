@@ -17,4 +17,5 @@ variable "istio_test_replicas" {
 variable "istio_test_version" {
   description = "The version of the istio-test deployment"
   type        = string
+  default     = "v0.3.0"
 }

@@ -53,8 +53,6 @@ resource "datadog_synthetics_test" "this" {
   type = "api"
 }
 
-
-
 # Kubernetes Deployment Resource
 # https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/deployment_v1
 

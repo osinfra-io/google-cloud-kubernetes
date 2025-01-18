@@ -4,7 +4,7 @@ kubernetes_engine_namespaces = {
   }
 
   istio-test = {
-    google_service_account = "plt-istio-test-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com"
+    google_service_account = "plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com"
     istio_injection        = "enabled"
   }
 }
