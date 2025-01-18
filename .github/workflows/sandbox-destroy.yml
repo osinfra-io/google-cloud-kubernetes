@@ -10,6 +10,50 @@ permissions:
   id-token: write
 
 jobs:
+  us_east1_b_istio_test:
+    name: "Istio Test: us-east1-b"
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    if: github.actor != 'dependabot[bot]'
+    with:
+      checkout_ref: ${{ github.ref }}
+      environment: us-east1-b-sandbox
+      github_environment: "Sandbox Istio Test: us-east1-b"
+      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
+      terraform_plan_args: -destroy -var-file=tfvars/us-east1-b-sandbox.tfvars
+      terraform_state_bucket: plt-k8s-4312-sb
+      terraform_version: ${{ vars.TERRAFORM_VERSION }}
+      terraform_workspace: us-east1-b-istio-test-sandbox
+      working_directory: regional/istio/test
+      workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
+    secrets:
+      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
+      terraform_plan_secret_args: >-
+        -var=datadog_api_key=${{ secrets.DATADOG_API_KEY }}
+        -var=datadog_app_key=${{ secrets.DATADOG_APP_KEY }}
+
+  us_east4_a_istio_test:
+    name: "Istio Test: us-east4-a"
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    if: github.actor != 'dependabot[bot]'
+    with:
+      checkout_ref: ${{ github.ref }}
+      environment: us-east4-a-sandbox
+      github_environment: "Sandbox Istio Test: us-east4-a"
+      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
+      terraform_plan_args: -destroy -var-file=tfvars/us-east4-a-sandbox.tfvars
+      terraform_state_bucket: plt-k8s-4312-sb
+      terraform_version: ${{ vars.TERRAFORM_VERSION }}
+      terraform_workspace: us-east4-a-istio-test-sandbox
+      working_directory: regional/istio/test
+      workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
+    secrets:
+      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
+      terraform_plan_secret_args: >-
+        -var=datadog_api_key=${{ secrets.DATADOG_API_KEY }}
+        -var=datadog_app_key=${{ secrets.DATADOG_APP_KEY }}
+
   us_east1_b_datadog_manifests:
     name: "Datadog Manifests: us-east1-b"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
@@ -217,6 +261,7 @@ jobs:
   us_east1_b_istio:
     name: "Istio: us-east1-b"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    needs: us_east1_b_istio_test
     if: github.actor != 'dependabot[bot]'
     with:
       checkout_ref: ${{ github.ref }}
@@ -236,6 +281,7 @@ jobs:
   us_east4_a_istio:
     name: "Istio: us-east4-a"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    needs: us_east4_a_istio_test
     if: github.actor != 'dependabot[bot]'
     with:
       checkout_ref: ${{ github.ref }}
