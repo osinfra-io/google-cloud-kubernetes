@@ -16,6 +16,7 @@ variable "kubernetes_istio_common_virtual_services" {
     destination_port = optional(number, 8080)
     host             = string
   }))
+  default = {}
 }
 
 variable "kubernetes_istio_failover_from_region" {
@@ -45,4 +46,5 @@ variable "kubernetes_istio_virtual_services" {
     destination_port = optional(number, 8080)
     host             = string
   }))
+  default = {}
 }
