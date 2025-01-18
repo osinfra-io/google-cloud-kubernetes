@@ -61,7 +61,7 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east1-b-sandbox
-      github_environment: "Sandbox Datadog Manifests: Regional - us-east1-b"
+      github_environment: "Sandbox Datadog Manifests: us-east1-b"
       service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
       terraform_plan_args: -destroy -var-file=tfvars/us-east1-b-sandbox.tfvars
       terraform_state_bucket: plt-k8s-4312-sb
@@ -83,7 +83,7 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east4-a-sandbox
-      github_environment: "Sandbox Datadog Manifests: Regional - us-east4-a"
+      github_environment: "Sandbox Datadog Manifests: us-east4-a"
       service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
       terraform_plan_args: -destroy -var-file=tfvars/us-east4-a-sandbox.tfvars
       terraform_state_bucket: plt-k8s-4312-sb
@@ -106,7 +106,7 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east1-b-sandbox
-      github_environment: "Sandbox Datadog: Regional - us-east1-b"
+      github_environment: "Sandbox Datadog: us-east1-b"
       service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
       terraform_plan_args: -destroy -var-file=tfvars/us-east1-b-sandbox.tfvars
       terraform_state_bucket: plt-k8s-4312-sb
@@ -129,7 +129,7 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east4-a-sandbox
-      github_environment: "Sandbox Datadog: Regional - us-east4-a"
+      github_environment: "Sandbox Datadog: us-east4-a"
       service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
       terraform_plan_args: -destroy -var-file=tfvars/us-east4-a-sandbox.tfvars
       terraform_state_bucket: plt-k8s-4312-sb
@@ -151,7 +151,7 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east1-b-sandbox
-      github_environment: "Sandbox OPA Gatekeeper: Regional - us-east1-b"
+      github_environment: "Sandbox OPA Gatekeeper: us-east1-b"
       service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
       terraform_plan_args: -destroy -var-file=tfvars/us-east1-b-sandbox.tfvars
       terraform_state_bucket: plt-k8s-4312-sb
@@ -170,7 +170,7 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east4-a-sandbox
-      github_environment: "Sandbox OPA Gatekeeper: Regional - us-east4-a"
+      github_environment: "Sandbox OPA Gatekeeper: us-east4-a"
       service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
       terraform_plan_args: -destroy -var-file=tfvars/us-east4-a-sandbox.tfvars
       terraform_state_bucket: plt-k8s-4312-sb
@@ -189,7 +189,7 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east1-b-sandbox
-      github_environment: "Sandbox cert-manager: Regional - us-east1-b"
+      github_environment: "Sandbox cert-manager: us-east1-b"
       service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
       terraform_plan_args: -destroy -var-file=tfvars/us-east1-b-sandbox.tfvars
       terraform_state_bucket: plt-k8s-4312-sb
@@ -208,7 +208,7 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east4-a-sandbox
-      github_environment: "Sandbox cert-manager: Regional - us-east4-a"
+      github_environment: "Sandbox cert-manager: us-east4-a"
       service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
       terraform_plan_args: -destroy -var-file=tfvars/us-east4-a-sandbox.tfvars
       terraform_state_bucket: plt-k8s-4312-sb
@@ -227,7 +227,7 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east1-b-sandbox
-      github_environment: "Sandbox cert-manager Istio CSR: Regional - us-east1-b"
+      github_environment: "Sandbox cert-manager Istio CSR: us-east1-b"
       service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
       terraform_plan_args: -destroy -var-file=tfvars/us-east1-b-sandbox.tfvars
       terraform_state_bucket: plt-k8s-4312-sb
@@ -246,7 +246,7 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east4-a-sandbox
-      github_environment: "Sandbox cert-manager Istio CSR: Regional - us-east4-a"
+      github_environment: "Sandbox cert-manager Istio CSR: us-east4-a"
       service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
       terraform_plan_args: -destroy -var-file=tfvars/us-east4-a-sandbox.tfvars
       terraform_state_bucket: plt-k8s-4312-sb
@@ -266,7 +266,7 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east1-b-sandbox
-      github_environment: "Sandbox Istio: Regional - us-east1-b"
+      github_environment: "Sandbox Istio: us-east1-b"
       service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
       terraform_plan_args: -destroy -var-file=tfvars/us-east1-b-sandbox.tfvars
       terraform_state_bucket: plt-k8s-4312-sb
@@ -286,7 +286,7 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east4-a-sandbox
-      github_environment: "Sandbox Istio: Regional - us-east4-a"
+      github_environment: "Sandbox Istio: us-east4-a"
       service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
       terraform_plan_args: -destroy -var-file=tfvars/us-east4-a-sandbox.tfvars
       terraform_state_bucket: plt-k8s-4312-sb
@@ -306,7 +306,7 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east1-b-sandbox
-      github_environment: "Sandbox Onboarding: Regional - us-east1-b"
+      github_environment: "Sandbox Onboarding: us-east1-b"
       service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
       terraform_plan_args: -destroy -var-file=tfvars/us-east1-b-sandbox.tfvars -var-file=../../shared/tfvars/sandbox.tfvars
       terraform_state_bucket: plt-k8s-4312-sb
@@ -326,7 +326,7 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east4-a-sandbox
-      github_environment: "Sandbox Onboarding: Regional - us-east4-a"
+      github_environment: "Sandbox Onboarding: us-east4-a"
       service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
       terraform_plan_args: -destroy -var-file=tfvars/us-east4-a-sandbox.tfvars -var-file=../../shared/tfvars/sandbox.tfvars
       terraform_state_bucket: plt-k8s-4312-sb
@@ -346,7 +346,7 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east1-b-sandbox
-      github_environment: "Sandbox: Regional - us-east1-b"
+      github_environment: "Sandbox: us-east1-b"
       service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
       terraform_plan_args: -destroy -var-file=tfvars/us-east1-b-sandbox.tfvars
       terraform_state_bucket: plt-k8s-4312-sb
@@ -366,7 +366,7 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       environment: us-east4-a-sandbox
-      github_environment: "Sandbox: Regional - us-east4-a"
+      github_environment: "Sandbox: us-east4-a"
       service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
       terraform_plan_args: -destroy -var-file=tfvars/us-east4-a-sandbox.tfvars
       terraform_state_bucket: plt-k8s-4312-sb
