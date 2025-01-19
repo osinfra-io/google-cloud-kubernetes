@@ -5,8 +5,8 @@ kubernetes_istio_common_istio_test_virtual_services = {
   }
 }
 
-kubernetes_istio_failover_from_region = "us-east1"
-kubernetes_istio_failover_to_region   = "us-east4"
+kubernetes_istio_failover_from_region = "us-east4"
+kubernetes_istio_failover_to_region   = "us-east1"
 
 kubernetes_istio_test_virtual_services = {
   "istio-test-us-east4-a" = {
