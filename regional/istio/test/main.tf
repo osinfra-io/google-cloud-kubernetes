@@ -223,7 +223,8 @@ resource "kubernetes_manifest" "istio_test" {
           from = [
             {
               source = {
-                principals = ["cluster.local/ns/istio-ingress/sa/gateway"]
+                namespaces = ["istio-ingress"]
+                # principals = ["cluster.local/ns/istio-ingress/sa/gateway"]
               }
             }
           ]
