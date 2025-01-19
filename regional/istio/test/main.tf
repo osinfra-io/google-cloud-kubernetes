@@ -206,55 +206,55 @@ resource "kubernetes_deployment_v1" "istio_test" {
 # Kubernetes Manifest Resource
 # https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/manifest
 
-# resource "kubernetes_manifest" "istio_test" {
-#   manifest = {
-#     apiVersion = "security.istio.io/v1"
-#     kind       = "AuthorizationPolicy"
+resource "kubernetes_manifest" "istio_test" {
+  manifest = {
+    apiVersion = "security.istio.io/v1"
+    kind       = "AuthorizationPolicy"
 
-#     metadata = {
-#       name      = "istio-test"
-#       namespace = "istio-test"
-#     }
+    metadata = {
+      name      = "istio-test"
+      namespace = "istio-test"
+    }
 
-#     spec = {
-#       action = "ALLOW"
-#       rules = [
-#         {
-#           from = [
-#             {
-#               source = {
-#                 principals = ["cluster.local/ns/istio-ingress/sa/gateway"]
-#               }
-#             }
-#           ]
+    spec = {
+      action = "ALLOW"
+      rules = [
+        {
+          from = [
+            {
+              source = {
+                principals = ["cluster.local/ns/istio-ingress/sa/gateway"]
+              }
+            }
+          ]
 
-#           to = [
-#             {
-#               operation = {
-#                 methods = ["GET"]
+          to = [
+            {
+              operation = {
+                methods = ["GET"]
 
-#                 # The authorization policy below uses the ALLOW-with-positive-matching pattern to allow requests to specific paths.
+                # The authorization policy below uses the ALLOW-with-positive-matching pattern to allow requests to specific paths.
 
-#                 paths = [
-#                   "/istio-test/health",
-#                   "/istio-test/metadata/cluster-location",
-#                   "/istio-test/metadata/cluster-name",
-#                   "/istio-test/metadata/instance-zone"
-#                 ]
-#               }
-#             }
-#           ]
-#         }
-#       ]
+                paths = [
+                  "/istio-test/health",
+                  "/istio-test/metadata/cluster-location",
+                  "/istio-test/metadata/cluster-name",
+                  "/istio-test/metadata/instance-zone"
+                ]
+              }
+            }
+          ]
+        }
+      ]
 
-#       selector = {
-#         matchLabels = {
-#           app = "istio-test"
-#         }
-#       }
-#     }
-#   }
-# }
+      selector = {
+        matchLabels = {
+          app = "istio-test"
+        }
+      }
+    }
+  }
+}
 
 # Kubernetes Service Resource
 # https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/service_v1
