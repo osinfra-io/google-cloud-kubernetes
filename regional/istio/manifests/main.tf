@@ -2,12 +2,12 @@
 # https://github.com/osinfra-io/terraform-kubernetes-istio
 
 module "kubernetes_istio_manifests" {
-  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional/manifests?ref=v0.1.6"
+  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional/manifests?ref=rename"
 
-  common_gke_info_virtual_services = var.kubernetes_istio_common_gke_info_virtual_services
-  common_virtual_services          = var.kubernetes_istio_common_virtual_services
-  gke_info_virtual_services        = var.kubernetes_istio_gke_info_virtual_services
-  failover_from_region             = var.kubernetes_istio_failover_from_region
-  failover_to_region               = var.kubernetes_istio_failover_to_region
-  virtual_services                 = var.kubernetes_istio_virtual_services
+  common_istio_test_virtual_services = var.kubernetes_istio_common_istio_test_virtual_services
+  common_virtual_services            = var.kubernetes_istio_common_virtual_services
+  istio_test_virtual_services        = var.kubernetes_istio_test_virtual_services
+  failover_from_region               = var.kubernetes_istio_failover_from_region
+  failover_to_region                 = var.kubernetes_istio_failover_to_region
+  virtual_services                   = var.kubernetes_istio_virtual_services
 }
