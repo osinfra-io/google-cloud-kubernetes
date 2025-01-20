@@ -12,7 +12,7 @@ permissions:
 jobs:
   us_east1_b_datadog_manifests:
     name: "Datadog Manifests: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.6
     if: github.actor != 'dependabot[bot]'
     with:
       checkout_ref: ${{ github.ref }}
@@ -34,7 +34,7 @@ jobs:
 
   us_east4_a_datadog_manifests:
     name: "Datadog Manifests: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.6
     if: github.actor != 'dependabot[bot]'
     with:
       checkout_ref: ${{ github.ref }}
@@ -56,7 +56,7 @@ jobs:
 
   us_east1_b_datadog:
     name: "Datadog: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.6
     if: github.actor != 'dependabot[bot]'
     needs: us_east1_b_datadog_manifests
     with:
@@ -79,7 +79,7 @@ jobs:
 
   us_east4_a_datadog:
     name: "Datadog: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.6
     if: github.actor != 'dependabot[bot]'
     needs: us_east4_a_datadog_manifests
     with:
@@ -102,7 +102,7 @@ jobs:
 
   us_east1_b_opa_gatekeeper:
     name: "OPA Gatekeeper: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.6
     if: github.actor != 'dependabot[bot]'
     with:
       checkout_ref: ${{ github.ref }}
@@ -121,7 +121,7 @@ jobs:
 
   us_east4_a_opa_gatekeeper:
     name: "OPA Gatekeeper: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.6
     if: github.actor != 'dependabot[bot]'
     with:
       checkout_ref: ${{ github.ref }}
@@ -140,7 +140,7 @@ jobs:
 
   us_east1_b_cert_manager:
     name: "cert-manager: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.6
     if: github.actor != 'dependabot[bot]'
     with:
       checkout_ref: ${{ github.ref }}
@@ -159,7 +159,7 @@ jobs:
 
   us_east4_a_cert_manager:
     name: "cert-manager: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.6
     if: github.actor != 'dependabot[bot]'
     with:
       checkout_ref: ${{ github.ref }}
@@ -178,7 +178,7 @@ jobs:
 
   us_east1_b_cert_manager_istio_csr:
     name: "cert-manager Istio CSR: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.6
     if: github.actor != 'dependabot[bot]'
     with:
       checkout_ref: ${{ github.ref }}
@@ -197,7 +197,7 @@ jobs:
 
   us_east4_a_cert_manager_istio_csr:
     name: "cert-manager Istio CSR: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.6
     if: github.actor != 'dependabot[bot]'
     with:
       checkout_ref: ${{ github.ref }}
@@ -216,7 +216,7 @@ jobs:
 
   us_east1_b_istio:
     name: "Istio: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.6
     if: github.actor != 'dependabot[bot]'
     with:
       checkout_ref: ${{ github.ref }}
@@ -235,7 +235,7 @@ jobs:
 
   us_east4_a_istio:
     name: "Istio: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.6
     if: github.actor != 'dependabot[bot]'
     with:
       checkout_ref: ${{ github.ref }}
@@ -254,7 +254,7 @@ jobs:
 
   us_east1_b_onboarding:
     name: "Onboarding: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.6
     if: github.actor != 'dependabot[bot]'
     needs: [us_east1_b_datadog, us_east1_b_cert_manager, us_east1_b_cert_manager_istio_csr, us_east1_b_istio]
     with:
@@ -274,7 +274,7 @@ jobs:
 
   us_east4_a_onboarding:
     name: "Onboarding: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.6
     if: github.actor != 'dependabot[bot]'
     needs: [us_east4_a_datadog, us_east4_a_cert_manager, us_east4_a_cert_manager_istio_csr, us_east4_a_istio]
     with:
@@ -294,7 +294,7 @@ jobs:
 
   us_east1_b:
     name: "Regional: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.6
     if: github.actor != 'dependabot[bot]'
     needs: us_east1_b_onboarding
     with:
@@ -314,7 +314,7 @@ jobs:
 
   us_east4_a:
     name: "Regional: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.6
     if: github.actor != 'dependabot[bot]'
     needs: us_east4_a_onboarding
     with:
