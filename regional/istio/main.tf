@@ -16,7 +16,7 @@ data "terraform_remote_state" "main" {
 # https://github.com/osinfra-io/terraform-kubernetes-istio
 
 module "kubernetes_istio" {
-  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional?ref=v0.1.6"
+  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional?ref=v0.1.7"
 
   artifact_registry          = "us-docker.pkg.dev/plt-lz-services-tf79-prod/plt-docker-virtual"
   cluster_prefix             = "plt"
@@ -30,12 +30,12 @@ module "kubernetes_istio" {
   labels                     = module.helpers.labels
 
   multi_cluster_service_clusters = [
-    # {
-    #   "link" = "us-east1/plt-us-east1-b"
-    # },
-    # {
-    #   "link" = "us-east4/plt-us-east4-a"
-    # }
+    {
+      "link" = "us-east1/plt-us-east1-b"
+    },
+    {
+      "link" = "us-east4/plt-us-east4-a"
+    }
   ]
 
   pilot_cpu_limits      = var.kubernetes_istio_pilot_cpu_limits
