@@ -2,7 +2,7 @@
 # https://github.com/osinfra-io/terraform-kubernetes-istio
 
 module "kubernetes_istio_manifests" {
-  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional/manifests?ref=rename"
+  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional/manifests?ref=v0.1.7"
 
   common_istio_test_virtual_services = var.kubernetes_istio_common_istio_test_virtual_services
   common_virtual_services            = var.kubernetes_istio_common_virtual_services
