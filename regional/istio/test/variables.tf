@@ -6,6 +6,7 @@ variable "datadog_api_key" {
 variable "datadog_app_key" {
   description = "Datadog APP key"
   type        = string
+  sensitive   = true
 }
 
 variable "istio_test_replicas" {
