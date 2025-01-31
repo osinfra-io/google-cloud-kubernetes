@@ -60,10 +60,11 @@ metadata:
   inheritFrom: system:istio
 
 spec:
-  tier: Zero
+  tier: zero
   type: service
+  lifecycle: production
   languages:
-    - go
+    - istio
 
 datadog:
   performanceData:
@@ -117,10 +118,11 @@ metadata:
       url: "https://us-east4-a.gcp.osinfra.io"
 
 spec:
-  tier: Zero
+  tier: zero
   type: web
+  lifecycle: production
   languages:
-    - cpp
+    - istio
 
 datadog:
   performanceData:
@@ -186,11 +188,11 @@ metadata:
   owner: platform-google-cloud-kubernetes
 
 spec:
-  lifecycle: production
   tier: zero
   type: web
+  lifecycle: production
   languages:
-    - go
+    - istio
 
   dependsOn:
     - 'service:istio-gateway'
@@ -266,10 +268,11 @@ metadata:
   inheritFrom: system:cert-manager
 
 spec:
-  tier: Zero
+  tier: zero
   type: service
+  lifecycle: production
   languages:
-    - go
+    - cert-manager
 
 datadog:
   performanceData:
@@ -286,10 +289,11 @@ metadata:
   inheritFrom: system:cert-manager
 
 spec:
-  tier: Zero
+  tier: zero
   type: service
+  lifecycle: production
   languages:
-    - go
+    - cert-manager
 
 datadog:
   performanceData:
@@ -306,10 +310,11 @@ metadata:
   inheritFrom: system:cert-manager
 
 spec:
-  tier: Zero
+  tier: zero
   type: service
+  lifecycle: production
   languages:
-    - go
+    - cert-manager
 
 datadog:
   performanceData:
@@ -326,10 +331,11 @@ metadata:
   inheritFrom: system:cert-manager
 
 spec:
-  tier: Zero
+  tier: zero
   type: service
+  lifecycle: production
   languages:
-    - go
+    - cert-manager
 
 datadog:
   performanceData:
