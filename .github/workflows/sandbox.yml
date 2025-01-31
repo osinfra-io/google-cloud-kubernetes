@@ -319,7 +319,7 @@ jobs:
 
   us_east1_b_istio_test:
     name: "Istio Test: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.6
     if: github.actor != 'dependabot[bot]'
     needs: us_east1_b_istio_manifests
     with:
@@ -342,7 +342,7 @@ jobs:
 
   us_east4_a_istio_test:
     name: "Istio Test: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.5
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.6
     if: github.actor != 'dependabot[bot]'
     needs: us_east4_a_istio_manifests
     with:
