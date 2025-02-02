@@ -11,6 +11,17 @@ output "kubernetes_engine_workload_identity_service_account_emails" {
   value       = module.kubernetes_engine.workload_identity_service_account_emails
 }
 
+output "kubernetes_cert_manager_tls_self_signed_cert_cert_manager_root_cert" {
+  description = "The self-signed certificate for the cert-manager root certificate"
+  value       = module.kubernetes_cert_manager.tls_self_signed_cert_cert_manager_root_cert
+}
+
+output "kubernetes_cert_manager_tls_self_signed_cert_cert_manager_root_key" {
+  description = "The private key for the cert-manager root certificate"
+  value       = module.kubernetes_cert_manager.tls_self_signed_cert_cert_manager_root_key
+  sensitive   = true
+}
+
 output "kubernetes_istio_gateway_mci_global_address" {
   description = "The IP address for the Istio Gateway multi-cluster ingress"
   value       = module.kubernetes_istio.gateway_mci_global_address

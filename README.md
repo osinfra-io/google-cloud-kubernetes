@@ -84,6 +84,8 @@ No resources.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_kubernetes_cert_manager_tls_self_signed_cert_cert_manager_root_cert"></a> [kubernetes\_cert\_manager\_tls\_self\_signed\_cert\_cert\_manager\_root\_cert](#output\_kubernetes\_cert\_manager\_tls\_self\_signed\_cert\_cert\_manager\_root\_cert) | The self-signed certificate for the cert-manager root certificate |
+| <a name="output_kubernetes_cert_manager_tls_self_signed_cert_cert_manager_root_key"></a> [kubernetes\_cert\_manager\_tls\_self\_signed\_cert\_cert\_manager\_root\_key](#output\_kubernetes\_cert\_manager\_tls\_self\_signed\_cert\_cert\_manager\_root\_key) | The private key for the cert-manager root certificate |
 | <a name="output_kubernetes_engine_container_deployer_service_accounts"></a> [kubernetes\_engine\_container\_deployer\_service\_accounts](#output\_kubernetes\_engine\_container\_deployer\_service\_accounts) | The service accounts for the container deployer |
 | <a name="output_kubernetes_engine_workload_identity_service_account_emails"></a> [kubernetes\_engine\_workload\_identity\_service\_account\_emails](#output\_kubernetes\_engine\_workload\_identity\_service\_account\_emails) | The email addresses of the service accounts for the Kubernetes namespace workload identity |
 | <a name="output_kubernetes_istio_gateway_mci_global_address"></a> [kubernetes\_istio\_gateway\_mci\_global\_address](#output\_kubernetes\_istio\_gateway\_mci\_global\_address) | The IP address for the Istio Gateway multi-cluster ingress |
