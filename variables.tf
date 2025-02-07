@@ -59,3 +59,8 @@ variable "project_monthly_budget_amount" {
   type        = number
   default     = 5
 }
+
+variable "shared_vpc_host_project_id" {
+  description = "The project ID of the shared VPC host project"
+  type        = string
+}

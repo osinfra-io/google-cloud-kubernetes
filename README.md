@@ -58,7 +58,7 @@ No providers.
 | <a name="module_datadog"></a> [datadog](#module\_datadog) | github.com/osinfra-io/terraform-datadog-google-integration | v0.3.0 |
 | <a name="module_helpers"></a> [helpers](#module\_helpers) | github.com/osinfra-io/terraform-core-helpers//root | v0.1.2 |
 | <a name="module_kubernetes_cert_manager"></a> [kubernetes\_cert\_manager](#module\_kubernetes\_cert\_manager) | github.com/osinfra-io/terraform-kubernetes-cert-manager | tls |
-| <a name="module_kubernetes_engine"></a> [kubernetes\_engine](#module\_kubernetes\_engine) | github.com/osinfra-io/terraform-google-kubernetes-engine | v0.2.2 |
+| <a name="module_kubernetes_engine"></a> [kubernetes\_engine](#module\_kubernetes\_engine) | github.com/osinfra-io/terraform-google-kubernetes-engine | iam |
 | <a name="module_kubernetes_istio"></a> [kubernetes\_istio](#module\_kubernetes\_istio) | github.com/osinfra-io/terraform-kubernetes-istio | ecdsa |
 | <a name="module_project"></a> [project](#module\_project) | github.com/osinfra-io/terraform-google-project | v0.4.5 |
 
@@ -79,6 +79,7 @@ No resources.
 | <a name="input_project_cis_2_2_logging_sink_project_id"></a> [project\_cis\_2\_2\_logging\_sink\_project\_id](#input\_project\_cis\_2\_2\_logging\_sink\_project\_id) | The CIS 2.2 logging sink benchmark project ID | `string` | n/a | yes |
 | <a name="input_project_folder_id"></a> [project\_folder\_id](#input\_project\_folder\_id) | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
 | <a name="input_project_monthly_budget_amount"></a> [project\_monthly\_budget\_amount](#input\_project\_monthly\_budget\_amount) | The monthly budget amount in USD to set for the project | `number` | `5` | no |
+| <a name="input_shared_vpc_host_project_id"></a> [shared\_vpc\_host\_project\_id](#input\_shared\_vpc\_host\_project\_id) | The project ID of the shared VPC host project | `string` | n/a | yes |
 
 #### Outputs
 

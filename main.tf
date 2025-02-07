@@ -23,10 +23,11 @@ module "kubernetes_cert_manager" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=v0.2.2"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=iam"
 
-  namespaces = var.kubernetes_engine_namespaces
-  project    = module.project.id
+  namespaces                 = var.kubernetes_engine_namespaces
+  project                    = module.project.id
+  shared_vpc_host_project_id = var.shared_vpc_host_project_id
 }
 
 # Kubernetes Istio Module (osinfra.io)
