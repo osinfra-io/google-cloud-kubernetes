@@ -27,7 +27,7 @@ module "kubernetes_engine" {
 
   namespaces                 = var.kubernetes_engine_namespaces
   project                    = module.project.id
-  shared_vpc_host_project_id = var.shared_vpc_host_project_id
+  shared_vpc_host_project_id = var.kubernetes_engine_shared_vpc_host_project_id
 }
 
 # Kubernetes Istio Module (osinfra.io)
