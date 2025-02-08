@@ -17,7 +17,7 @@ No requirements.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_helpers"></a> [helpers](#module\_helpers) | github.com/osinfra-io/terraform-core-helpers//root | v0.1.2 |
-| <a name="module_kubernetes_cert_manager_istio_csr"></a> [kubernetes\_cert\_manager\_istio\_csr](#module\_kubernetes\_cert\_manager\_istio\_csr) | github.com/osinfra-io/terraform-kubernetes-cert-manager//regional/istio-csr | tls |
+| <a name="module_kubernetes_cert_manager_istio_csr"></a> [kubernetes\_cert\_manager\_istio\_csr](#module\_kubernetes\_cert\_manager\_istio\_csr) | github.com/osinfra-io/terraform-kubernetes-cert-manager//regional/istio-csr | v0.1.5 |
 
 ## Resources
 
