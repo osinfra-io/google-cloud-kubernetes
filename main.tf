@@ -12,6 +12,36 @@ module "datadog" {
   project                            = module.project.id
 }
 
+# Kubernetes cert-manager Module (osinfra.io)
+# https://github.com/osinfra-io/terraform-kubernetes-cert-manager
+
+module "kubernetes_cert_manager" {
+  source = "github.com/osinfra-io/terraform-kubernetes-cert-manager?ref=v0.1.5"
+}
+
+# Google Kubernetes Engine Module (osinfra.io)
+# https://github.com/osinfra-io/terraform-google-kubernetes-engine
+
+module "kubernetes_engine" {
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=v0.2.3"
+
+  labels                     = module.helpers.labels
+  namespaces                 = var.kubernetes_engine_namespaces
+  project                    = module.project.id
+  shared_vpc_host_project_id = var.kubernetes_engine_shared_vpc_host_project_id
+}
+
+# Kubernetes Istio Module (osinfra.io)
+# https://github.com/osinfra-io/terraform-kubernetes-istio
+
+module "kubernetes_istio" {
+  source = "github.com/osinfra-io/terraform-kubernetes-istio?ref=v0.1.8"
+
+  gateway_dns = var.kubernetes_istio_gateway_dns
+  labels      = module.helpers.labels
+  project     = module.project.id
+}
+
 # Google Project Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-project
 
@@ -47,25 +77,4 @@ module "project" {
     "sqladmin.googleapis.com",
     "trafficdirector.googleapis.com"
   ]
-}
-
-# Google Kubernetes Engine Module (osinfra.io)
-# https://github.com/osinfra-io/terraform-google-kubernetes-engine
-
-module "kubernetes_engine" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=v0.2.2"
-
-  namespaces = var.kubernetes_engine_namespaces
-  project    = module.project.id
-}
-
-# Kubernetes Istio Module (osinfra.io)
-# https://github.com/osinfra-io/terraform-kubernetes-istio
-
-module "kubernetes_istio" {
-  source = "github.com/osinfra-io/terraform-kubernetes-istio?ref=v0.1.7"
-
-  gateway_dns = var.kubernetes_istio_gateway_dns
-  labels      = module.helpers.labels
-  project     = module.project.id
 }

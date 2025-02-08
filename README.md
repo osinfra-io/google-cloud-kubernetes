@@ -57,8 +57,9 @@ No providers.
 |------|--------|---------|
 | <a name="module_datadog"></a> [datadog](#module\_datadog) | github.com/osinfra-io/terraform-datadog-google-integration | v0.3.0 |
 | <a name="module_helpers"></a> [helpers](#module\_helpers) | github.com/osinfra-io/terraform-core-helpers//root | v0.1.2 |
-| <a name="module_kubernetes_engine"></a> [kubernetes\_engine](#module\_kubernetes\_engine) | github.com/osinfra-io/terraform-google-kubernetes-engine | v0.2.2 |
-| <a name="module_kubernetes_istio"></a> [kubernetes\_istio](#module\_kubernetes\_istio) | github.com/osinfra-io/terraform-kubernetes-istio | v0.1.7 |
+| <a name="module_kubernetes_cert_manager"></a> [kubernetes\_cert\_manager](#module\_kubernetes\_cert\_manager) | github.com/osinfra-io/terraform-kubernetes-cert-manager | v0.1.5 |
+| <a name="module_kubernetes_engine"></a> [kubernetes\_engine](#module\_kubernetes\_engine) | github.com/osinfra-io/terraform-google-kubernetes-engine | v0.2.3 |
+| <a name="module_kubernetes_istio"></a> [kubernetes\_istio](#module\_kubernetes\_istio) | github.com/osinfra-io/terraform-kubernetes-istio | v0.1.8 |
 | <a name="module_project"></a> [project](#module\_project) | github.com/osinfra-io/terraform-google-project | v0.4.5 |
 
 #### Resources
@@ -73,6 +74,7 @@ No resources.
 | <a name="input_datadog_app_key"></a> [datadog\_app\_key](#input\_datadog\_app\_key) | Datadog APP key | `string` | n/a | yes |
 | <a name="input_datadog_enable"></a> [datadog\_enable](#input\_datadog\_enable) | Enable Datadog integration | `bool` | `false` | no |
 | <a name="input_kubernetes_engine_namespaces"></a> [kubernetes\_engine\_namespaces](#input\_kubernetes\_engine\_namespaces) | A map of namespaces with the Google service account used for the namespace administrator and whether Istio injection is enabled or disabled | <pre>map(object({<br/>    google_service_account = string<br/>    istio_injection        = optional(string, "disabled")<br/>  }))</pre> | `{}` | no |
+| <a name="input_kubernetes_engine_shared_vpc_host_project_id"></a> [kubernetes\_engine\_shared\_vpc\_host\_project\_id](#input\_kubernetes\_engine\_shared\_vpc\_host\_project\_id) | The project ID of the shared VPC host project | `string` | n/a | yes |
 | <a name="input_kubernetes_istio_gateway_dns"></a> [kubernetes\_istio\_gateway\_dns](#input\_kubernetes\_istio\_gateway\_dns) | Map of attributes for the Istio gateway domain names, it is also used to create the managed certificate resource | <pre>map(object({<br/>    managed_zone = string<br/>    project      = string<br/>  }))</pre> | `{}` | no |
 | <a name="input_project_billing_account"></a> [project\_billing\_account](#input\_project\_billing\_account) | The alphanumeric ID of the billing account this project belongs to | `string` | `"01C550-A2C86B-B8F16B"` | no |
 | <a name="input_project_cis_2_2_logging_sink_project_id"></a> [project\_cis\_2\_2\_logging\_sink\_project\_id](#input\_project\_cis\_2\_2\_logging\_sink\_project\_id) | The CIS 2.2 logging sink benchmark project ID | `string` | n/a | yes |
@@ -83,6 +85,8 @@ No resources.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_kubernetes_cert_manager_tls_self_signed_cert_cert_manager_root_cert"></a> [kubernetes\_cert\_manager\_tls\_self\_signed\_cert\_cert\_manager\_root\_cert](#output\_kubernetes\_cert\_manager\_tls\_self\_signed\_cert\_cert\_manager\_root\_cert) | The self-signed certificate for the cert-manager root certificate |
+| <a name="output_kubernetes_cert_manager_tls_self_signed_cert_cert_manager_root_key"></a> [kubernetes\_cert\_manager\_tls\_self\_signed\_cert\_cert\_manager\_root\_key](#output\_kubernetes\_cert\_manager\_tls\_self\_signed\_cert\_cert\_manager\_root\_key) | The private key for the cert-manager root certificate |
 | <a name="output_kubernetes_engine_container_deployer_service_accounts"></a> [kubernetes\_engine\_container\_deployer\_service\_accounts](#output\_kubernetes\_engine\_container\_deployer\_service\_accounts) | The service accounts for the container deployer |
 | <a name="output_kubernetes_engine_workload_identity_service_account_emails"></a> [kubernetes\_engine\_workload\_identity\_service\_account\_emails](#output\_kubernetes\_engine\_workload\_identity\_service\_account\_emails) | The email addresses of the service accounts for the Kubernetes namespace workload identity |
 | <a name="output_kubernetes_istio_gateway_mci_global_address"></a> [kubernetes\_istio\_gateway\_mci\_global\_address](#output\_kubernetes\_istio\_gateway\_mci\_global\_address) | The IP address for the Istio Gateway multi-cluster ingress |

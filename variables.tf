@@ -38,6 +38,11 @@ variable "kubernetes_istio_gateway_dns" {
   default = {}
 }
 
+variable "kubernetes_engine_shared_vpc_host_project_id" {
+  description = "The project ID of the shared VPC host project"
+  type        = string
+}
+
 variable "project_billing_account" {
   description = "The alphanumeric ID of the billing account this project belongs to"
   type        = string

@@ -16,7 +16,7 @@ data "terraform_remote_state" "main" {
 # https://github.com/osinfra-io/terraform-kubernetes-istio
 
 module "kubernetes_istio" {
-  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional?ref=v0.1.7"
+  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional?ref=v0.1.8"
 
   artifact_registry          = "us-docker.pkg.dev/plt-lz-services-tf79-prod/plt-docker-virtual"
   cluster_prefix             = "plt"
@@ -38,13 +38,15 @@ module "kubernetes_istio" {
     }
   ]
 
-  pilot_cpu_limits      = var.kubernetes_istio_pilot_cpu_limits
-  pilot_cpu_requests    = var.kubernetes_istio_pilot_cpu_requests
-  pilot_memory_limits   = var.kubernetes_istio_pilot_memory_limits
-  pilot_memory_requests = var.kubernetes_istio_pilot_memory_requests
-  project               = data.google_project.this.project_id
-  proxy_cpu_limits      = var.kubernetes_istio_proxy_cpu_limits
-  proxy_cpu_requests    = var.kubernetes_istio_proxy_cpu_requests
-  proxy_memory_limits   = var.kubernetes_istio_proxy_memory_limits
-  proxy_memory_requests = var.kubernetes_istio_proxy_memory_requests
+  pilot_cpu_limits                            = var.kubernetes_istio_pilot_cpu_limits
+  pilot_cpu_requests                          = var.kubernetes_istio_pilot_cpu_requests
+  pilot_memory_limits                         = var.kubernetes_istio_pilot_memory_limits
+  pilot_memory_requests                       = var.kubernetes_istio_pilot_memory_requests
+  project                                     = data.google_project.this.project_id
+  proxy_cpu_limits                            = var.kubernetes_istio_proxy_cpu_limits
+  proxy_cpu_requests                          = var.kubernetes_istio_proxy_cpu_requests
+  proxy_memory_limits                         = var.kubernetes_istio_proxy_memory_limits
+  proxy_memory_requests                       = var.kubernetes_istio_proxy_memory_requests
+  tls_self_signed_cert_cert_manager_root_cert = local.main.kubernetes_cert_manager_tls_self_signed_cert_cert_manager_root_cert
+  tls_self_signed_cert_cert_manager_root_key  = local.main.kubernetes_cert_manager_tls_self_signed_cert_cert_manager_root_key
 }
