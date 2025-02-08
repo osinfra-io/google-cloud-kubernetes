@@ -25,6 +25,7 @@ module "kubernetes_cert_manager" {
 module "kubernetes_engine" {
   source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=iam"
 
+  labels                     = module.helpers.labels
   namespaces                 = var.kubernetes_engine_namespaces
   project                    = module.project.id
   shared_vpc_host_project_id = var.kubernetes_engine_shared_vpc_host_project_id
