@@ -23,7 +23,7 @@ module "kubernetes_cert_manager" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=v0.2.3"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=v0.2.4"
 
   labels                     = module.helpers.labels
   namespaces                 = var.kubernetes_engine_namespaces
