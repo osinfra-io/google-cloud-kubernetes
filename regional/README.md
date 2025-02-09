@@ -16,7 +16,7 @@ No requirements.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_helpers"></a> [helpers](#module\_helpers) | github.com/osinfra-io/terraform-core-helpers//root | v0.1.2 |
-| <a name="module_kubernetes_engine_regional"></a> [kubernetes\_engine\_regional](#module\_kubernetes\_engine\_regional) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional | v0.2.3 |
+| <a name="module_kubernetes_engine_regional"></a> [kubernetes\_engine\_regional](#module\_kubernetes\_engine\_regional) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional | v0.2.4 |
 
 ## Resources
 
@@ -40,5 +40,5 @@ No requirements.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_kubernetes_engine_service_account_gke_operations_email"></a> [kubernetes\_engine\_service\_account\_gke\_operations\_email](#output\_kubernetes\_engine\_service\_account\_gke\_operations\_email) | The email address of the Kubernetes minimum privilege service account for the cluster |
+| <a name="output_kubernetes_engine_service_account_default_node_email"></a> [kubernetes\_engine\_service\_account\_default\_node\_email](#output\_kubernetes\_engine\_service\_account\_default\_node\_email) | The email address of the Kubernetes minimum privilege service account for the cluster |
 <!-- END_TF_DOCS -->

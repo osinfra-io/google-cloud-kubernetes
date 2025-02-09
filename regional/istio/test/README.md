@@ -40,7 +40,7 @@ No requirements.
 | <a name="input_datadog_api_key"></a> [datadog\_api\_key](#input\_datadog\_api\_key) | Datadog API key | `string` | n/a | yes |
 | <a name="input_datadog_app_key"></a> [datadog\_app\_key](#input\_datadog\_app\_key) | Datadog APP key | `string` | n/a | yes |
 | <a name="input_istio_test_replicas"></a> [istio\_test\_replicas](#input\_istio\_test\_replicas) | The number of replicas for the istio-test deployment | `number` | `1` | no |
-| <a name="input_istio_test_version"></a> [istio\_test\_version](#input\_istio\_test\_version) | The version of the istio-test deployment | `string` | `"v0.3.1"` | no |
+| <a name="input_istio_test_version"></a> [istio\_test\_version](#input\_istio\_test\_version) | The version of the istio-test deployment | `string` | `"v0.3.2"` | no |
 
 ## Outputs
 
