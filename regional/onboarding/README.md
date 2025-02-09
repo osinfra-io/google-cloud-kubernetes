@@ -17,7 +17,7 @@ No requirements.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_helpers"></a> [helpers](#module\_helpers) | github.com/osinfra-io/terraform-core-helpers//root | v0.1.2 |
-| <a name="module_kubernetes_engine_onboarding"></a> [kubernetes\_engine\_onboarding](#module\_kubernetes\_engine\_onboarding) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding | v0.2.2 |
+| <a name="module_kubernetes_engine_onboarding"></a> [kubernetes\_engine\_onboarding](#module\_kubernetes\_engine\_onboarding) | github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding | v0.2.4 |
 
 ## Resources
 

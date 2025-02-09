@@ -16,7 +16,7 @@ data "terraform_remote_state" "main" {
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine_onboarding" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding?ref=v0.2.2"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding?ref=v0.2.4"
 
   namespaces                               = var.kubernetes_engine_namespaces
   project                                  = data.google_project.this.project_id
