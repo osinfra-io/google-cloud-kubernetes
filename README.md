@@ -55,7 +55,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_datadog"></a> [datadog](#module\_datadog) | github.com/osinfra-io/terraform-datadog-google-integration | v0.3.0 |
+| <a name="module_datadog"></a> [datadog](#module\_datadog) | github.com/osinfra-io/terraform-datadog-google-integration | v0.3.3 |
 | <a name="module_helpers"></a> [helpers](#module\_helpers) | github.com/osinfra-io/terraform-core-helpers//root | v0.1.2 |
 | <a name="module_kubernetes_cert_manager"></a> [kubernetes\_cert\_manager](#module\_kubernetes\_cert\_manager) | github.com/osinfra-io/terraform-kubernetes-cert-manager | v0.1.5 |
 | <a name="module_kubernetes_engine"></a> [kubernetes\_engine](#module\_kubernetes\_engine) | github.com/osinfra-io/terraform-google-kubernetes-engine | v0.2.4 |
