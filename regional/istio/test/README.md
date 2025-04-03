@@ -9,9 +9,9 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_datadog"></a> [datadog](#provider\_datadog) | 3.54.0 |
-| <a name="provider_google"></a> [google](#provider\_google) | 6.19.0 |
-| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.35.1 |
+| <a name="provider_datadog"></a> [datadog](#provider\_datadog) | 3.59.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 6.28.0 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.36.0 |
 
 ## Modules
 

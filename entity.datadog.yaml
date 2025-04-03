@@ -341,3 +341,93 @@ datadog:
   performanceData:
     tags:
       - 'service:cert-manager-webhook'
+
+---
+apiVersion: v3
+kind: api
+metadata:
+  name: API Name
+  description: API Description
+  displayName: API Name
+  owner: dd-team
+spec:
+  type: openapi
+  interface:
+    definition:
+      info:
+        title: istio-test
+        description: An example Istio test application that shows metadata about the Google Kubernetes Engine (GKE) cluster.
+        version: v0.3.0
+
+      openapi: 3.1.0
+
+      servers:
+        - url: https://sb.gcp.osinfra.io
+          description: Sandbox
+        - url: https://pre-prod.gcp.osinfra.io
+          description: Pre-Production
+        - url: https://gcp.osinfra.io
+          description: Production
+
+      paths:
+        /istio-test/health:
+          get:
+            tags: []
+            summary: Health Check
+            description: Responds with a simple "OK" to indicate the service is healthy.
+            responses:
+              '200':
+                description: Service is healthy
+                content:
+                  text/plain:
+                    schema:
+                      type: string
+                      example: OK
+
+        /istio-test/metadata/{}:
+          get:
+            tags: []
+            summary: Fetch Metadata
+            description: Fetches the requested metadata based on the type.
+            parameters:
+              - name: type
+                description: The type of metadata to fetch.
+                in: path
+                required: true
+                schema:
+                  type: string
+                  enum:
+                    - cluster-name
+                    - cluster-location
+                    - instance-zone
+
+            responses:
+              '200':
+                description: Metadata fetched successfully
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                      properties:
+                        data:
+                          type: string
+              '400':
+                description: Invalid request or unknown metadata type
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                      properties:
+                        error:
+                          type: string
+              '500':
+                description: Internal server error
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                      properties:
+                        error:
+                          type: string
+
+      security: []
