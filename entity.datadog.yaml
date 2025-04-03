@@ -346,10 +346,9 @@ datadog:
 apiVersion: v3
 kind: api
 metadata:
-  name: API Name
-  description: API Description
-  displayName: API Name
-  owner: dd-team
+  name: istio-test
+  description: An example Istio test application that shows metadata about the Google Kubernetes Engine (GKE) cluster.
+  owner: platform-google-cloud-kubernetes
 spec:
   type: openapi
   interface:
@@ -362,11 +361,11 @@ spec:
       openapi: 3.1.0
 
       servers:
-        - url: https://sb.gcp.osinfra.io
+        - url: https://sb.gcp.osinfra.io/istio-test
           description: Sandbox
-        - url: https://pre-prod.gcp.osinfra.io
+        - url: https://pre-prod.gcp.osinfra.io/istio-test
           description: Pre-Production
-        - url: https://gcp.osinfra.io
+        - url: https://gcp.osinfra.io/istio-test
           description: Production
 
       paths:
