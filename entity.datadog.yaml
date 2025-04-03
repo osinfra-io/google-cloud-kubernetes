@@ -348,7 +348,56 @@ kind: api
 metadata:
   name: istio-test
   description: An example Istio test application that shows metadata about the Google Kubernetes Engine (GKE) cluster.
+  links:
+    - name: istio-test
+      type: repo
+      provider: Github
+      url: "https://github.com/osinfra-io/istio-test"
+
+    - name: sb.gcp.osinfra.io
+      type: other
+      url: "https://sb.gcp.osinfra.io/istio-test/health"
+
+    - name: us-east1-b.sb.gcp.osinfra.io
+      type: other
+      url: "https://us-east1-b.sb.gcp.osinfra.io/istio-test/health"
+
+    - name: us-east4-a.sb.gcp.osinfra.io
+      type: other
+      url: "https://us-east4-a.sb.gcp.osinfra.io/istio-test/health"
+
+    - name: nonprod.gcp.osinfra.io
+      type: other
+      url: "https://nonprod.gcp.osinfra.io/istio-test/health"
+
+    - name: us-east1-b.nonprod.gcp.osinfra.io
+      type: other
+      url: "https://us-east1-b.nonprod.gcp.osinfra.io/istio-test/health"
+
+    - name: us-east4-a.nonprod.gcp.osinfra.io
+      type: other
+      url: "https://us-east4-a.nonprod.gcp.osinfra.io/istio-test/health"
+
+    - name: gcp.osinfra.io
+      type: other
+      url: "https://gcp.osinfra.io/istio-test/health"
+
+    - name: us-east1-b.gcp.osinfra.io
+      type: other
+      url: "https://us-east1-b.gcp.osinfra.io/istio-test/health"
+
+    - name: us-east4-a.gcp.osinfra.io
+      type: other
+      url: "https://us-east4-a.gcp.osinfra.io/istio-test/health"
+
+  contacts:
+    - type: email
+      contact: platform-google-cloud-kubernetes@osinfra.io
+    - type: google-chat
+      contact: "https://mail.google.com/chat/u/0/#chat/space/AAAA1mERq4Q"
+
   owner: platform-google-cloud-kubernetes
+
 spec:
   type: openapi
   interface:
@@ -356,6 +405,7 @@ spec:
       info:
         title: istio-test
         description: An example Istio test application that shows metadata about the Google Kubernetes Engine (GKE) cluster.
+        displayName: istio-test
         version: v0.3.0
 
       openapi: 3.1.0
