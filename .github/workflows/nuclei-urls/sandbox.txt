@@ -1,1 +1,1 @@
-http://zero.webappsecurity.com
+https://sb.gcp.osinfra.io
