@@ -1,0 +1,20 @@
+name: "Sandbox Nuclei"
+
+on:
+  schedule:
+    # Run every Monday at 6 AM EST
+    - cron: '0 10 * * 1'
+  workflow_dispatch:
+
+permissions:
+  security-events: write
+  contents: read
+  actions: read
+
+jobs:
+  nuclei-scan:
+    name: Nuclei
+    uses: osinfra-io/github-misc-called-workflows/.github/workflows/nuclei.yml@v0.1.9
+    with:
+      urls_file: nuclei-urls/sandbox.txt
+      cache_key: nuclei-templates-sandbox
