@@ -1,1 +1,1 @@
-https://us-east1-b.sb.gcp.osinfra.io/istio-test/health
+https://us-east1-b.sb.gcp.osinfra.io
