@@ -9,14 +9,14 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 6.28.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 6.32.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_helpers"></a> [helpers](#module\_helpers) | github.com/osinfra-io/terraform-core-helpers//root | v0.1.2 |
-| <a name="module_kubernetes_opa_gatekeeper"></a> [kubernetes\_opa\_gatekeeper](#module\_kubernetes\_opa\_gatekeeper) | github.com/osinfra-io/terraform-kubernetes-opa-gatekeeper//regional | v0.1.3 |
+| <a name="module_kubernetes_opa_gatekeeper"></a> [kubernetes\_opa\_gatekeeper](#module\_kubernetes\_opa\_gatekeeper) | github.com/osinfra-io/terraform-kubernetes-opa-gatekeeper//regional | v0.1.4 |
 
 ## Resources
 
