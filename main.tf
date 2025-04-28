@@ -14,7 +14,7 @@ module "datadog" {
 # https://github.com/osinfra-io/terraform-kubernetes-cert-manager
 
 module "kubernetes_cert_manager" {
-  source = "github.com/osinfra-io/terraform-kubernetes-cert-manager?ref=v0.1.5"
+  source = "github.com/osinfra-io/terraform-kubernetes-cert-manager?ref=v0.1.6"
 }
 
 # Google Kubernetes Engine Module (osinfra.io)
