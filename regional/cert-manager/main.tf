@@ -2,5 +2,5 @@
 # https://github.com/osinfra-io/terraform-kubernetes-cert-manager
 
 module "kubernetes_cert_manager" {
-  source = "github.com/osinfra-io/terraform-kubernetes-cert-manager//regional?ref=v0.1.6"
+  source = "github.com/osinfra-io/terraform-kubernetes-cert-manager//regional?ref=v0.1.7"
 }
