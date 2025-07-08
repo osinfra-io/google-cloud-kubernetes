@@ -14,14 +14,14 @@ module "datadog" {
 # https://github.com/osinfra-io/terraform-kubernetes-cert-manager
 
 module "kubernetes_cert_manager" {
-  source = "github.com/osinfra-io/terraform-kubernetes-cert-manager?ref=v0.1.6"
+  source = "github.com/osinfra-io/terraform-kubernetes-cert-manager?ref=v0.1.7"
 }
 
 # Google Kubernetes Engine Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-kubernetes-engine
 
 module "kubernetes_engine" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=v0.2.4"
+  source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=v0.2.5"
 
   labels                     = module.helpers.labels
   namespaces                 = var.kubernetes_engine_namespaces
@@ -33,7 +33,7 @@ module "kubernetes_engine" {
 # https://github.com/osinfra-io/terraform-kubernetes-istio
 
 module "kubernetes_istio" {
-  source = "github.com/osinfra-io/terraform-kubernetes-istio?ref=v0.1.9"
+  source = "github.com/osinfra-io/terraform-kubernetes-istio?ref=v0.2.0"
 
   gateway_dns = var.kubernetes_istio_gateway_dns
   labels      = module.helpers.labels
