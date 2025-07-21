@@ -84,7 +84,7 @@ resource "kubernetes_deployment_v1" "datadog_aap_extproc" {
 
         labels = {
           app                               = "datadog-aap-extproc"
-          "admission.datadoghq.com/enabled" = true
+          "admission.datadoghq.com/enabled" = "true"
           "tags.datadoghq.com/env"          = module.helpers.environment
           "tags.datadoghq.com/service"      = "istio-gateway"
         }
