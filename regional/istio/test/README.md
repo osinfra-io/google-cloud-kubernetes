@@ -11,7 +11,7 @@ No requirements.
 |------|---------|
 | <a name="provider_datadog"></a> [datadog](#provider\_datadog) | 3.68.0 |
 | <a name="provider_google"></a> [google](#provider\_google) | 6.44.0 |
-| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.37.1 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.38.0 |
 
 ## Modules
 
