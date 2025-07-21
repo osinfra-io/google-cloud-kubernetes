@@ -11,3 +11,98 @@ module "kubernetes_istio_manifests" {
   failover_to_region                 = var.kubernetes_istio_failover_to_region
   virtual_services                   = var.kubernetes_istio_virtual_services
 }
+
+# Kubernetes Manifest Resource
+# https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/manifest
+
+resource "kubernetes_manifest" "datadog_aap_gateway_filter" {
+  manifest = {
+    apiVersion = "networking.istio.io/v1alpha3"
+    kind       = "EnvoyFilter"
+    metadata = {
+      name      = "datadog-aap-gateway-filter"
+      namespace = "istio-ingress"
+    }
+    spec = {
+      configPatches = [
+        {
+          applyTo = "CLUSTER"
+          match = {
+            cluster = {
+              service = "*"
+            }
+            context = "GATEWAY"
+          }
+          patch = {
+            operation = "ADD"
+            value = {
+              connect_timeout        = "0.2s"
+              http2_protocol_options = {}
+              lb_policy              = "ROUND_ROBIN"
+              load_assignment = {
+                cluster_name = "plt-${module.helpers.region}-${module.helpers.zone}"
+                endpoints = [
+                  {
+                    lb_endpoints = [
+                      {
+                        endpoint = {
+                          address = {
+                            socket_address = {
+                              address    = "datadog-aap-extproc-service.istio-ingress.svc.cluster.local"
+                              port_value = 443
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+              name = "plt-${module.helpers.region}-${module.helpers.zone}"
+              transport_socket = {
+                name = "envoy.transport_sockets.tls"
+                typed_config = {
+                  "@type" = "type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext"
+                  sni     = "localhost"
+                }
+              }
+              type = "STRICT_DNS"
+            }
+          }
+        },
+        {
+          applyTo = "HTTP_FILTER"
+          match = {
+            context = "GATEWAY"
+            listener = {
+              filterChain = {
+                filter = {
+                  name = "envoy.filters.network.http_connection_manager"
+                  subFilter = {
+                    name = "envoy.filters.http.router"
+                  }
+                }
+              }
+            }
+          }
+          patch = {
+            operation = "INSERT_BEFORE"
+            value = {
+              name = "envoy.filters.http.ext_proc"
+              typed_config = {
+                "@type"            = "type.googleapis.com/envoy.extensions.filters.http.ext_proc.v3.ExternalProcessor"
+                failure_mode_allow = true
+                grpc_service = {
+                  envoy_grpc = {
+                    cluster_name = "plt-${module.helpers.region}-${module.helpers.zone}"
+                  }
+                  timeout = "0.5s"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

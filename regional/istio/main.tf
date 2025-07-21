@@ -50,3 +50,150 @@ module "kubernetes_istio" {
   tls_self_signed_cert_cert_manager_root_cert = local.main.kubernetes_cert_manager_tls_self_signed_cert_cert_manager_root_cert
   tls_self_signed_cert_cert_manager_root_key  = local.main.kubernetes_cert_manager_tls_self_signed_cert_cert_manager_root_key
 }
+
+# Kubernetes Deployment Resource
+# https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/deployment_v1
+
+resource "kubernetes_deployment_v1" "datadog_aap_extproc" {
+  metadata {
+    name      = "datadog-aap-extproc-deployment"
+    namespace = "istio-ingress"
+    labels = {
+      app                          = "datadog-aap-extproc"
+      "tags.datadoghq.com/env"     = module.helpers.environment
+      "tags.datadoghq.com/service" = "istio-gateway"
+    }
+  }
+
+  spec {
+    selector {
+      match_labels = {
+        app = "datadog-aap-extproc"
+      }
+    }
+
+    template {
+      metadata {
+        annotations = {
+          "apm.datadoghq.com/env" = jsonencode({
+            "DD_ENV"     = module.helpers.environment
+            "DD_SERVICE" = "istio-gateway"
+          })
+          "sidecar.istio.io/inject" = "false"
+        }
+
+        labels = {
+          app                               = "datadog-aap-extproc"
+          "admission.datadoghq.com/enabled" = true
+          "tags.datadoghq.com/env"          = module.helpers.environment
+          "tags.datadoghq.com/service"      = "istio-gateway"
+        }
+      }
+
+      spec {
+        container {
+          env {
+            name = "DD_ENV"
+            value_from {
+              field_ref {
+                field_path = "metadata.labels['tags.datadoghq.com/env']"
+              }
+            }
+          }
+
+          env {
+            name = "DD_SERVICE"
+            value_from {
+              field_ref {
+                field_path = "metadata.labels['tags.datadoghq.com/service']"
+              }
+            }
+          }
+
+          env {
+            name  = "DD_APPSEC_WAF_TIMEOUT"
+            value = "10000"
+          }
+
+          name              = "datadog-aap-extproc-container"
+          image             = "ghcr.io/datadog/dd-trace-go/service-extensions-callout:v1.73.1"
+          image_pull_policy = "Always"
+
+          port {
+            name           = "grpc"
+            container_port = 443
+          }
+
+          port {
+            name           = "health"
+            container_port = 80
+          }
+
+          readiness_probe {
+            http_get {
+              path = "/"
+              port = "health"
+            }
+
+            initial_delay_seconds = 5
+            period_seconds        = 10
+          }
+
+          liveness_probe {
+            http_get {
+              path = "/"
+              port = "health"
+            }
+
+            initial_delay_seconds = 15
+            period_seconds        = 20
+          }
+
+          resources {
+            limits = {
+              cpu    = "100m"
+              memory = "256Mi"
+            }
+
+            requests = {
+              cpu    = "50m"
+              memory = "128Mi"
+            }
+          }
+        }
+      }
+    }
+  }
+
+  depends_on = [
+    module.kubernetes_istio
+  ]
+}
+
+# Kubernetes Service Resource
+# https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/service_v1
+
+resource "kubernetes_service_v1" "datadog_aap_extproc" {
+  metadata {
+    name      = "datadog-aap-extproc-service"
+    namespace = "istio-ingress"
+    labels = {
+      app = "datadog-aap-extproc"
+    }
+  }
+
+  spec {
+    selector = {
+      app = "datadog-aap-extproc"
+    }
+
+    port {
+      name        = "grpc"
+      port        = 443
+      target_port = "grpc"
+      protocol    = "TCP"
+    }
+
+    type = "ClusterIP"
+  }
+}
