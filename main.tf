@@ -33,7 +33,7 @@ module "kubernetes_engine" {
 # https://github.com/osinfra-io/terraform-kubernetes-istio
 
 module "kubernetes_istio" {
-  source = "github.com/osinfra-io/terraform-kubernetes-istio?ref=v0.2.0"
+  source = "github.com/osinfra-io/terraform-kubernetes-istio?ref=v0.2.1"
 
   gateway_dns = var.kubernetes_istio_gateway_dns
   labels      = module.helpers.labels
