@@ -13,445 +13,404 @@ on:
 # caller workflow level or in the specific job that calls the reusable workflow.
 
 permissions:
+  contents: read
   id-token: write
 
 jobs:
   main:
     name: "Main"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     with:
       checkout_ref: ${{ github.ref }}
-      environment: sandbox
       github_environment: "Sandbox: Main"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/sandbox.tfvars -var-file=shared/tfvars/sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: main-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/sandbox.tfvars -var-file=shared/tfvars/sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: main-sandbox
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
-      terraform_plan_secret_args: >-
+      opentofu_plan_secret_args: >-
         -var=datadog_api_key=${{ secrets.DATADOG_API_KEY }}
         -var=datadog_app_key=${{ secrets.DATADOG_APP_KEY }}
 
   us_east1_b:
     name: "Regional: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: main
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox: us-east1-b"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east1-b-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east1-b-sandbox
       working_directory: regional
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east4_a:
     name: "Regional: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: main
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox: us-east4-a"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east4-a-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east4-a-sandbox
       working_directory: regional
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east1_b_onboarding:
     name: "Onboarding: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: us_east1_b
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox Onboarding: us-east1-b"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars -var-file=../../shared/tfvars/sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east1-b-onboarding-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars -var-file=../../shared/tfvars/sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east1-b-onboarding-sandbox
       working_directory: regional/onboarding
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east4_a_onboarding:
     name: "Onboarding: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: us_east4_a
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox Onboarding: us-east4-a"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars -var-file=../../shared/tfvars/sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east4-a-onboarding-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars -var-file=../../shared/tfvars/sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east4-a-onboarding-sandbox
       working_directory: regional/onboarding
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east1_b_opa_gatekeeper:
     name: "OPA Gatekeeper: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: us_east1_b_cert_manager
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox OPA Gatekeeper: us-east1-b"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east1-b-opa-gatekeeper-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east1-b-opa-gatekeeper-sandbox
       working_directory: regional/opa-gatekeeper
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east4_a_opa_gatekeeper:
     name: "OPA Gatekeeper: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: us_east4_a_cert_manager
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox OPA Gatekeeper: us-east4-a"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east4-a-opa-gatekeeper-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east4-a-opa-gatekeeper-sandbox
       working_directory: regional/opa-gatekeeper
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east1_b_cert_manager:
     name: "cert-manager: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: us_east1_b_onboarding
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox cert-manager: us-east1-b"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east1-b-cert-manager-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east1-b-cert-manager-sandbox
       working_directory: regional/cert-manager
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east4_a_cert_manager:
     name: "cert-manager: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: us_east4_a_onboarding
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox cert-manager: us-east4-a"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east4-a-cert-manager-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east4-a-cert-manager-sandbox
       working_directory: regional/cert-manager
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east1_b_cert_manager_istio_csr:
     name: "cert-manager Istio CSR: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: us_east1_b_cert_manager
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox cert-manager Istio CSR: us-east1-b"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east1-b-cert-manager-istio-csr-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east1-b-cert-manager-istio-csr-sandbox
       working_directory: regional/cert-manager/istio-csr
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east4_a_cert_manager_istio_csr:
     name: "cert-manager Istio CSR: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: us_east4_a_cert_manager
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox cert-manager Istio CSR: us-east4-a"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east4-a-cert-manager-istio-csr-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east4-a-cert-manager-istio-csr-sandbox
       working_directory: regional/cert-manager/istio-csr
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east1_b_istio:
     name: "Istio: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: us_east1_b_cert_manager_istio_csr
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox Istio: us-east1-b"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east1-b-istio-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east1-b-istio-sandbox
       working_directory: regional/istio
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east4_a_istio:
     name: "Istio: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: us_east4_a_cert_manager_istio_csr
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox Istio: us-east4-a"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east4-a-istio-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east4-a-istio-sandbox
       working_directory: regional/istio
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east1_b_istio_manifests:
     name: "Istio Manifests: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: us_east1_b_istio
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox Istio Manifests: us-east1-b"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east1-b-istio-manifests-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east1-b-istio-manifests-sandbox
       working_directory: regional/istio/manifests
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east4_a_istio_manifests:
     name: "Istio Manifests: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: us_east4_a_istio
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox Istio Manifests: us-east4-a"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east4-a-istio-manifests-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east4-a-istio-manifests-sandbox
       working_directory: regional/istio/manifests
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east1_b_istio_test:
     name: "Istio Test: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: us_east1_b_istio_manifests
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox Istio Test: us-east1-b"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east1-b-istio-test-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east1-b-istio-test-sandbox
       working_directory: regional/istio/test
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
-      terraform_plan_secret_args: >-
+      opentofu_plan_secret_args: >-
         -var=datadog_api_key=${{ secrets.DATADOG_API_KEY }}
         -var=datadog_app_key=${{ secrets.DATADOG_APP_KEY }}
 
   us_east4_a_istio_test:
     name: "Istio Test: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: us_east4_a_istio_manifests
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox Istio Test: us-east4-a"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east4-a-istio-test-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east4-a-istio-test-sandbox
       working_directory: regional/istio/test
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
-      terraform_plan_secret_args: >-
+      opentofu_plan_secret_args: >-
         -var=datadog_api_key=${{ secrets.DATADOG_API_KEY }}
         -var=datadog_app_key=${{ secrets.DATADOG_APP_KEY }}
 
   us_east1_b_datadog:
     name: "Datadog: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: us_east1_b_onboarding
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox Datadog: us-east1-b"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east1-b-datadog-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east1-b-datadog-sandbox
       working_directory: regional/datadog
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
-      terraform_plan_secret_args: >-
+      opentofu_plan_secret_args: >-
         -var=datadog_api_key=${{ secrets.DATADOG_API_KEY }}
         -var=datadog_app_key=${{ secrets.DATADOG_APP_KEY }}
 
   us_east4_a_datadog:
     name: "Datadog: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: us_east4_a_onboarding
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox Datadog: us-east4-a"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east4-a-datadog-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east4-a-datadog-sandbox
       working_directory: regional/datadog
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
-      terraform_plan_secret_args: >-
+      opentofu_plan_secret_args: >-
         -var=datadog_api_key=${{ secrets.DATADOG_API_KEY }}
         -var=datadog_app_key=${{ secrets.DATADOG_APP_KEY }}
 
   us_east1_b_datadog_manifests:
     name: "Datadog Manifests: us-east1-b"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: us_east1_b_datadog
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox Datadog Manifests: us-east1-b"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east1-b-datadog-manifests-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east1-b-datadog-manifests-sandbox
       working_directory: regional/datadog/manifests
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
-      terraform_plan_secret_args: >-
+      opentofu_plan_secret_args: >-
         -var=datadog_api_key=${{ secrets.DATADOG_API_KEY }}
         -var=datadog_app_key=${{ secrets.DATADOG_APP_KEY }}
 
   us_east4_a_datadog_manifests:
     name: "Datadog Manifests: us-east4-a"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.7
+    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/plan-and-apply.yml@367d86eecaab18bb7fae7f5fa17fe7001df13f16
     if: github.actor != 'dependabot[bot]'
     needs: us_east4_a_datadog
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox Datadog Manifests: us-east4-a"
-      service_account: plt-k8s-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
-      terraform_state_bucket: plt-k8s-4312-sb
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: us-east4-a-datadog-manifests-sandbox
+      service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
+      opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
+      opentofu_state_bucket: plt-k8s-0bf7-sb
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
+      opentofu_workspace: us-east4-a-datadog-manifests-sandbox
       working_directory: regional/datadog/manifests
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
-      terraform_plan_secret_args: >-
+      opentofu_plan_secret_args: >-
         -var=datadog_api_key=${{ secrets.DATADOG_API_KEY }}
         -var=datadog_app_key=${{ secrets.DATADOG_APP_KEY }}
 

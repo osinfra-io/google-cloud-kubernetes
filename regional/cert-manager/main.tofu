@@ -1,0 +1,6 @@
+# Kubernetes cert-manager Module (osinfra.io)
+# https://github.com/osinfra-io/opentofu-kubernetes-cert-manager
+
+module "kubernetes_cert_manager" {
+  source = "github.com/osinfra-io/opentofu-kubernetes-cert-manager//regional?ref=v0.1.7"
+}

@@ -20,10 +20,10 @@ metadata:
       provider: Github
       url: "https://github.com/osinfra-io/google-cloud-kubernetes"
 
-    - name: terraform-kubernetes-istio
+    - name: opentofu-kubernetes-istio
       type: repo
       provider: Github
-      url: "https://github.com/osinfra-io/terraform-kubernetes-istio"
+      url: "https://github.com/osinfra-io/opentofu-kubernetes-istio"
 
   contacts:
     - type: email
@@ -42,9 +42,9 @@ spec:
 datadog:
   performanceData:
     tags:
-      - 'service:istio-control-plane'
-      - 'service:istio-gateway'
-      - 'service:istio-test'
+      - "service:istio-control-plane"
+      - "service:istio-gateway"
+      - "service:istio-test"
 
   pipelines:
     fingerprints:
@@ -69,7 +69,7 @@ spec:
 datadog:
   performanceData:
     tags:
-      - 'service:istio-control-plane'
+      - "service:istio-control-plane"
 
 ---
 apiVersion: v3
@@ -127,7 +127,7 @@ spec:
 datadog:
   performanceData:
     tags:
-      - 'service:istio-gateway'
+      - "service:istio-gateway"
 
 ---
 apiVersion: v3
@@ -195,12 +195,12 @@ spec:
     - istio
 
   dependsOn:
-    - 'service:istio-gateway'
+    - "service:istio-gateway"
 
 datadog:
   performanceData:
     tags:
-      - 'service:istio-test'
+      - "service:istio-test"
 
   pipelines:
     fingerprints:
@@ -226,10 +226,10 @@ metadata:
       provider: Github
       url: "https://github.com/osinfra-io/google-cloud-kubernetes"
 
-    - name: terraform-kubernetes-cert-manager
+    - name: opentofu-kubernetes-cert-manager
       type: repo
       provider: Github
-      url: "https://github.com/osinfra-io/terraform-kubernetes-cert-manager"
+      url: "https://github.com/osinfra-io/opentofu-kubernetes-cert-manager"
 
   contacts:
     - type: email
@@ -249,10 +249,10 @@ spec:
 datadog:
   performanceData:
     tags:
-      - 'service:cert-manager'
-      - 'service:cert-manager-cainjector'
-      - 'service:cert-manager-istio-csr'
-      - 'service:cert-manager-webhook'
+      - "service:cert-manager"
+      - "service:cert-manager-cainjector"
+      - "service:cert-manager-istio-csr"
+      - "service:cert-manager-webhook"
 
   pipelines:
     fingerprints:
@@ -277,7 +277,7 @@ spec:
 datadog:
   performanceData:
     tags:
-      - 'service:cert-manager'
+      - "service:cert-manager"
 
 ---
 apiVersion: v3
@@ -298,7 +298,7 @@ spec:
 datadog:
   performanceData:
     tags:
-      - 'service:cert-manager-cainjector'
+      - "service:cert-manager-cainjector"
 
 ---
 apiVersion: v3
@@ -319,7 +319,7 @@ spec:
 datadog:
   performanceData:
     tags:
-      - 'service:cert-manager-istio-csr'
+      - "service:cert-manager-istio-csr"
 
 ---
 apiVersion: v3
@@ -340,7 +340,7 @@ spec:
 datadog:
   performanceData:
     tags:
-      - 'service:cert-manager-webhook'
+      - "service:cert-manager-webhook"
 
 ---
 apiVersion: v3
@@ -425,7 +425,7 @@ spec:
             summary: Health Check
             description: Responds with a simple "OK" to indicate the service is healthy.
             responses:
-              '200':
+              "200":
                 description: Service is healthy
                 content:
                   text/plain:
@@ -451,7 +451,7 @@ spec:
                     - instance-zone
 
             responses:
-              '200':
+              "200":
                 description: Metadata fetched successfully
                 content:
                   application/json:
@@ -460,7 +460,7 @@ spec:
                       properties:
                         data:
                           type: string
-              '400':
+              "400":
                 description: Invalid request or unknown metadata type
                 content:
                   application/json:
@@ -469,7 +469,7 @@ spec:
                       properties:
                         error:
                           type: string
-              '500':
+              "500":
                 description: Internal server error
                 content:
                   application/json:
