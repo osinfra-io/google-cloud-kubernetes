@@ -2,26 +2,26 @@
 # Manual edits may be lost in future updates.
 
 provider "registry.opentofu.org/hashicorp/google" {
-  version = "6.44.0"
+  version = "6.48.0"
   hashes = [
-    "h1:uqYFV3Uq/eBgp0uGHOoo3PuOiX0OuwJmErPUX6y6JKI=",
-    "zh:201156d2af563d78fbfbb9cd4feb4260b8a9713ac7e072810704739aee59f27d",
-    "zh:4a40d943120f22f8aef155759a81505ce40d3f6c1eb6467d2fb5e48616c81f6b",
-    "zh:92e6bc6366e5a2168b69aced237f02fa68f20edb9fef25233c526a9cc011b06d",
-    "zh:9caf2eb4fe1ee6c0230e64c2ecb515926589ef4fbae2ec5bc1564a3dc07a100d",
-    "zh:9d0345ded4816b7331bf836aa9274e9a1f20b02d6e037cb516858f5a551fbece",
-    "zh:aeb73483dd763603e82c676503892ebb65ad0e0348b34a4ee89aab19a7565acb",
-    "zh:b051b80093515b7a573fa0f2b6ac7ca2b621f7fdd9155c6395000a146554bb0a",
-    "zh:ba47522d21cd3eed0f19481380ad3d9d6d530b9b1e5ce171d2772efcc2de4d84",
-    "zh:e3d6bb6f80652d6012656d38c3077b1a3fd5159c8e33075e67a1dfb026c517c0",
-    "zh:e95cb7b6d0c83c0637a187df29b159ddbf4395f708e32e10e70f72240f94ef12",
+    "h1:v4d3msmCatVBRTQsVIcbEHVu8kmE37ucQboF52/p0lI=",
+    "zh:32e18025c1a1cc440d511de362ff0d066f03014c6f1aa874a4ce3c368d90ea4b",
+    "zh:554a50ef629ee68c8e61e2c7180e0da4a052937cd1ce9ea01f419ebe4967ff96",
+    "zh:5c844e6ef60cb6a344ed532df764e01134e28f25c4dca4ff39dd7324c0627774",
+    "zh:5f81516d97b9cde9443ebedfeec33c7791746d0f387b6cd9a426a4330ec9d942",
+    "zh:afe41760bf21ba081a7d14db4cf384877e840f66d9a7957c0f234181ddee09df",
+    "zh:cccba2a7120af1f1641198ee37fcba9aae51a9dc7369ab7981370ffd53ddbba6",
+    "zh:e246b3fee0edb334ca973177d3d05977075400fb61d2be632444bf9776b36c97",
+    "zh:e3289e5f4e4d41ce2e519650bef3550bfee3310e1d3b697408cb4896a266fb43",
+    "zh:f89a1f356e2ba9ee38b1e2d2d2b3c3820a2373349e90a563d089beb9d3950c57",
+    "zh:ffd5b247da54beaa83b4cf38dc009a1ec950e61a3d325648abd37d648f74c43d",
   ]
 }
 
 provider "registry.opentofu.org/hashicorp/helm" {
   version = "3.0.2"
   hashes = [
-    "h1:17Ro1Gs9aCN5QGQ6RDvuianmNV3AxgegYqTJODlYdHI=",
+    "h1:GMW0C0TkkYmURt4OZIlwcLdvREL08PDbsSn5sfH4/TU=",
     "zh:100f75a700074568cfaee7884e4477c50b5468e086db5bb95d7d519581b65621",
     "zh:578d09c7319d0dd0fee03a7fcb48bf68ac978c1fefaa0752cfcb9ecfb0a56a4e",
     "zh:64e7cce303362b4bf132d1c61858ef0ada221af4a2ea0fdfd16ec43e562d459c",
@@ -38,7 +38,7 @@ provider "registry.opentofu.org/hashicorp/helm" {
 provider "registry.opentofu.org/hashicorp/kubernetes" {
   version = "2.38.0"
   hashes = [
-    "h1:nY7J9jFXcsRINog0KYagiWZw1GVYF9D2JmtIB7Wnrao=",
+    "h1:ems+O2dA7atxMWpbtqIrsH7Oa+u+ERWSfpMaFnZPbh0=",
     "zh:1096b41c4e5b2ee6c1980916fb9a8579bc1892071396f7a9432be058aabf3cbc",
     "zh:2959fde9ae3d1deb5e317df0d7b02ea4977951ee6b9c4beb083c148ca8f3681c",
     "zh:5082f98fcb3389c73339365f7df39fc6912bf2bd1a46d5f97778f441a67fd337",

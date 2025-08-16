@@ -22,7 +22,7 @@ body:
       description: If you have pre-existing OIDC service account emails you plan to use for deployment of your workloads please list them here. If you do not have any pre-existing OIDC service account emails you can leave this blank.
       placeholder: |
         Example:
-        stream-app-name-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
+        stream-app-name-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
         stream-app-name-github@plt-lz-terraform-tfe2-nonprod.iam.gserviceaccount.com
         stream-app-name-github@plt-lz-terraform-tf56-prod.iam.gserviceaccount.com
     validations:
