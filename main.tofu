@@ -66,7 +66,6 @@ module "project" {
     "dns.googleapis.com",
     "gkehub.googleapis.com",
     "iam.googleapis.com",
-    "iap.googleapis.com",
     "monitoring.googleapis.com",
     "multiclusteringress.googleapis.com",
     "multiclusterservicediscovery.googleapis.com",
