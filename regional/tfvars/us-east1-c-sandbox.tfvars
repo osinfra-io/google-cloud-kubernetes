@@ -11,4 +11,4 @@ kubernetes_engine_node_pools = {
 }
 
 kubernetes_engine_vpc_host_project_id = "plt-lz-networking-tfd8-sb"
-remote_bucket                         = "plt-k8s-4312-sb"
+remote_bucket                         = "plt-k8s-0bf7-sb"
