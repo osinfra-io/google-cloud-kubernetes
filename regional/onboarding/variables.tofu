@@ -1,5 +1,5 @@
 # Input Variables
-# https://www.terraform.io/language/values/variables
+# https://opentofu.org/docs/language/values/variables
 
 variable "kubernetes_engine_namespaces" {
   description = "Map of namespaces and service accounts to onboard to GKE"

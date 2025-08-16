@@ -1,5 +1,5 @@
 # OpenTofu Remote State Datasource
-# https://www.terraform.io/docs/language/state/remote-state-data.html
+# https://opentofu.org/docs/language/state/remote-state-data/
 
 data "terraform_remote_state" "main" {
   backend = "gcs"
@@ -13,10 +13,10 @@ data "terraform_remote_state" "main" {
 }
 
 # Google Kubernetes Engine Module (osinfra.io)
-# https://github.com/osinfra-io/terraform-google-kubernetes-engine
+# https://github.com/osinfra-io/opentofu-google-kubernetes-engine
 
 module "kubernetes_engine_onboarding" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine//regional/onboarding?ref=v0.2.5"
+  source = "github.com/osinfra-io/opentofu-google-kubernetes-engine//regional/onboarding?ref=v0.2.5"
 
   namespaces                               = var.kubernetes_engine_namespaces
   project                                  = data.google_project.this.project_id

@@ -1,5 +1,5 @@
 # OpenTofu Remote State Datasource
-# https://www.terraform.io/docs/language/state/remote-state-data.html
+# https://opentofu.org/docs/language/state/remote-state-data/
 
 data "terraform_remote_state" "main" {
   backend = "gcs"
@@ -13,10 +13,10 @@ data "terraform_remote_state" "main" {
 }
 
 # Kubernetes Istio Module (osinfra.io)
-# https://github.com/osinfra-io/terraform-kubernetes-istio
+# https://github.com/osinfra-io/opentofu-kubernetes-istio
 
 module "kubernetes_istio" {
-  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional?ref=v0.2.0"
+  source = "github.com/osinfra-io/opentofu-kubernetes-istio//regional?ref=v0.2.0"
 
   artifact_registry          = "us-docker.pkg.dev/plt-lz-services-tf79-prod/plt-docker-virtual"
   cluster_prefix             = "plt"

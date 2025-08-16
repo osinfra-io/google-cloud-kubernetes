@@ -1,8 +1,8 @@
 # Kubernetes Istio Module (osinfra.io)
-# https://github.com/osinfra-io/terraform-kubernetes-istio
+# https://github.com/osinfra-io/opentofu-kubernetes-istio
 
 module "kubernetes_istio_manifests" {
-  source = "github.com/osinfra-io/terraform-kubernetes-istio//regional/manifests?ref=v0.2.0"
+  source = "github.com/osinfra-io/opentofu-kubernetes-istio//regional/manifests?ref=v0.2.0"
 
   common_istio_test_virtual_services = var.kubernetes_istio_common_istio_test_virtual_services
   common_virtual_services            = var.kubernetes_istio_common_virtual_services

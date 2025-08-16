@@ -1,8 +1,8 @@
 # Datadog Google Cloud Platform Integration Module (osinfra.io)
-# https://github.com/osinfra-io/terraform-datadog-google-integration
+# https://github.com/osinfra-io/opentofu-datadog-google-integration
 
 module "datadog" {
-  source = "github.com/osinfra-io/terraform-datadog-google-integration?ref=v0.3.5"
+  source = "github.com/osinfra-io/opentofu-datadog-google-integration?ref=v0.3.5"
   count  = var.datadog_enable ? 1 : 0
 
   api_key = var.datadog_api_key
@@ -11,17 +11,17 @@ module "datadog" {
 }
 
 # Kubernetes cert-manager Module (osinfra.io)
-# https://github.com/osinfra-io/terraform-kubernetes-cert-manager
+# https://github.com/osinfra-io/opentofu-kubernetes-cert-manager
 
 module "kubernetes_cert_manager" {
-  source = "github.com/osinfra-io/terraform-kubernetes-cert-manager?ref=v0.1.7"
+  source = "github.com/osinfra-io/opentofu-kubernetes-cert-manager?ref=v0.1.7"
 }
 
 # Google Kubernetes Engine Module (osinfra.io)
-# https://github.com/osinfra-io/terraform-google-kubernetes-engine
+# https://github.com/osinfra-io/opentofu-google-kubernetes-engine
 
 module "kubernetes_engine" {
-  source = "github.com/osinfra-io/terraform-google-kubernetes-engine?ref=v0.2.5"
+  source = "github.com/osinfra-io/opentofu-google-kubernetes-engine?ref=v0.2.5"
 
   labels                     = module.helpers.labels
   namespaces                 = var.kubernetes_engine_namespaces
@@ -30,10 +30,10 @@ module "kubernetes_engine" {
 }
 
 # Kubernetes Istio Module (osinfra.io)
-# https://github.com/osinfra-io/terraform-kubernetes-istio
+# https://github.com/osinfra-io/opentofu-kubernetes-istio
 
 module "kubernetes_istio" {
-  source = "github.com/osinfra-io/terraform-kubernetes-istio?ref=v0.2.0"
+  source = "github.com/osinfra-io/opentofu-kubernetes-istio?ref=v0.2.0"
 
   gateway_dns = var.kubernetes_istio_gateway_dns
   labels      = module.helpers.labels

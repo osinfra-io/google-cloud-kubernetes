@@ -23,8 +23,8 @@ body:
       placeholder: |
         Example:
         stream-app-name-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
-        stream-app-name-github@plt-lz-terraform-tfe2-nonprod.iam.gserviceaccount.com
-        stream-app-name-github@plt-lz-terraform-tf56-prod.iam.gserviceaccount.com
+        stream-app-name-github@plt-lz-backend-tfa3-nonprod.iam.gserviceaccount.com
+        stream-app-name-github@plt-lz-backend-tf5f-prod.iam.gserviceaccount.com
     validations:
       required: false
 

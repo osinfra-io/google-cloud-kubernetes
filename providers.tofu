@@ -1,7 +1,7 @@
 terraform {
 
   # Requiring Providers
-  # https://www.terraform.io/language/providers/requirements#requiring-providers
+  # https://opentofu.org/docs/language/providers/requirements/
 
   required_providers {
 

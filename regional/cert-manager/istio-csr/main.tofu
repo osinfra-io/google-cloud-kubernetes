@@ -1,5 +1,5 @@
 # OpenTofu Remote State Datasource
-# https://www.terraform.io/docs/language/state/remote-state-data.html
+# https://opentofu.org/docs/language/state/remote-state-data/
 
 data "terraform_remote_state" "main" {
   backend = "gcs"
@@ -13,10 +13,10 @@ data "terraform_remote_state" "main" {
 }
 
 # Kubernetes cert-manager Module (osinfra.io)
-# https://github.com/osinfra-io/terraform-kubernetes-cert-manager
+# https://github.com/osinfra-io/opentofu-kubernetes-cert-manager
 
 module "kubernetes_cert_manager_istio_csr" {
-  source = "github.com/osinfra-io/terraform-kubernetes-cert-manager//regional/istio-csr?ref=v0.1.7"
+  source = "github.com/osinfra-io/opentofu-kubernetes-cert-manager//regional/istio-csr?ref=v0.1.7"
 
   artifact_registry                           = "us-docker.pkg.dev/plt-lz-services-tf79-prod/plt-docker-virtual"
   cluster_prefix                              = "plt"
