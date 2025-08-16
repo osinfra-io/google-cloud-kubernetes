@@ -14,7 +14,7 @@ permissions:
 jobs:
   nuclei-scan:
     name: Nuclei
-    uses: osinfra-io/github-misc-called-workflows/.github/workflows/nuclei.yml@update
+    uses: osinfra-io/github-misc-called-workflows/.github/workflows/nuclei.yml@3f58f13c9ff1c2c4a94cecad4bab5d3e78d69bce
     with:
       urls_file: ./.github/workflows/nuclei-urls/sandbox.txt
       cache_key: nuclei-templates-sandbox
