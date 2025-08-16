@@ -22,7 +22,6 @@ jobs:
     if: github.actor != 'dependabot[bot]'
     with:
       checkout_ref: ${{ github.ref }}
-      environment: sandbox
       github_environment: "Sandbox: Main"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/sandbox.tfvars -var-file=shared/tfvars/sandbox.tfvars
@@ -32,7 +31,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
       opentofu_plan_secret_args: >-
         -var=datadog_api_key=${{ secrets.DATADOG_API_KEY }}
         -var=datadog_app_key=${{ secrets.DATADOG_APP_KEY }}
@@ -44,7 +42,6 @@ jobs:
     needs: main
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox: us-east1-b"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
@@ -55,7 +52,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east4_a:
     name: "Regional: us-east4-a"
@@ -64,7 +60,6 @@ jobs:
     needs: main
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox: us-east4-a"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
@@ -75,7 +70,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east1_b_onboarding:
     name: "Onboarding: us-east1-b"
@@ -84,7 +78,6 @@ jobs:
     needs: us_east1_b
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox Onboarding: us-east1-b"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars -var-file=../../shared/tfvars/sandbox.tfvars
@@ -95,7 +88,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east4_a_onboarding:
     name: "Onboarding: us-east4-a"
@@ -104,7 +96,6 @@ jobs:
     needs: us_east4_a
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox Onboarding: us-east4-a"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars -var-file=../../shared/tfvars/sandbox.tfvars
@@ -115,7 +106,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east1_b_opa_gatekeeper:
     name: "OPA Gatekeeper: us-east1-b"
@@ -124,7 +114,6 @@ jobs:
     needs: us_east1_b_cert_manager
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox OPA Gatekeeper: us-east1-b"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
@@ -135,7 +124,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east4_a_opa_gatekeeper:
     name: "OPA Gatekeeper: us-east4-a"
@@ -144,7 +132,6 @@ jobs:
     needs: us_east4_a_cert_manager
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox OPA Gatekeeper: us-east4-a"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
@@ -155,7 +142,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east1_b_cert_manager:
     name: "cert-manager: us-east1-b"
@@ -164,7 +150,6 @@ jobs:
     needs: us_east1_b_onboarding
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox cert-manager: us-east1-b"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
@@ -175,7 +160,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east4_a_cert_manager:
     name: "cert-manager: us-east4-a"
@@ -184,7 +168,6 @@ jobs:
     needs: us_east4_a_onboarding
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox cert-manager: us-east4-a"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
@@ -195,7 +178,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east1_b_cert_manager_istio_csr:
     name: "cert-manager Istio CSR: us-east1-b"
@@ -204,7 +186,6 @@ jobs:
     needs: us_east1_b_cert_manager
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox cert-manager Istio CSR: us-east1-b"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
@@ -215,7 +196,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east4_a_cert_manager_istio_csr:
     name: "cert-manager Istio CSR: us-east4-a"
@@ -224,7 +204,6 @@ jobs:
     needs: us_east4_a_cert_manager
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox cert-manager Istio CSR: us-east4-a"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
@@ -235,7 +214,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east1_b_istio:
     name: "Istio: us-east1-b"
@@ -244,7 +222,6 @@ jobs:
     needs: us_east1_b_cert_manager_istio_csr
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox Istio: us-east1-b"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
@@ -255,7 +232,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east4_a_istio:
     name: "Istio: us-east4-a"
@@ -264,7 +240,6 @@ jobs:
     needs: us_east4_a_cert_manager_istio_csr
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox Istio: us-east4-a"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
@@ -275,7 +250,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east1_b_istio_manifests:
     name: "Istio Manifests: us-east1-b"
@@ -284,7 +258,6 @@ jobs:
     needs: us_east1_b_istio
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox Istio Manifests: us-east1-b"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
@@ -295,7 +268,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east4_a_istio_manifests:
     name: "Istio Manifests: us-east4-a"
@@ -304,7 +276,6 @@ jobs:
     needs: us_east4_a_istio
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox Istio Manifests: us-east4-a"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
@@ -315,7 +286,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
 
   us_east1_b_istio_test:
     name: "Istio Test: us-east1-b"
@@ -324,7 +294,6 @@ jobs:
     needs: us_east1_b_istio_manifests
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox Istio Test: us-east1-b"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
@@ -335,7 +304,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
       opentofu_plan_secret_args: >-
         -var=datadog_api_key=${{ secrets.DATADOG_API_KEY }}
         -var=datadog_app_key=${{ secrets.DATADOG_APP_KEY }}
@@ -347,7 +315,6 @@ jobs:
     needs: us_east4_a_istio_manifests
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox Istio Test: us-east4-a"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
@@ -358,7 +325,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
       opentofu_plan_secret_args: >-
         -var=datadog_api_key=${{ secrets.DATADOG_API_KEY }}
         -var=datadog_app_key=${{ secrets.DATADOG_APP_KEY }}
@@ -370,7 +336,6 @@ jobs:
     needs: us_east1_b_onboarding
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox Datadog: us-east1-b"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
@@ -381,7 +346,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
       opentofu_plan_secret_args: >-
         -var=datadog_api_key=${{ secrets.DATADOG_API_KEY }}
         -var=datadog_app_key=${{ secrets.DATADOG_APP_KEY }}
@@ -393,7 +357,6 @@ jobs:
     needs: us_east4_a_onboarding
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox Datadog: us-east4-a"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
@@ -404,7 +367,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
       opentofu_plan_secret_args: >-
         -var=datadog_api_key=${{ secrets.DATADOG_API_KEY }}
         -var=datadog_app_key=${{ secrets.DATADOG_APP_KEY }}
@@ -416,7 +378,6 @@ jobs:
     needs: us_east1_b_datadog
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east1-b-sandbox
       github_environment: "Sandbox Datadog Manifests: us-east1-b"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east1-b-sandbox.tfvars
@@ -427,7 +388,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
       opentofu_plan_secret_args: >-
         -var=datadog_api_key=${{ secrets.DATADOG_API_KEY }}
         -var=datadog_app_key=${{ secrets.DATADOG_APP_KEY }}
@@ -439,7 +399,6 @@ jobs:
     needs: us_east4_a_datadog
     with:
       checkout_ref: ${{ github.ref }}
-      environment: us-east4-a-sandbox
       github_environment: "Sandbox Datadog Manifests: us-east4-a"
       service_account: plt-k8s-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/us-east4-a-sandbox.tfvars
@@ -450,7 +409,6 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
       opentofu_plan_secret_args: >-
         -var=datadog_api_key=${{ secrets.DATADOG_API_KEY }}
         -var=datadog_app_key=${{ secrets.DATADOG_APP_KEY }}
@@ -467,7 +425,7 @@ jobs:
             - region: "us-east4"
       steps:
         - name: Run Datadog synthetic tests
-          uses: datadog/synthetics-ci-github-action@v3.5.0
+          uses: datadog/synthetics-ci-github-action@v3.6.0
           with:
             api-key: ${{ secrets.DATADOG_API_KEY }}
             app-key: ${{ secrets.DATADOG_APP_KEY }}
