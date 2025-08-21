@@ -16,7 +16,7 @@ data "terraform_remote_state" "main" {
 # https://github.com/osinfra-io/opentofu-kubernetes-istio
 
 module "kubernetes_istio" {
-  source = "github.com/osinfra-io/opentofu-kubernetes-istio//regional?ref=v0.2.0"
+  source = "github.com/osinfra-io/opentofu-kubernetes-istio//regional?ref=a325290911bdb8085ea29ff922d2e00f00834f4a" # v0.2.0
 
   artifact_registry          = "us-docker.pkg.dev/plt-lz-services-tf79-prod/plt-docker-virtual"
   cluster_prefix             = "plt"

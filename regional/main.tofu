@@ -16,7 +16,7 @@ data "terraform_remote_state" "main" {
 # https://github.com/osinfra-io/opentofu-google-kubernetes-engine
 
 module "kubernetes_engine_regional" {
-  source = "github.com/osinfra-io/opentofu-google-kubernetes-engine//regional?ref=v0.2.5"
+  source = "github.com/osinfra-io/opentofu-google-kubernetes-engine//regional?ref=e67d2b9113d150efd7a68bb599795343f9e3620c" # v0.2.5
 
   cluster_prefix                = "plt"
   cluster_secondary_range_name  = "k8s-secondary-pods"

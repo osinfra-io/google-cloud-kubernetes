@@ -16,7 +16,7 @@ data "terraform_remote_state" "main" {
 # https://github.com/osinfra-io/opentofu-kubernetes-cert-manager
 
 module "kubernetes_cert_manager_istio_csr" {
-  source = "github.com/osinfra-io/opentofu-kubernetes-cert-manager//regional/istio-csr?ref=v0.1.7"
+  source = "github.com/osinfra-io/opentofu-kubernetes-cert-manager//regional/istio-csr?ref=6d8932f1f50f2688a2132feab870c9fef3b4e709" # v0.1.7
 
   artifact_registry                           = "us-docker.pkg.dev/plt-lz-services-tf79-prod/plt-docker-virtual"
   cluster_prefix                              = "plt"

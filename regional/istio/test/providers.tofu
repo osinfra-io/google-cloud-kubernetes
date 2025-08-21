@@ -33,21 +33,6 @@ provider "datadog" {
   app_key = var.datadog_app_key
 }
 
-# Helm Provider
-# https://search.opentofu.org/provider/hashicorp/helm/latest
-
-provider "helm" {
-  kubernetes {
-
-    cluster_ca_certificate = base64decode(
-      data.google_container_cluster.this.master_auth.0.cluster_ca_certificate
-    )
-
-    host  = data.google_container_cluster.this.endpoint
-    token = data.google_client_config.this.access_token
-  }
-}
-
 # Kubernetes Provider
 # https://search.opentofu.org/provider/hashicorp/kubernetes/latest
 
