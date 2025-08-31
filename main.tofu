@@ -76,3 +76,9 @@ module "project" {
     "trafficdirector.googleapis.com"
   ]
 }
+
+resource "null_resource" "force_apply" {
+  triggers = {
+    always_run = timestamp()
+  }
+}
