@@ -56,6 +56,7 @@ module "project" {
   prefix                          = "plt"
 
   services = [
+    "anthosconfigmanagement.googleapis.com",
     "billingbudgets.googleapis.com",
     "certificatemanager.googleapis.com",
     "cloudasset.googleapis.com",
