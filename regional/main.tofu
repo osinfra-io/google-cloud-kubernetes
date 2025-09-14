@@ -23,7 +23,6 @@ module "kubernetes_engine_regional" {
   cluster_prefix                = "plt"
   cluster_secondary_range_name  = "k8s-secondary-pods"
   enable_deletion_protection    = false
-  enable_gke_hub_host           = var.kubernetes_engine_enable_gke_hub_host
   gke_hub_memberships           = var.kubernetes_engine_gke_hub_memberships
   labels                        = module.helpers.labels
   network                       = "standard-shared"
