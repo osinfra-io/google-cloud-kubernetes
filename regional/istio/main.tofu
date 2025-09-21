@@ -127,6 +127,7 @@ resource "kubernetes_deployment_v1" "datadog_aap_extproc" {
             }
           }
 
+          image             = "ghcr.io/datadog/dd-trace-go/service-extensions-callout:v2.2.2"
           image_pull_policy = "Always"
 
           port {
