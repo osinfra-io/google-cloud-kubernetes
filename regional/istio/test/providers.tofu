@@ -2,21 +2,52 @@
 # https://opentofu.org/docs/language/providers/requirements/
 
 terraform {
-  required_providers {
+  # State and Plan Encryption
+  # https://opentofu.org/docs/language/state/encryption
 
+  # The commented out sections below demonstrate how to configure
+  # fallback encryption methods for state and plan files for bootstrapping.
+
+  encryption {
+    # method "unencrypted" "migrate" {}
+
+    key_provider "gcp_kms" "default" {
+      kms_encryption_key = var.state_kms_encryption_key
+      key_length         = 32
+    }
+
+    method "aes_gcm" "default" {
+      keys = key_provider.gcp_kms.default
+    }
+
+    plan {
+      method   = method.aes_gcm.default
+      enforced = true
+
+      # fallback {
+      #   method = method.unencrypted.migrate
+      # }
+    }
+
+    remote_state_data_sources {
+      default {
+        method = method.aes_gcm.default
+      }
+    }
+
+    state {
+      method   = method.aes_gcm.default
+      enforced = true
+
+      # fallback {
+      #   method = method.unencrypted.migrate
+      # }
+    }
+  }
+
+  required_providers {
     datadog = {
       source = "datadog/datadog"
-    }
-
-    # Google Cloud Platform Provider
-    # https://search.opentofu.org/provider/hashicorp/google/latest/docs
-
-    google = {
-      source = "hashicorp/google"
-    }
-
-    helm = {
-      source = "hashicorp/helm"
     }
 
     kubernetes = {
@@ -42,33 +73,4 @@ provider "kubernetes" {
   )
   host  = "https://${data.google_container_cluster.this.endpoint}"
   token = data.google_client_config.this.access_token
-}
-
-# Google Client Config Data Source
-# https://search.opentofu.org/provider/hashicorp/google/latest/docs/data-sources/client_config
-
-data "google_client_config" "this" {
-}
-
-# Google Container Cluster Data Source
-# https://search.opentofu.org/provider/hashicorp/google/latest/docs/data-sources/container_cluster
-
-data "google_container_cluster" "this" {
-  name     = "plt-${module.helpers.region}-${module.helpers.zone}"
-  location = module.helpers.region
-  project  = data.google_project.this.project_id
-}
-
-# Google Projects Data Source
-# https://search.opentofu.org/provider/hashicorp/google/latest/docs/data-sources/projects
-
-data "google_projects" "this" {
-  filter = "name:plt-k8s-* labels.env:${module.helpers.environment}"
-}
-
-# Google Project Data Source
-# https://search.opentofu.org/provider/hashicorp/google/latest/docs/data-sources/project
-
-data "google_project" "this" {
-  project_id = data.google_projects.this.projects.0.project_id
 }

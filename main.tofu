@@ -21,7 +21,8 @@ module "kubernetes_cert_manager" {
 # https://github.com/osinfra-io/opentofu-google-kubernetes-engine
 
 module "kubernetes_engine" {
-  source = "github.com/osinfra-io/opentofu-google-kubernetes-engine?ref=e67d2b9113d150efd7a68bb599795343f9e3620c" # v0.2.5
+  # source = "github.com/osinfra-io/opentofu-google-kubernetes-engine?ref=e67d2b9113d150efd7a68bb599795343f9e3620c" # v0.2.5
+  source = "github.com/osinfra-io/opentofu-google-kubernetes-engine?ref=configsync"
 
   labels                     = module.helpers.labels
   namespaces                 = var.kubernetes_engine_namespaces
@@ -55,6 +56,7 @@ module "project" {
   prefix                          = "plt"
 
   services = [
+    "anthosconfigmanagement.googleapis.com",
     "billingbudgets.googleapis.com",
     "certificatemanager.googleapis.com",
     "cloudasset.googleapis.com",
@@ -63,6 +65,7 @@ module "project" {
     "cloudresourcemanager.googleapis.com",
     "compute.googleapis.com",
     "container.googleapis.com",
+    "containersecurity.googleapis.com",
     "dns.googleapis.com",
     "gkehub.googleapis.com",
     "iam.googleapis.com",

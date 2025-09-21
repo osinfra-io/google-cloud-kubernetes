@@ -119,7 +119,6 @@ resource "kubernetes_deployment_v1" "datadog_aap_extproc" {
           name = "datadog-aap-extproc-container"
 
           security_context {
-            run_as_non_root            = true
             allow_privilege_escalation = false
 
             capabilities {
@@ -127,6 +126,7 @@ resource "kubernetes_deployment_v1" "datadog_aap_extproc" {
             }
           }
 
+          image             = "ghcr.io/datadog/dd-trace-go/service-extensions-callout:v2.2.3"
           image_pull_policy = "Always"
 
           port {
