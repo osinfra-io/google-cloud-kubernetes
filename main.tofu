@@ -65,6 +65,7 @@ module "project" {
     "cloudresourcemanager.googleapis.com",
     "compute.googleapis.com",
     "container.googleapis.com",
+    "containersecurity.googleapis.com",
     "dns.googleapis.com",
     "gkehub.googleapis.com",
     "iam.googleapis.com",
